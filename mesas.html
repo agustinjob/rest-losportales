@@ -14,6 +14,8 @@
     <!-- Bootstrap Select Css -->
     <link rel="stylesheet" href="assets/plugins/bootstrap-select/css/bootstrap-select.css" />
     <!-- noUISlider Css -->
+    <!-- JQuery DataTable Css -->
+    <link rel="stylesheet" href="assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css">
     <!-- Custom Css -->
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/color_skins.css">
@@ -132,28 +134,31 @@
                                         </a>
                                     </h5>
                                 </div>
-                                <div class="col-sm-12">
+                                <!-- <div class="col-sm-12">
                                     <div class="form-group ">
                                         <b>Buscar:</b>
                                         <input type="text" class="form-control" placeholder="Buscar" />
                                     </div>
-                                </div>
+                                </div> -->
                                 <br>
                                 <div>
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered table-striped" id="tablaMesas">
-                                            <thead>
-                                                <tr>
-                                                    <th>NOMBRE</th>
-                                                    <th>ACCÍONES</th>
-
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-
-                                            </tbody>
-                                        </table>
+                                    <div class="body">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-striped table-hover js-basic-example dataTable" id="tablaMesas">
+                                                <thead>
+                                                    <tr>
+                                                        <th>NOMBRE</th>
+                                                        <th class="text-center">ACCÍONES</th>
+    
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+    
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
+
                                 </div>
                             </div>
 
@@ -170,7 +175,17 @@
     <script src="assets/bundles/vendorscripts.bundle.js"></script>
     <!-- Lib Scripts Plugin Js -->
 
+        <!-- Jquery DataTable Plugin Js --> 
+        <script src="assets/plugins/jquery-datatable/buttons/dataTables.buttons.min.js"></script>
+        <script src="assets/bundles/datatablescripts.bundle.js"></script>
+        <script src="assets/plugins/jquery-datatable/buttons/buttons.colVis.min.js"></script>
+        <script src="assets/plugins/jquery-datatable/buttons/buttons.bootstrap4.min.js"></script>
+        <script src="assets/js/myjs/formato_tabla.js"></script>
+        <script src="assets/plugins/jquery-datatable/buttons/buttons.html5.min.js"></script>
+
     <script src="assets/bundles/mainscripts.bundle.js"></script>
+    <script src="assets/js/pages/tables/jquery-datatable.js"></script>
+
     <!-- <script src="assets/js/pages/forms/advanced-form-elements.js"></script>  -->
 </body>
 

@@ -108,8 +108,8 @@ function obtenerDatos() {
                     "<tr>" +
                     "<td>" + item.nombre + "</td>" +
                     "<td>" + item.celular + "</td>" +
-                    "<td> <button onclick=\"modificar(\'" + item.id + "\',\'" + item.nombre + "\',\'" + item.celular + "\',\'eliminar\');\" >Eliminar</button> " +
-                    "<button onclick=\"modificar(\'" + item.id + "\',\'" + item.nombre + "\',\'" + item.celular + "\',\'modificar\');\" >Modificar</button></td>" +
+                    "<td class='text-center'> <button class='btn bg-danger btn-round' onclick=\"modificar(\'" + item.id + "\',\'" + item.nombre + "\',\'" + item.celular + "\',\'eliminar\');\" ><i class='zmdi zmdi-delete'></i></button> " +
+                    "<button class='btn bg-success btn-round' onclick=\"modificar(\'" + item.id + "\',\'" + item.nombre + "\',\'" + item.celular + "\',\'modificar\');\" ><i class='zmdi zmdi-edit'></button></td>" +
                     "</tr>";
                 $('#tablaMeseros > tbody').append(rows);
             });

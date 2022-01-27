@@ -144,8 +144,6 @@
         });
     }
 
-
-
     function limpiar() {
         $("#nombre").val("");
         $("#username").val("");

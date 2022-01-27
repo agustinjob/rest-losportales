@@ -101,8 +101,8 @@ function obtenerDatos() {
                 var rows =
                     "<tr>" +
                     "<td>" + item.mesa + "</td>" +
-                    "<td> <button onclick=\"modificar(\'" + item.id + "\',\'" + item.mesa + "\',\'eliminar\');\" >Eliminar</button> " +
-                    "<button onclick=\"modificar(\'" + item.id + "\',\'" + item.mesa + "\',\'modificar\');\" >Modificar</button></td>" +
+                    "<td class='text-center';> <button class='btn bg-danger btn-round' onclick=\"modificar(\'" + item.id + "\',\'" + item.mesa + "\',\'eliminar\');\" ><i class='zmdi zmdi-delete'></i></button> " +
+                    "<button class='btn bg-success btn-round' onclick=\"modificar(\'" + item.id + "\',\'" + item.mesa + "\',\'modificar\');\" ><i class='zmdi zmdi-edit'></i></button></td>" +
                     "</tr>";
                 $('#tablaMesas > tbody').append(rows);
             });
