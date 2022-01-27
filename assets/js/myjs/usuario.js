@@ -1,7 +1,6 @@
     function almacenar() {
 
         var operacion = $("#btnAlmacenar").text();
-        console.log(operacion);
         var nom = $("#nombre").val();
         var user = $("#username").val();
         var pass = $("#password").val();
@@ -156,7 +155,4 @@
         localStorage.removeItem("ids");
         localStorage.removeItem("fecha");
         $("#btnAlmacenar").text("REGISTRARSE");
-        // $("#").val("Administrador");
-        $("#btnAlmacenar").text("REGISTRARSE");
-
     }

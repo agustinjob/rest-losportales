@@ -1,23 +1,33 @@
 <!doctype html>
 <html class="no-js " lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-<meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
 
-<title>:: Alpino Horizontal :: Sign Up</title>
-<!-- Favicon-->
-<link rel="icon" href="assets/icon/restaurant.png" type="image/x-icon">
-<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-<!-- Bootstrap Select Css -->
-<link rel="stylesheet" href="assets/plugins/bootstrap-select/css/bootstrap-select.css" />
-<!-- noUISlider Css -->
-<!-- Custom Css -->
-<link rel="stylesheet" href="assets/css/main.css">
-<link rel="stylesheet" href="assets/css/color_skins.css">
-<link rel="stylesheet" href="assets/css/mycss.css">
-
+    <title>:: Alpino Horizontal :: Sign Up</title>
+    <!-- Favicon-->
+    <link rel="icon" href="assets/icon/restaurant.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <!-- Bootstrap Select Css -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap-select/css/bootstrap-select.css" />
+    <!-- noUISlider Css -->
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/color_skins.css">
+    <link rel="stylesheet" href="assets/css/mycss.css">
+    <script src="assets/js/myjs/categoria.js"></script>
+    <script src="assets/js/jquery/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/myjs/utilidades.js"></script>
+    <script>
+        function ejecutar() {
+            revisarSesion();
+            obtenerDatos();
+        }
+        window.onload = ejecutar();
+    </script>
 </head>
 
 <body class="l-amber">
@@ -25,72 +35,76 @@
     <!-- heas -->
     <nav class="navbar">
         <div class="container">
-        <ul class="nav navbar-nav">
-            <li>
-                <div class="navbar-header">
-                    <!-- <a href="javascript:void(0);" class="h-bars"></a> -->
-                    <a class="navbar-brand" href="index.html"><img src="assets/images/restaurant-orage.png" width="35" alt="Alpino"><span class="m-l-10"></span><strong>Restaurante</strong></span></a>
-                </div>
-            </li>
-            <li class="float-right">
-                <a href="sign-in.html" class="mega-menu"><i class="zmdi zmdi-power"></i></a>
-            </li>   
-            <li class="dropdown task badgebit"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-local_dining"></i>
+            <ul class="nav navbar-nav">
+                <li>
+                    <div class="navbar-header">
+                        <!-- <a href="javascript:void(0);" class="h-bars"></a> -->
+                        <a class="navbar-brand" href="index.html"><img src="assets/images/restaurant-orage.png" width="35" alt="Alpino"><span class="m-l-10"></span><strong>Restaurante</strong></span>
+                        </a>
+                    </div>
+                </li>
+                <li class="float-right">
+                    <a href="sign-in.html" class="mega-menu"><i class="zmdi zmdi-power"></i></a>
+                </li>
+                <li class="dropdown task badgebit"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-local_dining"></i>
          
             </a>
-          
-        </li>     
-        </ul>
+
+                </li>
+            </ul>
         </div>
     </nav>
 
     <!-- Menu -->
 
-<!-- Formulario usuarioç -->
-<div class="">
-   
-    <div class="container">
-        
-        <br><br><br>
-        <div class="block-header">
-            <div class="row clearfix">
-                <div class="col-lg-5 col-md-5 col-sm-12">
-                    <h2>Categoria</h2>                    
-                </div> 
-                <div class="col-lg-7 col-md-7 col-sm-12">
-                    <ul class="breadcrumb float-md-right padding-0">
-                        <li class="breadcrumb-item"><a href="panel_inicio.html" class="text-black"><i class="zmdi zmdi-home"></i>&nbsp;&nbsp; SALIR</a></li>
-                    </ul>
-                </div>           
+    <!-- Formulario usuarioç -->
+    <div class="">
+
+        <div class="container">
+
+            <br><br><br>
+            <div class="block-header">
+                <div class="row clearfix">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <h2>Categoría</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-12">
+                        <ul class="breadcrumb float-md-right padding-0">
+                            <li class="breadcrumb-item"><a href="panel_inicio.html" onclick="limpiar()" class="text-black"><i class="zmdi zmdi-home"></i>&nbsp;&nbsp; SALIR</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-12 content-center">
-            
-            <div class="row">
-         
-                <div class="col-lg-4 ">
-                    <div class="card">
-                        <div class="body">
-                            <div class="header">
-                                <h5 class="text-black text-center "  >Registrar categoria 
-                                    <a href="">
-                                        <img class="icon-menu-principal" src="assets/icon/categorias.png" alt="">
-                                    </a> 
-                                </h5>
+            <div class="col-md-12 content-center">
+
+                <div class="row">
+
+                    <div class="col-lg-4 ">
+                        <div class="card">
+                            <div class="body">
+                                <div class="header">
+                                    <h5 class="text-black text-center ">Registrar categoria
+                                        <a href="">
+                                            <img class="icon-menu-principal" src="assets/icon/categorias.png" alt="">
+                                        </a>
+                                    </h5>
                                 </div>
-                            <form class="form"> 
-                                <div class="input-group" >
-                                    <input type="text" class="form-control" placeholder="Nombre">
-                                </div> 
-                                <div class="input-group">
-                                    <input type="text" placeholder="Categoria" class="form-control" /> 
-                                </div>
-                                <!-- <div class="input-group" > -->
+                                <form class="form">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+                                    </div>
+                                    <p class="text-blac text-center">Categoría general:</p>
+                                    <select class="form-control show-tick" id="categoria">
+                                  <option value="Alimentos">Alimentos</option>
+                                  <option value="Bebidadas">Bebidas</option>
+                                  <option value="Otros">Otros</option>
+                              </select>
+                                    <!-- <div class="input-group" > -->
                                     <!-- <input type="text" class="form-control" placeholder="Turno"> -->
                                     <!-- <span class="input-group-addon"><i class="zmdi zmdi-account-circle"></i></span> -->
-                                <!-- </div> -->
+                                    <!-- </div> -->
 
-                                  <!-- <p class="text-blac text-center">Turno:</p>
+                                    <!-- <p class="text-blac text-center">Turno:</p>
                                   <select class="form-control show-tick" name="tipo_usuario" id="">
                                       <option value="">Turno1</option>
                                       <option value="">Turno2</option>
@@ -98,132 +112,67 @@
                                       <option value="">Turno4</option>
                                   </select> -->
                                     <div class="footer">
-                                        <a href="index.html" class="btn bg-deep-orange btn-round btn-block">REGISTRAR</a>
-                                        <a href="index.html" class="btn bg-black btn-round btn-block">CANCELAR</a>
+                                        <a id="btnAlmacenar" onclick="almacenar();" class="btn bg-deep-orange btn-round btn-block">REGISTRAR</a>
+                                        <a onclick="limpiar();" class="btn bg-black btn-round btn-block">CANCELAR</a>
 
                                     </div>
-                            </form>
+                                </form>
+                            </div>
+
                         </div>
-              
-                    </div>
 
                     </div>
                     <div class="col-lg-8">
                         <div class="card">
                             <div class="body">
                                 <div class="header">
-                                    <h5 class="text-black text-center "  >Categorias 
+                                    <h5 class="text-black text-center ">Categorías
                                         <a href="">
                                             <img class="icon-menu-principal" src="assets/icon/categorias.png" alt="">
-                                        </a> 
+                                        </a>
                                     </h5>
                                 </div>
                                 <div class="col-sm-12">
-                                    <div class="form-group ">  
-                                        <b>Buscar:</b>  
-                                        <input type="text"  class="form-control" placeholder="Buscar" />          
+                                    <div class="form-group ">
+                                        <b>Buscar:</b>
+                                        <input type="text" class="form-control" placeholder="Buscar" />
                                     </div>
                                 </div>
-                                 <br>
+                                <br>
                                 <div>
                                     <div class="table-responsive">
-                                        <table class="table table-bordered table-striped" id="editableTable">
-                                    <thead >
-                                        <tr>
-                                            <th>NOMBRE</th>
-                                            <th>CATEGORIA</th>
+                                        <table class="table table-bordered table-striped" id="tablaCategorias">
+                                            <thead>
+                                                <tr>
+                                                    <th>NOMBRE</th>
+                                                    <th>CATEGORIA</th>
+                                                    <th>ACCÍONES</th>
 
-                                            <!-- <th>TURNO</th> -->
-                                            <th>ACCÍONES</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
 
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr data-id="1">
-                                            <td data-field="name"></td>
-                                            <td data-field="birthday"></td>
-                                            <td data-field="birthday"></td>
-
-
-                                        </tr>
-                                        <tr data-id="2">
-                                            <td data-field="name"></td>
-                                            <td data-field="birthday"></td>
-                                            <td data-field="birthday"></td>
-
-
-                                        </tr>
-                                        <tr data-id="3">
-                                            <td data-field="name"></td>
-                                            <td data-field="birthday"></td>
-                                            <td data-field="birthday"></td>
-
-
-                                        </tr>
-                                        <tr data-id="1">
-                                            <td data-field="name"></td>
-                                            <td data-field="birthday"></td>
-                                            <td data-field="birthday"></td>
-
-
-                                        </tr>
-                                        <tr data-id="2">
-                                            <td data-field="name"></td>
-                                            <td data-field="birthday"></td>
-                                            <td data-field="birthday"></td>
-
-
- 
-                                        </tr>
-                                        <tr data-id="3">
-                                            <td data-field="name"></td>
-                                            <td data-field="birthday"></td>
-                                            <td data-field="birthday"></td>
-
-
-                                        </tr>
-                                        <tr data-id="1">
-                                            <td data-field="name"></td>
-                                            <td data-field="birthday"></td>
-                                            <td data-field="birthday"></td>
-
-
-                                        </tr>
-                                        <tr data-id="2">
-                                            <td data-field="name"></td>
-                                            <td data-field="birthday"></td>
-                                            <td data-field="birthday"></td>
-
-
-                                        </tr>
-                                        <tr data-id="3">
-                                            <td data-field="name"></td>
-                                            <td data-field="birthday"></td>
-                                            <td data-field="birthday">
-
-                                        </td>
-                                                                                                                                                                        </tr>
-
-
-                                        </tbody>
-                                    </table>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
-                  
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    </div>
 
-<!-- Jquery Core Js -->
-<script src="assets/bundles/libscripts.bundle.js"></script>
-<script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
+    <!-- Jquery Core Js -->
+    <script src="assets/bundles/libscripts.bundle.js"></script>
+    <script src="assets/bundles/vendorscripts.bundle.js"></script>
+    <!-- Lib Scripts Plugin Js -->
 
-<script src="assets/bundles/mainscripts.bundle.js"></script> 
-<!-- <script src="assets/js/pages/forms/advanced-form-elements.js"></script>  -->
+    <script src="assets/bundles/mainscripts.bundle.js"></script>
+    <!-- <script src="assets/js/pages/forms/advanced-form-elements.js"></script>  -->
 </body>
+
 </html>

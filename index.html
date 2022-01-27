@@ -19,19 +19,25 @@
     <script src="assets/js/rollups/md5.js"></script>
     <script type="text/javascript">
         function login() {
-
             $.ajax({
                 type: "POST",
                 url: "http://localhost:8082/v1/usuarios-login?username=" + $('#user').val() + "&password=" + $('#pass').val(),
                 contentType: 'application/json; charset=utf-8',
                 success: function(data) {
-                    localStorage.setItem("user", data.username);
 
-                    var passEncrip = CryptoJS.MD5(data.password);
-                    console.log(passEncrip);
-                    localStorage.setItem("password", passEncrip); // Encryptar con la info que mande
 
-                    location.href = "panel_inicio.html";
+
+                    if (data == "") {
+                        alert("Datos incorrectos");
+                    } else {
+
+                        localStorage.setItem("user", data.username);
+                        var passEncrip = CryptoJS.MD5(data.password);
+                        localStorage.setItem("password", passEncrip);
+                        localStorage.setItem("tipoUsuario", data.tipoUsuario); // Encryptar con la info que mande
+                        location.href = "panel_inicio.html";
+                    }
+
                 },
                 failure: function(data) {
                     alert(data.responseText);
@@ -101,7 +107,7 @@
 
                             <div class="footer">
                                 <button onclick="login();" class="btn bg-deep-orange btn-round btn-block">INICIAR</button>
-                                <button id="btn_login" class="btn bg-black btn-round btn-block">CANCELAR</button>
+                             <!--<button id="btn_login" class="btn bg-black btn-round btn-block">CANCELAR</button>-->
 
                                 <!-- <a href="sign-up.html" class="btn btn-primary btn-simple btn-round btn-block">SIGN UP</a> -->
                             </div>

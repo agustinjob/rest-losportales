@@ -23,8 +23,13 @@
     <link rel="stylesheet" href="assets/css/mycss.css">
     <script src="assets/js/jquery/jquery-3.6.0.min.js"></script>
     <script src="assets/js/myjs/usuario.js"></script>
+    <script src="assets/js/myjs/utilidades.js"></script>
     <script>
-        window.onload = obtenerDatos();
+        function ejecutar() {
+            revisarSesion();
+            obtenerDatos();
+        }
+        window.onload = ejecutar();
     </script>
 
 </head>
