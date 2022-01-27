@@ -1,0 +1,167 @@
+
+
+.btnMenu{
+    cursor:pointer;
+    /* width:100%;
+     height:100%; */
+     display:inline-block;
+     text-align: center;
+     font-size: 10px;
+     margin: 3px;
+     padding: 10px 0px;
+     width: 80px;
+     height: 75px;
+     text-decoration: none;
+     border-radius: 10%;
+     border: 0px;
+    position: relative;
+    float: left;
+     
+}
+.btnMenu-pago{
+    cursor:pointer;
+    /* width:100%;
+     height:100%; */
+     display:inline-block;
+     text-align: center;
+     font-size: 10px;
+     margin: 3px;
+     padding: 10px 0px;
+     width: 170px;
+     height: 75px;
+     text-decoration: none;
+     border-radius: 10%;
+     border: 0px;
+    position: relative;
+    float: left;
+     
+}
+.negro-text{
+    color: #17202A;
+    line-height: 125%;
+}
+
+.btn-color-rojo{
+    background-image: linear-gradient(to left,
+     
+     #FADBD8,
+     #F5B7B1,
+     #F1948A )
+}
+.btn-color-azul{
+    background-image: linear-gradient(to left,
+    #D6EAF8,
+    #AED6F1,
+    #85C1E9 )
+}
+.btn-color-amarillo{
+    background-image: linear-gradient(to left,
+     #FCF3CF,
+     #F9E79F,
+     #F7DC6F )
+}
+.btn-color-morado{
+    background-image: linear-gradient(to left,
+    #EBDEF0,
+    #D7BDE2,
+    #C39BD3 )
+}
+.btn-color-morado2{
+    background-image: linear-gradient(to left,
+    #E8DAEF,
+    #D2B4DE,
+    #BB8FCE )
+}
+.btn-color-verde1{
+    background-image: linear-gradient(to left,
+    #D1F2EB,
+    #A3E4D7,
+    #76D7C4 )
+}
+.btn-color-verde2{
+    background-image: linear-gradient(to left,
+    #D5F5E3,
+    #ABEBC6,
+    #82E0AA )
+}
+.btn-color-gris1{
+    background-image: linear-gradient(to left,
+    #F2F3F4,
+    #E5E7E9,
+    #D7DBDD )
+}
+.btn-color-gris2{
+    background-image: linear-gradient(to left,
+    #D5D8DC,
+    #ABB2B9,
+    #85929E )
+}
+.btn-color-naranja1{
+    background-image: linear-gradient(to left,
+    #FDEBD0,
+    #EDBB99,
+    #E59866 )
+}
+.btn-color-naranja2{
+    background-image: linear-gradient(to left,
+    #FDEBD0,
+    #FAD7A0,
+    #F8C471 )
+}
+.esq{
+    position: fixed;
+    bottom:0;
+    right: 0;
+
+}
+
+·icon{
+    
+}
+
+img{
+    height: 30px;
+}
+.icon-menu-principal{
+    height: 40px;
+}
+
+.div-scroll{
+    overflow: scroll;
+    height: 450px;
+    width: 100%;
+    
+}
+
+.div-scroll-btn-productos{
+    overflow: scroll;
+    height: 180px;
+    /* width: 100%; */
+}
+
+.div-scroll-tabla{
+    overflow: scroll;
+    height: 500px;
+    width: 100%;
+}
+
+.input-derecha-izquierda{
+    /* unicode-bidi: bidi-override; */
+     direction: rtl;
+}
+
+#enlace {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+  }
+
+  .centar_contenido_div{
+    justify-content: center;
+     display: flex;
+  }
+
+  /* waves-effect" ala izquirda */

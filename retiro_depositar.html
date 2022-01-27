@@ -1,0 +1,183 @@
+<!doctype html>
+<html class="no-js " lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
+
+    <title>:: Alpino Horizontal :: Sign Up</title>
+    <!-- Favicon-->
+    <link rel="icon" href="assets/icon/restaurant.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+  
+    <!-- Bootstrap Select Css -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap-select/css/bootstrap-select.css" />
+      <!-- JQuery DataTable Css -->
+<link rel="stylesheet" href="assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css">
+    <!-- noUISlider Css -->
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/color_skins.css">
+    <link rel="stylesheet" href="assets/css/mycss.css">
+    <script src="assets/js/jquery/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/myjs/usuario.js"></script>
+    <script>
+        window.onload = obtenerDatos();
+    </script>
+
+</head>
+
+<body class="l-amber">
+
+    <!-- heas -->
+    <nav class="navbar">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li>
+                    <div class="navbar-header">
+                        <!-- <a href="javascript:void(0);" class="h-bars"></a> -->
+                        <a class="navbar-brand" href="index.html"><img src="assets/images/restaurant-orage.png" width="35" alt="Alpino"><span class="m-l-10"></span><strong>Restaurante</strong></span>
+                        </a>
+                    </div>
+                </li>
+                <li class="float-right">
+                    <a href="sign-in.html" class="mega-menu"><i class="zmdi zmdi-power"></i></a>
+                </li>
+                <li class="dropdown task badgebit"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-local_dining"></i>
+         
+            </a>
+
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Menu -->
+
+    <!-- Formulario usuarioç -->
+    <div class="">
+
+        <div class="container">
+
+            <br><br><br>
+            <div class="block-header">
+                <div class="row clearfix">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <h2>Retiro/Deposito</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-12">
+                        <ul class="breadcrumb float-md-right padding-0">
+                            <!-- <li class="breadcrumb-item"><a href="panel_inicio.html" onclick="limpiar();" class="text-black"><i class="zmdi zmdi-home"></i>&nbsp;&nbsp; SALIR</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 content-center">
+
+                <div class="row">
+
+                    <div class="col-lg-3">
+
+                    </div>
+
+                    <div class="col-lg-4 ">
+                        <div class="card">
+                            <div class="body">
+                                <div class="header">
+                                    <h5 class="text-black text-center ">Retiro/Deposito
+                                        <a href="">
+                                            <img class="icon-menu-principal" src="assets/icon/depositar.png" alt="">
+                                        </a>
+                                    </h5>
+                                </div>
+                                <div>
+                                    <div class="row clearfix" >
+                                        <div class="col-sm-12" >
+                                            <div class="form-group ">
+                                                <b class="text-blac text-center">Tipo:</b>
+                                                <select class="form-control show-tick" id="tipoUsuario">
+                                                  <option value="">Seleccionar</option>
+                                                  <option value="Administrador">Deposito</option>
+                                                  <option value="Cajero">Retiro</option>
+                                              </select>        
+                                            </div>
+                                            <div class="form-group ">
+                                                <b>Concepto:</b>    
+                                                <input type="text"  class="form-control form-control-sm" placeholder="Concepto"/>          
+                                            </div>
+                                            <div class="form-group ">
+                                                <b>Referencia:</b>    
+                                                <input type="text"  class="form-control form-control-sm" placeholder="Referencia"/>          
+                                            </div>
+                                            <div class="form-group ">
+                                                <b>Importe:</b>    
+                                                <input type="text"  class="form-control form-control-sm" placeholder="$0.00"/>          
+                                            </div>
+                                            <BR></BR>
+                                            <div class="col-sm-12" style="text-align: center; " >
+                                                
+                                                    <a onclick="" id="btnAlmacenar" class="btn bg-deep-orange btn-round btn-block">ACEPTAR</a>
+                                                    <a onclick="" class="btn bg-black btn-round btn-block">CANCELAR</a>
+            
+                                            </div>
+                                   
+                                        </div>
+                                    <!-- <div class="input-group">
+                                        <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="username" placeholder="Usuario">
+                                        <span class="input-group-addon"><i class="zmdi zmdi-account-circle"></i></span>
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="password" placeholder="Contraseña" id="password" class="form-control" />
+                                        <span class="input-group-addon"><i class="zmdi zmdi-lock"></i></span>
+                                    </div>
+                                    <b class="text-blac text-center">Tipo usuario:</b>
+                                    <select class="form-control show-tick" id="tipoUsuario">
+                                      <option value="">Seleccionar</option>
+                                      <option value="Administrador">Administrador</option>
+                                      <option value="Cajero">Cajero</option>
+                                      <option value="Gerente">Gerente</option>
+                                      <option value="Subgerente">Subgerente</option>
+                                      <option value="Supervisor">Supervisor</option>
+                                  </select>-->
+                                    
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Jquery Core Js -->
+    <script src="assets/bundles/libscripts.bundle.js"></script>
+    <script src="assets/bundles/vendorscripts.bundle.js"></script>
+    
+
+    <!-- Jquery DataTable Plugin Js --> 
+<script src="assets/bundles/datatablescripts.bundle.js"></script>
+<script src="assets/plugins/jquery-datatable/buttons/dataTables.buttons.min.js"></script>
+<script src="assets/plugins/jquery-datatable/buttons/buttons.bootstrap4.min.js"></script>
+<script src="assets/plugins/jquery-datatable/buttons/buttons.colVis.min.js"></script>
+<script src="assets/plugins/jquery-datatable/buttons/buttons.html5.min.js"></script>
+<script src="assets/js/myjs/formato_tabla.js"></script>
+
+    <!-- Lib Scripts Plugin Js -->
+
+    <script src="assets/bundles/mainscripts.bundle.js"></script>
+    <script src="assets/js/pages/tables/jquery-datatable.js"></script>
+
+
+    <!-- <script src="assets/js/pages/forms/advanced-form-elements.js"></script>  -->
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+﻿<!doctype html>
+<html class="no-js " lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
+
+    <title>Restaurante</title>
+    <!-- Favicon-->
+    <link rel="icon" href="assets/icon/restaurant.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/color_skins.css">
+    <script src="assets/js/jquery/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/rollups/md5.js"></script>
+    <script type="text/javascript">
+        function login() {
+
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8082/v1/usuarios-login?username=" + $('#user').val() + "&password=" + $('#pass').val(),
+                contentType: 'application/json; charset=utf-8',
+                success: function(data) {
+                    localStorage.setItem("user", data.username);
+
+                    var passEncrip = CryptoJS.MD5(data.password);
+                    console.log(passEncrip);
+                    localStorage.setItem("password", passEncrip); // Encryptar con la info que mande
+
+                    location.href = "panel_inicio.html";
+                },
+                failure: function(data) {
+                    alert(data.responseText);
+                },
+                error: function(data) {
+                    alert(data.responseText);
+                }
+            });
+        }
+    </script>
+</head>
+
+<body class="theme-orange">
+    <div class="authentication">
+        <div class="container">
+            <div class="col-md-12 content-center">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="company_detail">
+                            <h6 class=""><img src="assets/images/restaurant-bigote.jpg" alt=""></h6>
+                            <!-- <h3>The ultimate <strong>Bootstrap 4</strong> Admin Dashboard</h3> -->
+                            <!-- <p>Alpino is fully based on HTML5 + CSS3 Standards. Is fully responsive and clean on every device and every browser</p>                        
+                        <div class="footer">
+                            <ul  class="social_link list-unstyled">
+                                <li><a href="https://thememakker.com" title="ThemeMakker"><i class="zmdi zmdi-globe"></i></a></li>
+                                <li><a href="https://themeforest.net/user/thememakker" title="Themeforest"><i class="zmdi zmdi-shield-check"></i></a></li>
+                                <li><a href="https://www.linkedin.com/company/thememakker/" title="LinkedIn"><i class="zmdi zmdi-linkedin"></i></a></li>
+                                <li><a href="https://www.facebook.com/thememakkerteam" title="Facebook"><i class="zmdi zmdi-facebook"></i></a></li>
+                                <li><a href="http://twitter.com/thememakker" title="Twitter"><i class="zmdi zmdi-twitter"></i></a></li>
+                                <li><a href="http://plus.google.com/+thememakker" title="Google plus"><i class="zmdi zmdi-google-plus"></i></a></li>
+                                <li><a href="https://www.behance.net/thememakker" title="Behance"><i class="zmdi zmdi-behance"></i></a></li>
+                            </ul>
+                            <hr>
+                            <ul>
+                                <li><a href="http://thememakker.com/contact/" target="_blank">Contact Us</a></li>
+                                <li><a href="http://thememakker.com/about/" target="_blank">About Us</a></li>
+                                <li><a href="http://thememakker.com/services/" target="_blank">Services</a></li>
+                                <li><a href="javascript:void(0);">FAQ</a></li>
+                            </ul>
+                        </div> -->
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-12 offset-lg-1">
+                        <br>
+                        <br>
+                        <br>
+                        <div class="card-plain">
+                            <div class="header">
+                                <h5>Iniciar Sesión</h5>
+                            </div>
+                            <form class="form">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="user" placeholder="Usuario">
+                                    <span class="input-group-addon"><i class="zmdi zmdi-account-circle"></i></span>
+                                </div>
+                                <div class="input-group">
+                                    <input type="password" placeholder="Contraseña" id="pass" class="form-control" />
+                                    <span class="input-group-addon"><i class="zmdi zmdi-lock"></i></span>
+                                </div>
+                            </form>
+                            <!-- ALERT -->
+                            <div>
+                                <!-- <div class="alert alert-danger">
+                                <small><strong>Error!</strong> Usuario o contraseña incorrecta</small>
+                            </div> -->
+                            </div>
+
+                            <div class="footer">
+                                <button onclick="login();" class="btn bg-deep-orange btn-round btn-block">INICIAR</button>
+                                <button id="btn_login" class="btn bg-black btn-round btn-block">CANCELAR</button>
+
+                                <!-- <a href="sign-up.html" class="btn btn-primary btn-simple btn-round btn-block">SIGN UP</a> -->
+                            </div>
+                            <!-- <a href="forgot-password.html" class="link">Forgot Password?</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Jquery Core Js -->
+    <script src="assets/bundles/libscripts.bundle.js"></script>
+    <script src="assets/bundles/vendorscripts.bundle.js"></script>
+    <!-- Lib Scripts Plugin Js -->
+
+    <!-- <script src="assets/js/myjs/login.js"></script>-->
+</body>
+
+</html>

@@ -1,0 +1,961 @@
+﻿<!doctype html>
+<html class="no-js " lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
+<title>Restaurante</title>
+<link rel="icon" href="assets/icon/restaurant.png" type="image/x-icon">
+ <!-- Favicon-->
+<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="assets/plugins/morrisjs/morris.css" />
+<link rel="stylesheet" href="assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.css"/> -->
+<!-- JQuery DataTable Css -->
+<!-- <link rel="stylesheet" href="assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css"> -->
+
+<!-- Bootstrap Select Css -->
+<link href="assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+<!-- Custom Css -->
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/color_skins.css">
+<link rel="stylesheet" href="assets/css/mycss.css">
+</head>
+<body class="theme-black">
+<!-- Page Loader -->
+<!-- <div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="m-t-30"><img src="assets/images/logo.svg" width="48" height="48" alt="Alpino"></div>
+        <p>Please wait...</p>        
+    </div>
+</div> -->
+
+<!-- Overlay For Sidebars -->
+
+<nav class="navbar ">
+    <div class="container">
+    <ul class="nav navbar-nav">
+        <li>
+            <div class="navbar-header">
+                <!-- <a href="javascript:void(0);" class="h-bars"></a> -->
+                <a class="navbar-brand" href="index.html"><img src="assets/images/restaurant-orage.png" width="35" alt="Alpino"><span class="m-l-10"><strong>Restaurante</strong></span></a>
+            </div>
+        </li>
+        <li class="float-right">
+            <a href="sign-in.html" class="mega-menu"><i class="zmdi zmdi-power"></i></a>
+        </li>   
+        <li class="dropdown task badgebit"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-local_dining"></i>
+     
+        </a>
+      
+    </li>     
+    </ul>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<section class="l-amber">
+    <div class="container">
+        <br><br><br>
+    <div class="block-header">
+        <div class="row clearfix">
+            <div class="col-lg-5 col-md-5 col-sm-12">
+                <h2>Servicio Comedor</h2>                    
+            </div> 
+            <div class="col-lg-7 col-md-7 col-sm-12">
+                <ul class="breadcrumb float-md-right padding-0">
+                    <li class="breadcrumb-item"><a href="panel_inicio.html" class="text-black"><i class="zmdi zmdi-home"></i>&nbsp;&nbsp; SALIR</a></li>
+                </ul>
+            </div>              
+        </div>
+    </div>
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-5 ">
+            <div class="card">
+                <div class="body">
+                    <div class="row clearfix" >
+                        <div class="col-sm-4">
+                            &nbsp;&nbsp;&nbsp;
+                            <b>Área activa:</b>
+                        </div>
+                        <div class="col-sm-8">
+                            &nbsp;&nbsp;&nbsp;
+                            <!-- <b>Cuentas:</b> -->
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group form-group-sm">                                 
+                                <select class="form-control" >
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">01</option>
+                                    <option value="10">10</option>
+                                    <option value="20">20</option>
+                                    <option value="30">30</option>
+                                    <option value="40">40</option>
+                                    <option value="50">50</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-8" >
+                            <div class="form-group">                                    
+                                <input type="text"  class="form-control"  />
+                            </div>
+                        </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-sm-8">
+                        &nbsp;&nbsp;&nbsp;
+                        <b>Buscar cuenta:</b>
+                    </div>
+                    <div class="col-sm-4">
+                        &nbsp;&nbsp;&nbsp;
+                        <b>Cuentas:</b>
+                    </div>
+
+                    <div class="col-sm-8" >
+                        <div class="form-group">                                    
+                            <input type="text"  class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4" >
+                        <div class="form-group">                                    
+                            <input type="text"  class="form-control"  />
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="div-scroll-tabla">
+                    <!-- <div class="body"> -->
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped table-hover js-basic-example dataTable" id="datatable">
+                                <thead>
+                                    <tr>
+                                        <th>Cuenta</th>
+                                        <th>Impresa</th>
+                                        <th>Mesero</th>
+                                        <th>Orden</th>
+                                </thead>
+                                <tbody>
+                                    <tr data-id="1">
+                                        <td data-field="name"></td>
+                                        <td data-field="birthday"></td>
+                                        <td data-field="age"></td>
+                                        <td data-field="sex"></td>
+                                    </tr>
+                                    <tr data-id="2">
+                                        <td data-field="name"></td>
+                                        <td data-field="birthday"></td>
+                                        <td data-field="age"></td>
+                                        <td data-field="sex"></td>
+
+                                    </tr>
+                                    <tr data-id="3">
+                                        <td data-field="name"></td>
+                                        <td data-field="birthday"></td>
+                                        <td data-field="age"></td>
+                                        <td data-field="sex"></td>
+
+                                    </tr>
+                                    <tr data-id="1">
+                                        <td data-field="name"></td>
+                                        <td data-field="birthday"></td>
+                                        <td data-field="age"></td>
+                                        <td data-field="sex"></td>
+
+                                    </tr>
+                                    <tr data-id="2">
+                                        <td data-field="name"></td>
+                                        <td data-field="birthday"></td>
+                                        <td data-field="age"></td>
+                                        <td data-field="sex"></td>
+                                    </tr>
+                                    <tr data-id="3">
+                                        <td data-field="name"></td>
+                                        <td data-field="birthday"></td>
+                                        <td data-field="age"></td>
+                                        <td data-field="sex"></td>
+
+                                    </tr>
+                                    <tr data-id="1">
+                                        <td data-field="name"></td>
+                                        <td data-field="birthday"></td>
+                                        <td data-field="age"></td>
+                                        <td data-field="sex"></td>
+
+                                    </tr>
+                                    <tr data-id="2">
+                                        <td data-field="name"></td>
+                                        <td data-field="birthday"></td>
+                                        <td data-field="age"></td>
+                                        <td data-field="sex"></td>
+   
+                                    </tr>
+                                    <tr data-id="3">
+                                        <td data-field="name"></td>
+                                        <td data-field="birthday"></td>
+                                        <td data-field="age"></td>
+                                        <td data-field="sex"></td>
+ 
+                                    </tr>
+                                    <tr data-id="1">
+                                        <td data-field="name"></td>
+                                        <td data-field="birthday"></td>
+                                        <td data-field="age"></td>
+                                        <td data-field="sex"></td>
+
+                                    </tr>
+                                    <tr data-id="2">
+                                        <td data-field="name"></td>
+                                        <td data-field="birthday"></td>
+                                        <td data-field="age"></td>
+                                        <td data-field="sex"></td>
+
+                                    </tr>
+                                    <tr data-id="3">
+                                        <td data-field="name"></td>
+                                        <td data-field="birthday"></td>
+                                        <td data-field="age"></td>
+                                        <td data-field="sex"></td>
+
+                                    </tr>
+                                    <tr data-id="1">
+                                        <td data-field="name"></td>
+                                        <td data-field="birthday"></td>
+                                        <td data-field="age"></td>
+
+                                    </tr>
+                                    <tr data-id="2">
+                                        <td data-field="name"></td>
+                                        <td data-field="birthday"></td>
+                                        <td data-field="age"></td>
+                                        <td data-field="sex"></td>
+
+                                    </tr>
+                                    <tr data-id="3">
+                                        <td data-field="name"></td>
+                                        <td data-field="birthday"></td>
+                                        <td data-field="age"></td>
+                                        <td data-field="sex"></td>
+            
+                                    </tr>
+                                    <tr data-id="1">
+                                        <td data-field="name"></td>
+                                        <td data-field="birthday"></td>
+                                        <td data-field="age"></td>
+                                        <td data-field="sex"></td>
+                          
+                                    </tr>
+                                    <tr data-id="2">
+                                        <td data-field="name"></td>
+                                        <td data-field="birthday"></td>
+                                        <td data-field="age"></td>
+                                        <td data-field="sex"></td>
+                                    </tr>
+                                    <tr data-id="3">
+                                        <td data-field="name"></td>
+                                        <td data-field="birthday"></td>
+                                        <td data-field="age"></td>
+                                        <td data-field="sex"></td>
+                                    </tr>
+                                    </tbody>
+                            </table>
+                        </div>
+</div>
+
+                <!-- <div class="body"> -->
+
+                </div>
+            </div>
+
+          </div>
+          <div class="col-lg-7 ">
+ 
+            <div class="card">
+                <div class="body" >
+                    
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                 <div class="div-scroll-btn-productos">
+                                      <div id="caja">
+                                          <button type="button" class="btnMenu btn-color-rojo"> 
+                                                <a href="#defaultModal" data-toggle="modal" data-target="#defaultModal">
+                                                    <img src="assets/icon/recibo.png" alt="">
+                                                    <p class="negro-text"> <strong>ABRIR CTA</strong> </p>
+                                                </a>                                            
+                                            </button>
+                                        </div>
+                                      <div id="caja">
+                                        <button type="button" class="btnMenu btn-color-azul"> 
+                                            <a href="#defaultModal" data-toggle="modal" data-target="#defaultModal">
+                                                <img src="assets/icon/cancelar_producto.png" alt="">
+                                                <p class="negro-text"> <strong>CANCELAR PROD</strong> </p>
+                                            </a>  
+                                        </button>
+                                      </div> 
+                                      <div id="caja">
+                                        <button type="button" class="btnMenu btn-color-amarillo"> 
+                                            <a href="#jubtModal" data-toggle="modal" data-target="#jubtModal">
+                                                <img src="assets/icon/reunion.png" alt="">
+                                                <p class="negro-text"> <strong>JUNTAR CLIENTES</strong> </p>
+
+                                            </a> 
+                                        </button>
+                                      </div>
+                                      <div  id="caja">
+                                        <button type="button" class="btnMenu l-green"> 
+                                            <a href="#defaultModal" data-toggle="modal" data-target="#defaultModal">
+                                                <img src="assets/icon/traspaso.png" alt="">
+                                                <p class="negro-text"> <strong>TRASPASO PROD</strong> </p>
+                                            </a> 
+                                         </button>
+                                      </div>
+                                      <div id="caja">
+                                        <button type="button" class="btnMenu btn-color-morado"> 
+                                            <a href="#divModal" data-toggle="modal" data-target="#divModal">
+                                                <img src="assets/icon/dividido.png" alt="">
+                                                <p class="negro-text"> <strong>DIVIDIR CTA</strong> </p>
+                                            </a> 
+                                        </button>
+                                      </div>
+                                       <div id="caja">
+                                         <button type="button" class="btnMenu btn-color-verde1">
+                                             <a href="#defaultModal" data-toggle="modal" data-target="#defaultModal">
+                                                 <img src="assets/icon/consultar.png" alt="">
+                                                 <p class="negro-text"> <strong>CONSULTAR CTAS</strong> </p>
+                                             </a>  
+                                         </button>
+                                        </div>
+                                         <div id="caja">
+                                          <button type="button" class="btnMenu btn-color-amarillo">
+                                             <a href="#capModal" data-toggle="modal" data-target="#capModal">
+                                                  <img src="assets/icon/tocar.png" alt="">
+                                                  <p class="negro-text"> <strong>CAPTURAR</strong> </p>
+
+                                             </a>  
+                                          </button>
+                                         </div>
+                                         <div id="caja">
+                                          <button type="button" class="btnMenu btn-color-gris1"> 
+                                              <a href="#renModal" data-toggle="modal" data-target="#renModal">
+                                                  <img src="assets/icon/escritura.png" alt="">
+                                                  <p class="negro-text"> <strong>RENOMBRAR CTA</strong> </p>
+                                              </a> 
+                                           </button>
+                                         </div>
+                                          <div id="caja">
+                                            <button type="button" class="btnMenu btn-color-naranja1"> 
+                                                <a href="#mesModal" data-toggle="modal" data-target="#mesModal">
+                                                    <img src="assets/icon/cambio.png" alt="">
+                                                    <p class="negro-text"> <strong>CAMBIAR MESERO</strong> </p>
+                                                </a> 
+                                            </button>
+                                          </div>
+                                          <div id="caja">
+                                            <button type="button" class="btnMenu btn-color-gris2">
+                                                <a href="#defaultModal" data-toggle="modal" data-target="#defaultModal">
+                                                    <img src="assets/icon/etiqueta.png" alt="">
+                                                    <p class="negro-text"> <strong>DECUENTOS</strong> </p>
+                                                </a>  
+                                            </button>
+                                          </div>
+                                          <div  id="caja">
+                                            <button type="button" class="btnMenu btn-color-naranja2"> 
+                                                <a href="pagar.html">
+                                                    <img src="assets/icon/dar-dinero.png" alt="">
+                                                    <p class="negro-text"> <strong>&nbsp;PAGAR CUENTA&nbsp;</strong> </p>
+                                                </a>
+                                            </button>
+                                          </div>
+                                        <div id="caja">
+                                            <button type="button" class="btnMenu btn-color-morado2"> 
+                                                <a href="#defaultModal" data-toggle="modal" data-target="#defaultModal">
+                                                    <img src="assets/icon/impresora.png" alt="">
+                                                    <p class="negro-text"> <strong>IMPRIMIR</strong> </p>
+                                                </a>  
+                                            </button>
+                                          </div>
+                                          <div id="caja">
+                                            <button type="button" class="btnMenu btn-color-verde2"> 
+                                                <a href="panel_inicio.html">
+                                                    <img src="assets/icon/cerca.png" alt="">
+                                                    <p class="negro-text"> <strong>CERRAR</strong> </p>
+                                                </a>
+                                            </button>
+                                          </div>
+
+                                 </div>
+
+                                      
+                            </div>
+
+                           
+                        </div>
+                    </div>
+                   
+                    <div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulario -->
+            <div class="card">
+                <div class="body" >
+                    
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                
+                                <div class="row clearfix">
+                                    <div class="col-sm-4">
+                                        <div class="form-group ">
+                                            <b>Cuenta:</b>    
+                                            <input type="text"  class="form-control form-control-sm" />          
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group ">   
+                                            <b>Area:</b> 
+                                            <input type="text"  class="form-control" />          
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group ">  
+                                            <b> Folio:</b>  
+                                            <input type="text"  class="form-control text-danger " placeholder="0" />          
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-sm-4">
+                                    <div class="form-group "> 
+                                        <b>Mesa:</b>   
+                                        <input type="text"  class="form-control" />          
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group ">  
+                                        <b>Mesero:</b>  
+                                        <input type="text"  class="form-control" />          
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group ">  
+                                        <b>Orden:</b>  
+                                        <input type="text"  class="form-control" />          
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="row clearfix">
+
+                            <div class="col-sm-4">
+                                <div class="form-group ">
+                                    <b>Persona:</b>    
+                                    <input type="text"  class="form-control" />          
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group ">
+                                    <b>Apertura:</b>    
+                                    <input type="text"  class="form-control" />          
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group ">   
+                                    <b>Cierre:</b>
+                                    <input type="text"  class="form-control" />          
+                                </div>
+                            </div>
+                    </div>
+                <div class="row clearfix">
+                    <div class="col-sm-8">
+                        <div class="form-group ">    
+                            <!-- <label type="text" class="col-form-label">Personas:</label>           -->
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3">
+                        <div class="form-group ">    
+                            <button class="btn btn-round bg-deep-orange" type="button">IMPRESO <a><i class="zmdi zmdi-print"></i>
+                            </a></button>          
+                        </div>
+                    </div>
+            </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped" id="editableTable">
+                                <thead>
+                                <tr>
+                                    <th>MOV.</th>
+                                    <th>COMANDA</th>
+                                    <th>CANT.</th>
+                                    <th>CLAVE</th>
+                                    <th>DESCRIPCIÓN</th>
+                                    <th>DESC.</th>
+                                    <th>PRECIO</th>
+                                    <th>IMPORTE</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr data-id="1">
+                                    <td data-field="name"></td>
+                                    <td data-field="birthday"></td>
+                                    <td data-field="age"></td>
+                                    <td data-field="sex"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr data-id="2">
+                                    <td data-field="name"></td>
+                                    <td data-field="birthday"></td>
+                                    <td data-field="age"></td>
+                                    <td data-field="sex"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr data-id="3">
+                                    <td data-field="name"></td>
+                                    <td data-field="birthday"></td>
+                                    <td data-field="age"></td>
+                                    <td data-field="sex"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            </div>
+                         </div>
+                    </div>
+                    <br>
+                    <div class="row clearfix">
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <b>Observaciones:</b>
+                                <div class="form-line">
+                                    <textarea rows="4" class="form-control no-resize" placeholder="Observaciones"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row clearfix">
+                                <div class="col-sm-5">
+                                    <div class="form-group ">    
+                                        <label type="text" class="col-form-label">Subtotal:</label>          
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="form-group ">    
+                                        <input type="text"  class="form-control input-derecha-izquierda" placeholder="0.00" />          
+                                    </div>
+                                </div>
+   
+                                <div class="col-sm-5">
+                                    <div class="form-group ">    
+                                        <label type="text" class="col-form-label">Descuento:&nbsp;&nbsp;0.0%</label>          
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="form-group ">    
+                                        <input type="text"  class="form-control input-derecha-izquierda" placeholder="0.00" />           
+                                    </div>
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="form-group ">    
+                                        <label type="text" class="col-form-label">Impuesto:</label>          
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="form-group ">    
+                                        <input type="text"  class="form-control input-derecha-izquierda" placeholder="0.00" />          
+                                    </div>
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="form-group ">    
+                                        <label type="text" class="col-form-label">Propina:</label>          
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="form-group ">    
+                                        <input type="text"  class="form-control input-derecha-izquierda" placeholder="0.00" />          
+                                    </div>
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="form-group ">    
+                                        <label type="text" class="col-form-label">Cargo:</label>          
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="form-group ">    
+                                        <input type="text"  class="form-control input-derecha-izquierda" placeholder="0.00" />          
+                                    </div>
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="form-group ">    
+                                        <label type="text" class="col-form-label text-danger"><strong>Total:</strong> </label>          
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="form-group ">    
+                                        <input type="text"  class="form-control input-derecha-izquierda" placeholder="0.00" />          
+                                    </div>
+                                </div>
+                            </div>
+     
+                                    </div>
+                                </div>
+                                </div>
+
+                           
+                        </div>
+                    </div>
+                   
+                    <div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      </div>
+  </div>
+</div>
+</section>
+       <!-- Modal Corte Caja -->
+       <div class="modal fade" id="mesModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content ">
+                <div class="modal-header">
+                        <h4 class="title" id="smallModalLabel">Igresos los importantes declarados para el cierre de caja. </h4>
+                        <a href="">
+                            <img class="icon-menu-principal" src="assets/icon/cambio.png" alt="">
+                        </a> 
+                </div>
+                
+                <div class="modal-body">
+            
+                    <div class="row clearfix centar_contenido_div">
+                        <div class="col-sm-11 ">
+                            <div class="form-group form-group-sm">  
+                                <b>Mesero:</b>  
+                                <select class="form-control" >
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Juan</option>
+                                    <option value="10">Juan</option>
+                                    <option value="20">Juan</option>
+                                    <option value="30">Juan</option>
+                                    <option value="40">Juan</option>
+                                    <option value="50">Juan</option>
+                                </select>
+                            </div>
+                        </div>
+                </div>
+                </div>
+         
+               
+           
+                <div class="modal-footer">
+                    <button type="button" class="btn bg-deep-orange btn-round waves-effect"> ACEPTAR <i class="zmdi zmdi-check"></i>
+                    </button>
+                    <button type="button" class="btn bg-black  btn-round waves-effect" data-dismiss="modal">CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
+                </div>
+            </div>
+        </div>
+        </div>
+ <!-- Modal juntar cuenta -->
+ <div class="modal fade" id="jubtModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content ">
+            <div class="modal-header">
+                    <h4 class="title" id="smallModalLabel">Juntar consumo de mesas. </h4>
+                    <a href="">
+                        <img class="icon-menu-principal" src="assets/icon/reunion.png" alt="">
+                    </a> 
+            </div>
+            
+            <div class="container">
+                <div class="row clearfix">
+                    <div class="col-sm-6">
+                        <div class="form-group ">
+                            <b>Mesa origen:</b>    
+                            <input type="text"  class="form-control" />          
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group ">    
+                            <b>Mesa destino:</b>
+                            <input type="text"  class="form-control" />          
+                        </div>
+                    </div>
+                </div>
+            </div>
+     
+           
+       
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info btn-round waves-effect"> ORIGEN </i>
+                </button>
+                <button type="button" class="btn bg-deep-orange btn-round waves-effect"> ACEPTAR <i class="zmdi zmdi-check"></i>
+                </button>
+                <button type="button" class="btn bg-black  btn-round waves-effect" data-dismiss="modal">CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+       <!-- Modal Cambiar Mesero -->
+   <div class="modal fade" id="mesModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content ">
+            <div class="modal-header">
+                    <h4 class="title" id="smallModalLabel">Cambiar mesero. </h4>
+                    <a href="">
+                        <img class="icon-menu-principal" src="assets/icon/cambio.png" alt="">
+                    </a> 
+            </div>
+            
+            <div class="modal-body">
+        
+                <div class="row clearfix centar_contenido_div">
+                    <div class="col-sm-11 ">
+                        <div class="form-group form-group-sm">  
+                            <b>Mesero:</b>  
+                            <select class="form-control" >
+                                <option value="">Seleccionar</option>
+                                <option value="1">Juan</option>
+                                <option value="10">Juan</option>
+                                <option value="20">Juan</option>
+                                <option value="30">Juan</option>
+                                <option value="40">Juan</option>
+                                <option value="50">Juan</option>
+                            </select>
+                        </div>
+                    </div>
+            </div>
+            </div>
+     
+           
+       
+            <div class="modal-footer">
+                <button type="button" class="btn bg-deep-orange btn-round waves-effect"> ACEPTAR <i class="zmdi zmdi-check"></i>
+                </button>
+                <button type="button" class="btn bg-black  btn-round waves-effect" data-dismiss="modal">CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
+            </div>
+        </div>
+    </div>
+    </div>
+ <!-- Modal Dividir Cuenta -->
+ <div class="modal fade" id="divModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content ">
+            <div class="modal-header">
+                    <h4 class="title" id="smallModalLabel">Dividir cuenta. </h4>
+                    <a href="">
+                        <img class="icon-menu-principal" src="assets/icon/dividido.png" alt="">
+                    </a> 
+            </div>
+            
+            <div class="container">
+                <div class="row clearfix centar_contenido_div">
+                    <div id="caja">
+                        <button type="button" class="btnMenu-pago btn-color-amarillo"> 
+                            <a href="#jubtModal" data-toggle="modal" data-target="#jubtModal">
+                                <img src="assets/icon/todos.png" alt="">
+                                <p class="negro-text"> <strong>PRODUCTO</strong> </p>
+
+                            </a> 
+                        </button>
+                      </div>
+                      <div  id="caja">
+                        <button type="button" class="btnMenu-pago l-green"> 
+                            <a href="#defaultModal" data-toggle="modal" data-target="#defaultModal">
+                                <img src="assets/icon/traspaso.png" alt="">
+                                <p class="negro-text"> <strong>EN PARTES</strong> </p>
+                            </a> 
+                         </button>
+                      </div>
+                </div>
+            </div>
+     
+           
+       
+            <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-info btn-round waves-effect"> ACEPTAR <i class="zmdi zmdi-check"></i>
+                </button>-->
+                <button type="button" class="btn bg-black  btn-round waves-effect" data-dismiss="modal">CANCELAR <i class="zmdi zmdi-close-circle"></i></button> 
+            </div>
+        </div>
+    </div>
+    </div>
+
+ <!-- Modal Renomrar Cuenta -->
+ <div class="modal fade" id="renModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content ">
+            <div class="modal-header">
+                    <h4 class="title" id="smallModalLabel">Nuevo nombre. </h4>
+                    <a href="">
+                        <img class="icon-menu-principal" src="assets/icon/escritura.png" alt="">
+                    </a> 
+            </div>
+            
+            <div class="container">
+                <div class="row clearfix">
+                    <div class="col-sm-6">
+                        <div class="form-group ">
+                            <b>Nombre actual:</b>    
+                            <input type="text"  class="form-control" />          
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group ">    
+                            <b>Nuevo nombre:</b>
+                            <input type="text"  class="form-control" />          
+                        </div>
+                    </div>
+                </div>
+            </div>
+     
+           
+       
+            <div class="modal-footer">
+                <button type="button" class="btn bg-deep-orange btn-round waves-effect"> ACEPTAR <i class="zmdi zmdi-check"></i>
+                </button>
+                <button type="button" class="btn bg-black  btn-round waves-effect" data-dismiss="modal">CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+   <!-- Modal Captura -->
+   <div class="modal fade" id="capModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content ">
+            <div class="modal-header">
+                    <h4 class="title" id="smallModalLabel">Seleccionar mesero para captura productos. </h4>
+                    <a href="">
+                        <img class="icon-menu-principal" src="assets/icon/tocar.png" alt="">
+                    </a> 
+            </div>
+            
+            <div class="modal-body">
+        
+                <div class="row clearfix centar_contenido_div">
+                    <div class="col-sm-11 ">
+                        <div class="form-group form-group-sm">  
+                            <b>Mesero:</b>  
+                            <select class="form-control" >
+                                <option value="">Seleccionar</option>
+                                <option value="1">Juan</option>
+                                <option value="10">Juan</option>
+                                <option value="20">Juan</option>
+                                <option value="30">Juan</option>
+                                <option value="40">Juan</option>
+                                <option value="50">Juan</option>
+                            </select>
+                        </div>
+                    </div>
+            </div>
+            </div>
+     
+           
+       
+            <div class="modal-footer">
+                <button type="button" class="btn bg-deep-orange btn-round waves-effect"> ACEPTAR <i class="zmdi zmdi-check"></i>
+                </button>
+                <button type="button" class="btn bg-black  btn-round waves-effect" data-dismiss="modal">CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+   <!-- Modal Abrir Cuenta -->
+    <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content ">
+            <div class="modal-header">
+                    <h4 class="title" id="smallModalLabel">Abrir cuenta comedor. </h4>
+                    <a href="">
+                        <img class="icon-menu-principal" src="assets/icon/recibo.png" alt="">
+                    </a> 
+            </div>
+            <br>
+            <div class="container">
+                <div class="row clearfix">
+                    <div class="col-sm-6">
+                        <div class="form-group ">
+                            <b>Cuenta:</b>    
+                            <input type="text"  class="form-control" />          
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group ">    
+                            <b>Personas:</b>
+                            <input type="text"  class="form-control" />          
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-sm-12">
+                        <div class="form-group form-group-sm">  
+                            <b>Mesero:</b>  
+                            <select class="form-control" >
+                                <option value="">Seleccionar</option>
+                                <option value="1">01</option>
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="30">30</option>
+                                <option value="40">40</option>
+                                <option value="50">50</option>
+                            </select>
+                        </div>
+                    </div>
+            </div>
+           
+       
+            <div class="modal-footer">
+                <button type="button" class="btn bg-deep-orange btn-round waves-effect"> ACEPTAR <i class="zmdi zmdi-check"></i>
+                </button>
+                <button type="button" class="btn bg-black  btn-round waves-effect" data-dismiss="modal">CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+<!-- Jquery Core Js -->
+<script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) -->
+<script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- slimscroll, waves Scripts Plugin Js -->
+
+
+<!-- Jquery DataTable Plugin Js --> 
+<!-- <script src="assets/bundles/datatablescripts.bundle.js"></script>
+<script src="assets/plugins/jquery-datatable/buttons/dataTables.buttons.min.js"></script>
+<script src="assets/plugins/jquery-datatable/buttons/buttons.bootstrap4.min.js"></script>
+<script src="assets/plugins/jquery-datatable/buttons/buttons.colVis.min.js"></script>
+<script src="assets/plugins/jquery-datatable/buttons/buttons.html5.min.js"></script>
+<script src="assets/plugins/jquery-datatable/buttons/buttons.print.min.js"></script> -->
+
+<!-- formato tabla -->
+<script src="assets/js/myjs/formato_tabla.js" ></script>
+
+
+<script src="assets/bundles/mainscripts.bundle.js"></script>
+<script src="assets/js/pages/tables/jquery-datatable.js"></script>
+
+<!-- <script src="assets/js/pages/index.js"></script> -->
+<!-- <script src="assets/js/pages/charts/polar_area_chart.js"></script> -->
+</body>
+</html>
