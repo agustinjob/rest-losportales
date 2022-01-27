@@ -22,12 +22,11 @@
     <link rel="stylesheet" href="assets/css/color_skins.css">
     <link rel="stylesheet" href="assets/css/mycss.css">
     <script src="assets/js/jquery/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/myjs/usuario.js"></script>
+    <script src="assets/js/myjs/gastos.js"></script>
     <script src="assets/js/myjs/utilidades.js"></script>
     <script>
         function ejecutar() {
             revisarSesion();
-            obtenerDatos();
         }
         window.onload = ejecutar();
     </script>
@@ -102,29 +101,25 @@
                                         <div class="col-sm-12" >
                                             <div class="form-group ">
                                                 <b class="text-blac text-center">Tipo:</b>
-                                                <select class="form-control show-tick" id="tipoUsuario">
-                                                  <option value="">Seleccionar</option>
-                                                  <option value="Administrador">Deposito</option>
-                                                  <option value="Cajero">Retiro</option>
+                                                <select class="form-control show-tick" id="tipoGastos">
+                                                  <option value="0">Seleccionar</option>
+                                                  <option value="Deposito">Deposito</option>
+                                                  <option value="Retiro">Retiro</option>
                                               </select>        
                                             </div>
                                             <div class="form-group ">
                                                 <b>Concepto:</b>    
-                                                <input type="text"  class="form-control form-control-sm" placeholder="Concepto"/>          
-                                            </div>
-                                            <div class="form-group ">
-                                                <b>Referencia:</b>    
-                                                <input type="text"  class="form-control form-control-sm" placeholder="Referencia"/>          
+                                                <input type="text" id="conceptoGastos" class="form-control form-control-sm" placeholder="Concepto"/>          
                                             </div>
                                             <div class="form-group ">
                                                 <b>Importe:</b>    
-                                                <input type="text"  class="form-control form-control-sm" placeholder="$0.00"/>          
+                                                <input type="number" id="importeGastos" class="form-control form-control-sm" placeholder="$0.00"/>          
                                             </div>
                                             <BR></BR>
                                             <div class="col-sm-12" style="text-align: center; " >
                                                 
-                                                    <a onclick="" id="btnAlmacenar" class="btn bg-deep-orange btn-round btn-block">ACEPTAR</a>
-                                                    <a onclick="" class="btn bg-black btn-round btn-block">CANCELAR</a>
+                                                    <a onclick="guardarGastos();"  class="btn bg-deep-orange btn-round btn-block">ACEPTAR</a>
+                                                    <a href="panel_inicio.html" class="btn bg-black btn-round btn-block">CANCELAR</a>
             
                                             </div>
                                    

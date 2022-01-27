@@ -16,7 +16,11 @@
 <link rel="stylesheet" href="assets/css/main.css">
 <link rel="stylesheet" href="assets/css/color_skins.css">
 <link rel="stylesheet" href="assets/css/mycss.css">
+<script type="text/javascript" src="assets/js/jquery/jquery-3.6.0.min.js"></script>
+<script src="assets/js/rollups/md5.js"></script>
 <script src="assets/js/myjs/utilidades.js"></script>
+<script src="assets/js/myjs/gastos.js"></script>
+<script src="assets/js/myjs/panel_inicio.js"></script>
 <script>
     window.onload = revisarSesion();
 </script>
@@ -377,10 +381,10 @@
             
             <div class="modal-body"> 
                 <label type="text" class="col-form-label">Efectivo inicial:</label>
-                <input type="text"  class="form-control" placeholder="0.00 pesos">
+                <input type="number"  class="form-control" id="turnoFondoInicial" placeholder="0.00 pesos">
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn bg-deep-orange btn-round waves-effect"> ACEPTAR</button>
+                <button type="button" onclick="abrirTurno()" class="btn bg-deep-orange btn-round waves-effect"> ACEPTAR</button>
                 <button type="button" class="btn bg-black  btn-round waves-effect" data-dismiss="modal">CANCELAR </button>
             </div>
         </div>
@@ -405,10 +409,10 @@
             
             <div class="modal-body"> 
                 <label type="text" class="col-form-label">Fondo de cierre:</label>
-                <input type="text"  class="form-control" placeholder="0.00 pesos">
+                <input type="number" id="turnoFondoDeclarado" class="form-control" placeholder="0.00 pesos">
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn bg-deep-orange btn-round waves-effect"> ACEPTAR</button>
+                <button type="button" onclick="cerrarTurno();" class="btn bg-deep-orange btn-round waves-effect"> ACEPTAR</button>
                 <button type="button" class="btn bg-black  btn-round waves-effect" data-dismiss="modal">CANCELAR </button>
             </div>
         </div>
@@ -436,7 +440,7 @@
                         
                             <div class="form-group ">
                                 <b>Contraseña:</b>    
-                                <input type="text"  class="form-control" placeholder="Contraseña" />          
+                                <input type="password" id="passwordGastos" class="form-control" placeholder="Contraseña" autofocus />          
                             </div>
                         </div>
                         </div>
@@ -445,11 +449,11 @@
         
     
             <div class="modal-footer">
-                <button type="button" class="btn bg-deep-orange btn-round"> </a>
-                    <a  href="retiro_depositar.html" id="enlace"></a>
+                <button type="button" onclick="verificarPassword();" class="btn bg-deep-orange btn-round"> 
+                   <!-- <a  href="" id="enlace"></a>-->
                     ACEPTAR <i class="zmdi zmdi-check"></i>
                 </button>
-                <button type="button" class="btn bg-black  btn-round " data-dismiss="modal"
+                <button type="button" onclick="limpiar();" class="btn bg-black  btn-round " data-dismiss="modal"
                 >CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
                 </button>
             </div>

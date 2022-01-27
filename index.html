@@ -19,18 +19,20 @@
     <script src="assets/js/rollups/md5.js"></script>
     <script type="text/javascript">
         function login() {
+        
+           
+var usuario=$("#user").val();
+var password=$("#pass").val();
+//console.log("http://localhost:8082/v1/usuarios-login?username=" +  usuario+ "&password=" + password);
             $.ajax({
                 type: "POST",
-                url: "http://localhost:8082/v1/usuarios-login?username=" + $('#user').val() + "&password=" + $('#pass').val(),
+                url: 'http://localhost:8082/v1/usuarios-login?username=' + usuario + '&password=' + password,
                 contentType: 'application/json; charset=utf-8',
                 success: function(data) {
-
-
-
                     if (data == "") {
                         alert("Datos incorrectos");
                     } else {
-
+                        localStorage.setItem("idUsuario", data.idUsuario);
                         localStorage.setItem("user", data.username);
                         var passEncrip = CryptoJS.MD5(data.password);
                         localStorage.setItem("password", passEncrip);
