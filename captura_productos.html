@@ -1,654 +1,314 @@
 <!doctype html>
 <html class="no-js " lang="en">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-<meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
-<title>Restaurante</title>
-<link rel="icon" href="assets/icon/restaurant.png" type="image/x-icon">
- <!-- Favicon-->
-<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-<!-- <link rel="stylesheet" href="assets/plugins/morrisjs/morris.css" />
-<link rel="stylesheet" href="assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.css"/> -->
-<!-- JQuery DataTable Css -->
-<!-- <link rel="stylesheet" href="assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css"> -->
 
-<!-- Bootstrap Select Css -->
-<link href="assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
-<!-- Custom Css -->
-<link rel="stylesheet" href="assets/css/main.css">
-<link rel="stylesheet" href="assets/css/color_skins.css">
-<link rel="stylesheet" href="assets/css/mycss.css">
-<script src="assets/js/myjs/utilidades.js"></script>
-<script>
-    window.onload = revisarSesion();
-</script>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
+    <title>Restaurante</title>
+    <link rel="icon" href="assets/icon/restaurant.png" type="image/x-icon">
+    <!-- Favicon-->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="assets/plugins/morrisjs/morris.css" />
+<link rel="stylesheet" href="assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.css"/> -->
+    <!-- JQuery DataTable Css -->
+    <!-- <link rel="stylesheet" href="assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css"> -->
+
+    <!-- Bootstrap Select Css -->
+    <link href="assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/color_skins.css">
+    <link rel="stylesheet" href="assets/css/mycss.css">
+    <script src="assets/js/myjs/utilidades.js"></script>
+    <script src="assets/js/myjs/captura_productos.js"></script>
+    <script src="assets/js/jquery/jquery-3.6.0.min.js"></script>
+    <script>
+        window.onload = revisarSesion();
+    </script>
 </head>
 </head>
+
 <body class="theme-black">
-<!-- Page Loader -->
-<!-- <div class="page-loader-wrapper">
+    <!-- Page Loader -->
+    <!-- <div class="page-loader-wrapper">
     <div class="loader">
         <div class="m-t-30"><img src="assets/images/logo.svg" width="48" height="48" alt="Alpino"></div>
         <p>Please wait...</p>        
     </div>
 </div> -->
 
-<!-- Overlay For Sidebars -->
+    <!-- Overlay For Sidebars -->
 
-<nav class="navbar ">
-    <div class="container">
-    <ul class="nav navbar-nav">
-        <li>
-            <div class="navbar-header">
-                <!-- <a href="javascript:void(0);" class="h-bars"></a> -->
-                <a class="navbar-brand" href="index.html"><img src="assets/images/restaurant-orage.png" width="35" alt="Alpino"><span class="m-l-10"><strong>Restaurante</strong></span></a>
-            </div>
-        </li>
-        <li class="float-right">
-            <a href="sign-in.html" class="mega-menu"><i class="zmdi zmdi-power"></i></a>
-        </li>   
-        <li class="dropdown task badgebit"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-local_dining"></i>
+    <nav class="navbar ">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li>
+                    <div class="navbar-header">
+                        <!-- <a href="javascript:void(0);" class="h-bars"></a> -->
+                        <a class="navbar-brand" href="index.html"><img src="assets/images/restaurant-orage.png" width="35" alt="Alpino"><span class="m-l-10"><strong>Restaurante</strong></span></a>
+                    </div>
+                </li>
+                <li class="float-right">
+                    <a href="sign-in.html" class="mega-menu"><i class="zmdi zmdi-power"></i></a>
+                </li>
+                <li class="dropdown task badgebit"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-local_dining"></i>
      
         </a>
-      
-    </li>     
-    </ul>
-    </div>
-</nav>
 
-<!-- Main Content -->
-<section class="l-amber">
-    <div class="container">
-        <br><br><br>
-    <div class="block-header">
-        <div class="row clearfix">
-            <div class="col-lg-5 col-md-5 col-sm-12">
-                <h2>Captura Productos</h2>                    
-            </div>  
-            <div class="col-lg-7 col-md-7 col-sm-12">
-                <ul class="breadcrumb float-md-right padding-0">
-                    <li class="breadcrumb-item"><a href="panel_inicio.html" class="text-black"><i class="zmdi zmdi-home"></i>&nbsp;&nbsp; SALIR</a></li>
-                </ul>
-            </div>             
+                </li>
+            </ul>
         </div>
-    </div>
-  <div class="container">
-      <div class="row">
-          <div class="col-lg-5 ">
-            <div class="card">
-                <div class="body">
-                    <div class="row clearfix" >
-   
-                        <div class="container">
-                            <div class="row" >
-                                <div class="col-md-12"  >
-                                        <div class="centar_contenido_div"  >
-                                            <button type="button" class="btnMenu l-blue"> 
+    </nav>
+
+    <!-- Main Content -->
+    <section class="l-amber">
+        <div class="container">
+            <br><br><br>
+            <div class="block-header">
+                <div class="row clearfix">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <h2>Captura Productos</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-12">
+                        <ul class="breadcrumb float-md-right padding-0">
+                            <li class="breadcrumb-item"><a href="panel_inicio.html" class="text-black"><i class="zmdi zmdi-home"></i>&nbsp;&nbsp; SALIR</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 ">
+                        <div class="card">
+                            <div class="body">
+                                <div class="row clearfix">
+
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="centar_contenido_div">
+                                                    <button type="button" class="btnMenu l-blue"> 
                                                 <a href="">
                                                     <img src="assets/icon/aprobar.png" alt="">
                                                     <p class="negro-text"> <strong>ACEPTAR</strong> </p>
                                                 </a>
                                             </button>
-                                         
-                                            <button type="button" class="btnMenu l-blue"> 
+
+                                                    <button type="button" class="btnMenu l-blue"> 
                                                 <a href="">
                                                     <img src="assets/icon/basura.png" alt="">
                                                     <p class="negro-text"> <strong> &nbsp;ELIMINAR PROD</strong></p>
                                                 </a>
 +
                                             </button>
-                                          
-                                         
-                                            <button type="button" class="btnMenu l-blue"> 
+
+
+                                                    <button type="button" class="btnMenu l-blue"> 
                                                 <a href="">
                                                     <img src="assets/icon/eliminar.png" alt="">
                                                     <p class="negro-text"> <strong>&nbsp;ELIMINAR TODO</strong></p>
                                                 </a>
 
                                             </button>
-                                            
-                                            <button type="button" class="btnMenu l-blue"> 
+
+                                                    <button type="button" class="btnMenu l-blue"> 
                                                 <a href="servicio_comedor.html">
                                                     <img src="assets/icon/cerrar.png" alt="">
                                                     <p class="negro-text"> <strong>CANCELAR</strong> </p>
                                                 </a>
 
                                             </button>
+                                                    <button type="button" class="btnMenu l-blue"> 
+                                                <a href="servicio_comedor.html">
+                                                  <!--  <img src="assets/icon/" alt="">-->
+                                                    <p class="negro-text"> <strong>+ MAS</strong> </p>
+                                                </a>
+
+                                            </button>
+                                                    <button type="button" class="btnMenu l-blue"> 
+                                                <a href="servicio_comedor.html">
+                                                  <!--  <img src="assets/icon/cerrar.png" alt="">-->
+                                                    <p class="negro-text"> <strong>- MENOS</strong> </p>
+                                                </a>
+
+                                            </button>
+                                                </div>
+
+                                            </div>
+
                                         </div>
-    
                                     </div>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <br>
 
-                            </div>
-                        </div>
-                        <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <br>
-                           
-                                    
-                    <!-- <div class="body"> -->
-                        <!-- <div class="table-responsive"> -->
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-striped" id="editableTable">
-                   |             <thead >
-                                <tr>
-                                    <th>CMDA</th>
-                                    <th>CANT.</th>
-                                    <th>DESCRIPCIÓN</th>
-                                    <th>IMPORTE</th>
-                                    <th>DESC.</th>
-                                    <th>PRECIO</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr data-id="1">
-                                    <td data-field="name"></td>
-                                    <td data-field="birthday"></td>
-                                    <td data-field="age"></td>
-                                    <td data-field="sex"></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr data-id="2">
-                                    <td data-field="name"></td>
-                                    <td data-field="birthday"></td>
-                                    <td data-field="age"></td>
-                                    <td data-field="sex"></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr data-id="3">
-                                    <td data-field="name"></td>
-                                    <td data-field="birthday"></td>
-                                    <td data-field="age"></td>
-                                    <td data-field="sex"></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr data-id="1">
-                                    <td data-field="name"></td>
-                                    <td data-field="birthday"></td>
-                                    <td data-field="age"></td>
-                                    <td data-field="sex"></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr data-id="2">
-                                    <td data-field="name"></td>
-                                    <td data-field="birthday"></td>
-                                    <td data-field="age"></td>
-                                    <td data-field="sex"></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr data-id="3">
-                                    <td data-field="name"></td>
-                                    <td data-field="birthday"></td>
-                                    <td data-field="age"></td>
-                                    <td data-field="sex"></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr data-id="1">
-                                    <td data-field="name"></td>
-                                    <td data-field="birthday"></td>
-                                    <td data-field="age"></td>
-                                    <td data-field="sex"></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr data-id="2">
-                                    <td data-field="name"></td>
-                                    <td data-field="birthday"></td>
-                                    <td data-field="age"></td>
-                                    <td data-field="sex"></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr data-id="3">
-                                    <td data-field="name"></td>
-                                    <td data-field="birthday"></td>
-                                    <td data-field="age"></td>
-                                    <td data-field="sex"></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr data-id="1">
-                                    <td data-field="name"></td>
-                                    <td data-field="birthday"></td>
-                                    <td data-field="age"></td>
-                                    <td data-field="sex"></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr data-id="2">
-                                    <td data-field="name"></td>
-                                    <td data-field="birthday"></td>
-                                    <td data-field="age"></td>
-                                    <td data-field="sex"></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr data-id="3">
-                                    <td data-field="name"></td>
-                                    <td data-field="birthday"></td>
-                                    <td data-field="age"></td>
-                                    <td data-field="sex"></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr data-id="1">
-                                    <td data-field="name"></td>
-                                    <td data-field="birthday"></td>
-                                    <td data-field="age"></td>
-                                    <td data-field="sex"></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr data-id="2">
-                                    <td data-field="name"></td>
-                                    <td data-field="birthday"></td>
-                                    <td data-field="age"></td>
-                                    <td data-field="sex"></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr data-id="3">
-                                    <td data-field="name"></td>
-                                    <td data-field="birthday"></td>
-                                    <td data-field="age"></td>
-                                    <td data-field="sex"></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr data-id="1">
-                                    <td data-field="name"></td>
-                                    <td data-field="birthday"></td>
-                                    <td data-field="age"></td>
-                                    <td data-field="sex"></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr data-id="2">
-                                    <td data-field="name"></td>
-                                    <td data-field="birthday"></td>
-                                    <td data-field="age"></td>
-                                    <td data-field="sex"></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr data-id="3">
-                                    <td data-field="name"></td>
-                                    <td data-field="birthday"></td>
-                                    <td data-field="age"></td>
-                                    <td data-field="sex"></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            </div>
-                        <!-- </div> -->
-                    <!-- </div> -->
+
+                                                <!-- <div class="body"> -->
+                                                <!-- <div class="table-responsive"> -->
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered table-striped" id="tablaProductosSeleccionados">
+                                                        |
+                                                        <thead>
+                                                            <tr>
+                                                                <th>DESCRIPCIÓN</th>
+                                                                <th>CANT.</th>
+                                                                <th>PRECIO</th>
+                                                                <th>IMPORTE</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <!-- </div> -->
+                                                <!-- </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        </div>
-                        <br>
-                        <br>
-                       
-    
-                      
-                </div>
-                <!-- <div class="body"> -->
+                                <br>
+                                <br>
 
-                </div>
-            </div>
-            <div class="col-lg-7 ">
- 
-                <div class="card">
-                    <div class="body" >
-                        
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12 centar_contenido_div">
-                                        <div id="caja">
-                                            <button type="button" class="btnMenu l-amber" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
-                                            aria-controls="collapseExample"> 
-                                                <a href=""data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
+
+
+                            </div>
+                            <!-- <div class="body"> -->
+
+                        </div>
+                    </div>
+                    <div class="col-lg-7 ">
+
+                        <div class="card">
+                            <div class="body">
+
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12 centar_contenido_div">
+                                            <div id="caja">
+                                                <button type="button" class="btnMenu l-amber" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"> 
+                                                <a onclick="productosTodos();" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
                                                 aria-controls="collapseExample" >
                                                     <img src="assets/icon/todos.png" alt="">
                                                     <p class="negro-text"> <strong>TODOS</strong> </p>
                                                 </a>
                                             </button>
-                                          </div>
-                                          <div id="caja">
-                                            <button type="button" class="btnMenu l-seagreen" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
-                                            aria-controls="collapseExample">
-                                                <a href=""  data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
+                                            </div>
+                                            <div id="caja">
+                                                <button type="button" class="btnMenu l-seagreen" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                                <a onclick="obtenerDatosCategorias('Alimentos');" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
                                                 aria-controls="collapseExample">
                                                     <img src="assets/icon/alimentos.png" alt="">
                                                     <p class="negro-text"><strong>ALIMENTOS</strong> </p>
                                                 </a> 
                                             </button>
-                                          </div>
-                                          <div id="caja">
-                                            <button type="button" class="btnMenu l-amber "  data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
-                                            aria-controls="collapseExample"> 
-                                                <a href=""  data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
+                                            </div>
+                                            <div id="caja">
+                                                <button type="button" class="btnMenu l-amber " data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"> 
+                                                <a onclick="obtenerDatosCategorias('Bebidas');"  data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
                                                 aria-controls="collapseExample">
                                                     <img src="assets/icon/bebida.png" alt="">
                                                     <p class="negro-text"> <strong>BEBIDAS</strong> </p>
                                                 </a> 
                                             </button>
-                                          </div>
-                                          <div id="caja">
-                                            <button type="button" class="btnMenu l-seagreen"  data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
-                                            aria-controls="collapseExample"> 
-                                                <a href=""  data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
+                                            </div>
+                                            <div id="caja">
+                                                <button type="button" class="btnMenu l-seagreen" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"> 
+                                                <a onclick="obtenerDatosCategorias('Otros');"  data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
                                                 aria-controls="collapseExample">
                                                     <img src="assets/icon/otros.png" alt="">
                                                     <p class="negro-text"> <strong>OTROS</strong> </p>
                                                 </a> 
                                             </button>
-                                          </div>
-                                          <div  id="caja">
-                                            <button type="button" class="btnMenu l-amber"  data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
-                                            aria-controls="collapseExample"> 
+                                            </div>
+                                            <div id="caja">
+                                                <button type="button" class="btnMenu l-amber" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"> 
                                                 <a href=""  data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
                                                 aria-controls="collapseExample">
                                                     <img src="assets/icon/repetir.png" alt="">
                                                     <p class="negro-text"> <strong>&nbsp;REPETIR  &nbsp; &nbsp;PROD.</strong></p>
                                                 </a> 
                                             </button>
-                                          </div>
-                                          <div id="caja">
-                                            <button type="button" class="btnMenu l-seagreen"  data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
-                                            aria-controls="collapseExample"> 
+                                            </div>
+                                            <div id="caja">
+                                                <button type="button" class="btnMenu l-seagreen" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"> 
                                                 <a href=""  data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
                                                 aria-controls="collapseExample">
                                                     <img src="assets/icon/favorito.png" alt="">
                                                     <p class="negro-text"><strong>FAVORITOS</strong> </p>
                                                 </a>
                                             </button>
-                                          </div>
-                                        
-                                   
-                                          
-                                    </div>
-    
-                               
-                            </div>
-                        </div>
-    
-                    </div>
-                </div>
-                <!-- Collapse Subcategorias -->
-                <div class="collapse " id="collapseExample">
-                    <div class="card centar_contenido_div">
-                        <div class="body div-scroll-btn-productos" >
-                            
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                            <div id="caja">
-                                                <button type="button" class="btnMenu l-amber "> 
-                                                    <a href="">
-                                                        <!-- <img src="assets/icon/todos.png" alt=""> -->
-                                                        <p class="negro-text"> <strong>TODOS</strong> </p>
-                                                    </a>
-                                                </button>
-                                              </div>
-                                              <div id="caja">
-                                                <button type="button" class="btnMenu l-seagreen ">
-                                                    <a href="">
-                                                        <!-- <img src="assets/icon/alimentos.png" alt=""> -->
-                                                        <p class="negro-text"> <strong>ALIMENTOS</strong> </p>
-                                                    </a> 
-                                                </button>
-                                              </div>
-                                              <div id="caja">
-                                                <button type="button" class="btnMenu l-amber "> 
-                                                    <a href="">
-                                                        <!-- <img src="assets/icon/bebida.png" alt=""> -->
-                                                        <p class="negro-text"> <strong>BEBIDAS</strong> </p>
-                                                    </a> 
-                                                </button>
-                                              </div>
-                                              <div id="caja">
-                                                <button type="button" class="btnMenu l-seagreen"> 
-                                                    <a href="">
-                                                        <!-- <img src="assets/icon/otros.png" alt=""> -->
-                                                        <p class="negro-text"> <strong>OTROS</strong> </p>
-                                                    </a> 
-                                                </button>
-                                              </div>
-                                              <div  id="caja">
-                                                <button type="button" class="btnMenu l-amber"> 
-                                                    <a href="">
-                                                        <!-- <img src="assets/icon/favorito.png" alt=""> -->
-                                                        <p class="negro-text"> <strong>&nbsp;REPETIR  &nbsp; &nbsp;PROD.</strong> </p>
-                                                    </a> 
-                                                </button>
-                                              </div>
-                                              <div id="caja">
-                                                <button type="button" class="btnMenu l-seagreen"> 
-                                                    <a href="">
-                                                        <!-- <img src="assets/icon/repetir.png" alt=""> -->
-                                                        <p class="negro-text"> <strong>FAVORITOS</strong> </p>
-                                                    </a>
-                                                </button>
-                                              </div>
-                                            
-                                       
-                                              
+                                            </div>
+
+
+
                                         </div>
-        
-                                   
-                                </div>
-                            </div>
-        
-                        </div>
-                    </div>
-                </div>
-          
-                <div class="card">
-                    <div class="body centar_contenido_div" >
-                         
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="div-scroll">
-                                        <div id="caja">
-                                            <button type="button" class="btnMenu btn-color-naranja2"> 
-                                                <p> <strong>ENCHILADAS ROJAS</strong>  </p>
-                                            </button>
-                                          </div>
-                                          <div id="caja">
-                                            <button type="button" class="btnMenu btn-color-naranja2"> 
-                                                <p> <strong>ENCHILADAS VERDES</strong> </p>
-                                            </button>
-                                          </div>
-                                          <div id="caja">
-                                            <button type="button" class="btnMenu btn-color-naranja2"> 
-                                                <p> <strong>HUVOS DUROS</strong> </p>
-                                            </button>
-                                          </div>
-                                          <div id="caja">
-                                            <button type="button" class="btnMenu btn-color-naranja2"> 
-                                                <p> <strong> HUEVOS CON JAMON</strong></p>
-                                            </button>
-                                          </div>
-                                          <div  id="caja">
-                                            <button type="button" class="btnMenu btn-color-naranja2"> 
-                                                <p> <strong> HUEVOS CON CHORIZO</strong></p>
-                                            </button>
-                                          </div>
-                                          <div id="caja">
-                                            <button type="button" class="btnMenu btn-color-naranja2"> 
-                                                <p> <strong> HUEVOS CON TOSINO</strong></p>
-                                            </button>
-                                          </div>
-                                          <div id="caja">
-                                            <button type="button" class="btnMenu btn-color-naranja2"> 
-                                                <p> <strong>SOPA</strong>  </p>
-                                            </button>
-                                          </div>
-                                          <div id="caja">
-                                            <button type="button" class="btnMenu btn-color-naranja2"> 
-                                                <p> <strong>CREMA DE ELOTE</strong> </p>
-                                            </button>
-                                          </div>
-                                          <div id="caja">
-                                            <button type="button" class="btnMenu btn-color-naranja2"> 
-                                                <p> <strong>CREMA DE ELOTE</strong> </p>
-                                            </button>
-                                          </div>
-                                          <div id="caja">
-                                            <button type="button" class="btnMenu btn-color-naranja2"> 
-                                                <!-- <span class="zmdi zmdi-accounts"></span> -->
-                                                <p> <strong>CREMA DE ELOTE</strong> </p>
-                                            </button>
-                                          </div>
-                                          <div  id="caja">
-                                            <button type="button" class="btnMenu btn-color-naranja2"> 
-                                                <!-- <span class="zmdi zmdi-swap"></span> -->
-                                                <p> <strong>CREMA DE ELOTE</strong> </p>
-                                            </button>
-                                          </div>
-                                          <div id="caja">
-                                            <button type="button" class="btnMenu btn-color-naranja2"> 
-                                                <!-- <span class="zmdi zmdi-arrow-split"></span> -->
-                                                <p> <strong>CREMA DE ELOTE</strong> </p>
-                                            </button>
-                                          </div>
-                                          <div  id="caja">
-                                            <button type="button" class="btnMenu btn-color-naranja2"> 
-                                                <!-- <span class="zmdi zmdi-swap"></span> -->
-                                                <p> <strong>CREMA DE ELOTE</strong> </p>
-                                            </button>
-                                          </div>
-                                          <div id="caja">
-                                            <button type="button" class="btnMenu btn-color-naranja2"> 
-                                                <!-- <span class="zmdi zmdi-arrow-split"></span> -->
-                                                <p> <strong>CREMA DE ELOTE</strong> </p>
-                                            </button>
-                                          </div>
-                                          <div id="caja">
-                                            <button type="button" class="btnMenu btn-color-naranja2"> 
-                                                <p> <strong>CREMA DE ELOTE</strong> </p>
-                                            </button>
-                                          </div>
-                                          <div id="caja">
-                                            <button type="button" class="btnMenu btn-color-naranja2">
-                                                <p> <strong>CREMA DE ELOTE</strong> </p> 
-                                            </button>
-                                          </div>
-                                          <div id="caja">
-                                            <button type="button" class="btnMenu btn-color-naranja2"> 
-                                                <p> <strong>CREMA DE ELOTE</strong> </p>
-                                            </button>
-                                          </div>
-                                          <div id="caja">
-                                            <button type="button" class="btnMenu btn-color-naranja2"> 
-                                                <p> <strong>CREMA DE ELOTE</strong> </p>
-                                            </button>
-                                          </div>
-                                          <div  id="caja">
-                                            <button type="button" class="btnMenu btn-color-naranja2">
-                                                <p> <strong>CREMA DE ELOTE</strong> </p> 
-                                            </button>
-                                          </div>
-                                          <div id="caja">
-                                            <button type="button" class="btnMenu btn-color-naranja2"> 
-                                                <p> <strong>CREMA DE ELOTE</strong> </p>
-                                            </button>
-                                          </div>
-                                          <div id="caja">
-                                            <button type="button" class="btnMenu btn-color-naranja2"> 
-                                                <p> <strong>CREMA DE ELOTE</strong> </p>
-                                            </button>
-                                          </div>
-                                          <div id="caja">
-                                            <button type="button" class="btnMenu btn-color-naranja2"> 
-                                                <p> <strong>CREMA DE ELOTE</strong> </p>
-                                            </button>
-                                          </div>
-                                          <div id="caja">
-                                            <button type="button" class="btnMenu btn-color-naranja2"> 
-                                                <p> <strong>CREMA DE QUESO</strong> </p>
-                                            </button>
-                                          </div>
-                                          <div id="caja">
-                                            <button type="button" class="btnMenu btn-color-naranja2"> 
-                                                <!-- <span class="zmdi zmdi-accounts"></span> -->
-                                                <p> <strong>MOYETES</strong> </p>
-                                            </button>
-                                          </div>
-                 
+
+
                                     </div>
-    
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- Collapse Subcategorias -->
+                        <div class="collapse " id="collapseExample">
+                            <div class="card centar_contenido_div">
+                                <div class="body div-scroll-btn-productos">
+
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div id="listaCategoriasEspecificas"></div>
+
+
+
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
-                        
-     
-                       
-                        <div>
-    
+
+                        <div class="card">
+                            <div class="body centar_contenido_div">
+
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="div-scroll">
+                                                <div id="listaProductos"></div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                 </div>
+
+
+
             </div>
-
-          </div>
-
-        
-
-      </div>
-  </div>
-</div>
-</section>
-<!-- default Size -->
-<!-- <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog">
+        </div>
+        </div>
+    </section>
+    <!-- default Size -->
+    <!-- <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content ">
             <div class="modal-header">
@@ -715,13 +375,15 @@
         </div>
     </div>
 </div> -->
-<!-- Jquery Core Js -->
-<script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) -->
-<script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- slimscroll, waves Scripts Plugin Js -->
+    <!-- Jquery Core Js -->
+    <script src="assets/bundles/libscripts.bundle.js"></script>
+    <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) -->
+    <script src="assets/bundles/vendorscripts.bundle.js"></script>
+    <!-- slimscroll, waves Scripts Plugin Js -->
 
 
-<!-- Jquery DataTable Plugin Js --> 
-<!-- <script src="assets/bundles/datatablescripts.bundle.js"></script>
+    <!-- Jquery DataTable Plugin Js -->
+    <!-- <script src="assets/bundles/datatablescripts.bundle.js"></script>
 <script src="assets/plugins/jquery-datatable/buttons/dataTables.buttons.min.js"></script>
 <script src="assets/plugins/jquery-datatable/buttons/buttons.bootstrap4.min.js"></script>
 <script src="assets/plugins/jquery-datatable/buttons/buttons.colVis.min.js"></script>
@@ -729,10 +391,11 @@
 <script src="assets/plugins/jquery-datatable/buttons/buttons.print.min.js"></script> -->
 
 
-<script src="assets/bundles/mainscripts.bundle.js"></script>
-<!-- <script src="assets/js/pages/tables/jquery-datatable.js"></script> -->
+    <script src="assets/bundles/mainscripts.bundle.js"></script>
+    <!-- <script src="assets/js/pages/tables/jquery-datatable.js"></script> -->
 
-<!-- <script src="assets/js/pages/index.js"></script> -->
-<!-- <script src="assets/js/pages/charts/polar_area_chart.js"></script> -->
+    <!-- <script src="assets/js/pages/index.js"></script> -->
+    <!-- <script src="assets/js/pages/charts/polar_area_chart.js"></script> -->
 </body>
+
 </html>
