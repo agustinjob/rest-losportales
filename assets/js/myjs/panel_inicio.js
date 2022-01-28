@@ -2,9 +2,13 @@ function abrirTurno() {
     var idTurno = localStorage.getItem('idTurno');
 
     if (idTurno == null) {
-        var fecha = new Date();
+        var fecha = new Date(new Date().getTime() - (new Date().getTimezoneOffset() * 60000));
         var idUsuariotxt = localStorage.getItem('idUsuario');
         var fondoInicialtxt = $("#turnoFondoInicial").val();
+        if (fondoInicialtxt == "") {
+            alert("Ingresa una cantidad por favor");
+            return null;
+        }
         $.ajax({
             url: "http://localhost:8082/v1/turnos",
             type: "POST",
@@ -40,7 +44,8 @@ function cerrarTurno() {
     var idTurnotxt = localStorage.getItem('idTurno');
 
     if (idTurnotxt != null) {
-        var fecha = new Date();
+        var fecha = new Date(new Date().getTime() - (new Date().getTimezoneOffset() * 60000));
+
         var fondoDeclaradotxt = $("#turnoFondoDeclarado").val();
         $.ajax({
             url: "http://localhost:8082/v1/turnos",

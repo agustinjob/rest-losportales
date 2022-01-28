@@ -169,13 +169,8 @@ function datosCategoria() {
             $('#categoriaEspecifica').empty();
             var rows = "";
             $.each(data, function(i, item) {
-
                 rows = rows + "\n <option value=\"" + item.nombre + "\">" + item.nombre + "</option>";
-
-
             });
-            //   console.log('<select class="form-control show-tick"  id="categoriaEspecifica">' + rows + '</select>');
-            // por el momento así
             $('#divcatespe').html('<select class="form-control show-tick"  id="categoriaEspecifica">' + rows + '</select>');
         },
         failure: function(data) {

@@ -21,8 +21,18 @@
 <link rel="stylesheet" href="assets/css/color_skins.css">
 <link rel="stylesheet" href="assets/css/mycss.css">
 <script src="assets/js/myjs/utilidades.js"></script>
+<script src="assets/js/myjs/mesero.js"></script>
+<script src="assets/js/myjs/cuenta.js"></script>
+<script src="assets/js/jquery/jquery-3.6.0.min.js"></script>
+
 <script>
-    window.onload = revisarSesion();
+    
+    function inicializadores(){
+        obtenerDatosCuentasAbiertas();
+        revisarSesion();
+    }
+
+    window.onload = inicializadores();
 </script>
 </head>
 </head>
@@ -135,7 +145,7 @@
                 <div class="div-scroll-tabla">
                     <!-- <div class="body"> -->
                         <div class="table-responsive">
-                            <table class="table table-bordered table-striped table-hover js-basic-example dataTable" id="datatable">
+                            <table class="table table-bordered table-striped table-hover js-basic-example dataTable" id="tablaCuentas">
                                 <thead>
                                     <tr>
                                         <th>Cuenta</th>
@@ -144,127 +154,7 @@
                                         <th>Orden</th>
                                 </thead>
                                 <tbody>
-                                    <tr data-id="1">
-                                        <td data-field="name"></td>
-                                        <td data-field="birthday"></td>
-                                        <td data-field="age"></td>
-                                        <td data-field="sex"></td>
-                                    </tr>
-                                    <tr data-id="2">
-                                        <td data-field="name"></td>
-                                        <td data-field="birthday"></td>
-                                        <td data-field="age"></td>
-                                        <td data-field="sex"></td>
-
-                                    </tr>
-                                    <tr data-id="3">
-                                        <td data-field="name"></td>
-                                        <td data-field="birthday"></td>
-                                        <td data-field="age"></td>
-                                        <td data-field="sex"></td>
-
-                                    </tr>
-                                    <tr data-id="1">
-                                        <td data-field="name"></td>
-                                        <td data-field="birthday"></td>
-                                        <td data-field="age"></td>
-                                        <td data-field="sex"></td>
-
-                                    </tr>
-                                    <tr data-id="2">
-                                        <td data-field="name"></td>
-                                        <td data-field="birthday"></td>
-                                        <td data-field="age"></td>
-                                        <td data-field="sex"></td>
-                                    </tr>
-                                    <tr data-id="3">
-                                        <td data-field="name"></td>
-                                        <td data-field="birthday"></td>
-                                        <td data-field="age"></td>
-                                        <td data-field="sex"></td>
-
-                                    </tr>
-                                    <tr data-id="1">
-                                        <td data-field="name"></td>
-                                        <td data-field="birthday"></td>
-                                        <td data-field="age"></td>
-                                        <td data-field="sex"></td>
-
-                                    </tr>
-                                    <tr data-id="2">
-                                        <td data-field="name"></td>
-                                        <td data-field="birthday"></td>
-                                        <td data-field="age"></td>
-                                        <td data-field="sex"></td>
-   
-                                    </tr>
-                                    <tr data-id="3">
-                                        <td data-field="name"></td>
-                                        <td data-field="birthday"></td>
-                                        <td data-field="age"></td>
-                                        <td data-field="sex"></td>
- 
-                                    </tr>
-                                    <tr data-id="1">
-                                        <td data-field="name"></td>
-                                        <td data-field="birthday"></td>
-                                        <td data-field="age"></td>
-                                        <td data-field="sex"></td>
-
-                                    </tr>
-                                    <tr data-id="2">
-                                        <td data-field="name"></td>
-                                        <td data-field="birthday"></td>
-                                        <td data-field="age"></td>
-                                        <td data-field="sex"></td>
-
-                                    </tr>
-                                    <tr data-id="3">
-                                        <td data-field="name"></td>
-                                        <td data-field="birthday"></td>
-                                        <td data-field="age"></td>
-                                        <td data-field="sex"></td>
-
-                                    </tr>
-                                    <tr data-id="1">
-                                        <td data-field="name"></td>
-                                        <td data-field="birthday"></td>
-                                        <td data-field="age"></td>
-
-                                    </tr>
-                                    <tr data-id="2">
-                                        <td data-field="name"></td>
-                                        <td data-field="birthday"></td>
-                                        <td data-field="age"></td>
-                                        <td data-field="sex"></td>
-
-                                    </tr>
-                                    <tr data-id="3">
-                                        <td data-field="name"></td>
-                                        <td data-field="birthday"></td>
-                                        <td data-field="age"></td>
-                                        <td data-field="sex"></td>
-            
-                                    </tr>
-                                    <tr data-id="1">
-                                        <td data-field="name"></td>
-                                        <td data-field="birthday"></td>
-                                        <td data-field="age"></td>
-                                        <td data-field="sex"></td>
-                          
-                                    </tr>
-                                    <tr data-id="2">
-                                        <td data-field="name"></td>
-                                        <td data-field="birthday"></td>
-                                        <td data-field="age"></td>
-                                        <td data-field="sex"></td>
-                                    </tr>
-                                    <tr data-id="3">
-                                        <td data-field="name"></td>
-                                        <td data-field="birthday"></td>
-                                        <td data-field="age"></td>
-                                        <td data-field="sex"></td>
-                                    </tr>
+                                   
                                     </tbody>
                             </table>
                         </div>
@@ -287,7 +177,7 @@
                                  <div class="div-scroll-btn-productos">
                                       <div id="caja">
                                           <button type="button" class="btnMenu btn-color-rojo"> 
-                                                <a href="#defaultModal" data-toggle="modal" data-target="#defaultModal">
+                                                <a href="#defaultModal" onclick="obtenerDatosSelect('cuentaMeseros');" data-toggle="modal" data-target="#defaultModal">
                                                     <img src="assets/icon/recibo.png" alt="">
                                                     <p class="negro-text"> <strong>ABRIR CTA</strong> </p>
                                                 </a>                                            
@@ -891,7 +781,7 @@
         <div class="modal-dialog" role="document">
         <div class="modal-content ">
             <div class="modal-header">
-                    <h4 class="title" id="smallModalLabel">Abrir cuenta comedor. </h4>
+                    <h4 class="title" id="smallModalLabel">Abrir cuenta comedor </h4>
                     <a href="">
                         <img class="icon-menu-principal" src="assets/icon/recibo.png" alt="">
                     </a> 
@@ -916,15 +806,11 @@
                     <div class="col-sm-12">
                         <div class="form-group form-group-sm">  
                             <b>Mesero:</b>  
-                            <select class="form-control" >
-                                <option value="">Seleccionar</option>
-                                <option value="1">01</option>
-                                <option value="10">10</option>
-                                <option value="20">20</option>
-                                <option value="30">30</option>
-                                <option value="40">40</option>
-                                <option value="50">50</option>
-                            </select>
+                            <div id="divCuentaMesero">
+                           
+                               
+                          
+                            </div>
                         </div>
                     </div>
             </div>
