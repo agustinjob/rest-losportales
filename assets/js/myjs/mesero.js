@@ -122,6 +122,43 @@ function obtenerDatos() {
         }
     });
 }
+// se usa en cuenta solo
+function obtenerDatosSelect(div, id, validacion) {
+    var hayIdCuenta = true;
+    if (validacion == 'SI') {
+        var idCuenta = localStorage.getItem("idCuenta");
+        if (idCuenta == null) {
+            alert("Por favor selecciona una cuenta");
+            $("#btnCambiarMesero").prop('disabled', true);
+            hayIdCuenta = false;
+
+        }
+    }
+
+    $.ajax({
+        url: "http://localhost:8082/v1/meseros",
+        type: "GET",
+        contentType: 'application/json; charset=utf-8',
+        success: function(data) {
+            if (hayIdCuenta == true) {
+                $("#btnCambiarMesero").prop('disabled', false);
+            }
+            var option = "<option value=0>Selecciona un mesero</option>";
+            $.each(data, function(i, item) {
+
+                option = option + "\n <option value=\"" + item.id + "\">" + item.nombre + "</option>";
+
+            });
+            $(div).html('<select class="form-control" id="' + id + '">' + option + '</select>');
+        },
+        failure: function(data) {
+            alert(data.responseText);
+        },
+        error: function(data) {
+            alert(data.responseText);
+        }
+    });
+}
 
 
 
