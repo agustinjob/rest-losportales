@@ -20,33 +20,27 @@
 <link rel="stylesheet" href="assets/css/main.css">
 <link rel="stylesheet" href="assets/css/color_skins.css">
 <link rel="stylesheet" href="assets/css/mycss.css">
+<script src="assets/js/jquery/jquery-3.6.0.min.js"></script>
 <script src="assets/js/myjs/utilidades.js"></script>
 <script src="assets/js/myjs/mesero.js"></script>
 <script src="assets/js/myjs/cuenta.js"></script>
-<script src="assets/js/jquery/jquery-3.6.0.min.js"></script>
+
 
 <script>
-    
-    function inicializadores(){
-        obtenerDatosCuentasAbiertas();
+
+    function ejecutar() {
         revisarSesion();
+        obtenerCuentasAbiertas();
+        eliminarCuenta();
+  
     }
 
-    window.onload = inicializadores();
+    window.onload = ejecutar();
 </script>
+
 </head>
 </head>
 <body class="theme-black">
-<!-- Page Loader -->
-<!-- <div class="page-loader-wrapper">
-    <div class="loader">
-        <div class="m-t-30"><img src="assets/images/logo.svg" width="48" height="48" alt="Alpino"></div>
-        <p>Please wait...</p>        
-    </div>
-</div> -->
-
-<!-- Overlay For Sidebars -->
-
 <nav class="navbar ">
     <div class="container">
     <ul class="nav navbar-nav">
@@ -177,7 +171,7 @@
                                  <div class="div-scroll-btn-productos">
                                       <div id="caja">
                                           <button type="button" class="btnMenu btn-color-rojo"> 
-                                                <a href="#defaultModal" onclick="obtenerDatosSelect('cuentaMeseros');" data-toggle="modal" data-target="#defaultModal">
+                                                <a href="#defaultModal" onclick="obtenerDatosSelect('#divCuentaMesero','cuentaMeseros','NO');" data-toggle="modal" data-target="#defaultModal">
                                                     <img src="assets/icon/recibo.png" alt="">
                                                     <p class="negro-text"> <strong>ABRIR CTA</strong> </p>
                                                 </a>                                            
@@ -234,7 +228,7 @@
                                           </button>
                                          </div>
                                          <div id="caja">
-                                          <button type="button" class="btnMenu btn-color-gris1"> 
+                                          <button type="button" onclick="verificaCuentaSeleccionada();" class="btnMenu btn-color-gris1"> 
                                               <a href="#renModal" data-toggle="modal" data-target="#renModal">
                                                   <img src="assets/icon/escritura.png" alt="">
                                                   <p class="negro-text"> <strong>RENOMBRAR CTA</strong> </p>
@@ -242,8 +236,9 @@
                                            </button>
                                          </div>
                                           <div id="caja">
-                                            <button type="button" class="btnMenu btn-color-naranja1"> 
-                                                <a href="#mesModal" data-toggle="modal" data-target="#mesModal">
+                                   
+                                            <button type="button"  class="btnMenu btn-color-naranja1"> 
+                                                <a href="#mesModal" onclick="obtenerDatosSelect('#divCambiarMesero', 'cambioMesero','SI');" data-toggle="modal" data-target="#mesModal">
                                                     <img src="assets/icon/cambio.png" alt="">
                                                     <p class="negro-text"> <strong>CAMBIAR MESERO</strong> </p>
                                                 </a> 
@@ -309,19 +304,19 @@
                                     <div class="col-sm-4">
                                         <div class="form-group ">
                                             <b>Cuenta:</b>    
-                                            <input type="text"  class="form-control form-control-sm" />          
+                                            <input type="text" id="cuentaInfo" class="form-control form-control-sm" />          
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="form-group ">   
                                             <b>Area:</b> 
-                                            <input type="text"  class="form-control" />          
+                                            <input type="text" id="areaInfo" value="Comedor" class="form-control" />          
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group ">  
                                             <b> Folio:</b>  
-                                            <input type="text"  class="form-control text-danger " placeholder="0" />          
+                                            <input type="text" id="folioInfo" class="form-control text-danger " placeholder="0" />          
                                         </div>
                                     </div>
                             </div>
@@ -329,19 +324,19 @@
                                 <div class="col-sm-4">
                                     <div class="form-group "> 
                                         <b>Mesa:</b>   
-                                        <input type="text"  class="form-control" />          
+                                        <input type="text" id="mesaInfo" class="form-control" />          
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="form-group ">  
                                         <b>Mesero:</b>  
-                                        <input type="text"  class="form-control" />          
+                                        <input type="text" id="meseroInfo" class="form-control" />          
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="form-group ">  
                                         <b>Orden:</b>  
-                                        <input type="text"  class="form-control" />          
+                                        <input type="text" id="ordenInfo" class="form-control" />          
                                     </div>
                                 </div>
                         </div>
@@ -350,19 +345,19 @@
                             <div class="col-sm-4">
                                 <div class="form-group ">
                                     <b>Persona:</b>    
-                                    <input type="text"  class="form-control" />          
+                                    <input type="text" id="personaInfo" class="form-control" />          
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group ">
                                     <b>Apertura:</b>    
-                                    <input type="text"  class="form-control" />          
+                                    <input type="text" id="aperturaInfo" class="form-control" />          
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group ">   
                                     <b>Cierre:</b>
-                                    <input type="text"  class="form-control" />          
+                                    <input type="text" id="cierreInfo" class="form-control" />          
                                 </div>
                             </div>
                     </div>
@@ -398,36 +393,6 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr data-id="1">
-                                    <td data-field="name"></td>
-                                    <td data-field="birthday"></td>
-                                    <td data-field="age"></td>
-                                    <td data-field="sex"></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr data-id="2">
-                                    <td data-field="name"></td>
-                                    <td data-field="birthday"></td>
-                                    <td data-field="age"></td>
-                                    <td data-field="sex"></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr data-id="3">
-                                    <td data-field="name"></td>
-                                    <td data-field="birthday"></td>
-                                    <td data-field="age"></td>
-                                    <td data-field="sex"></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
                                 </tbody>
                             </table>
                             </div>
@@ -545,15 +510,8 @@
                         <div class="col-sm-11 ">
                             <div class="form-group form-group-sm">  
                                 <b>Mesero:</b>  
-                                <select class="form-control" >
-                                    <option value="">Seleccionar</option>
-                                    <option value="1">Juan</option>
-                                    <option value="10">Juan</option>
-                                    <option value="20">Juan</option>
-                                    <option value="30">Juan</option>
-                                    <option value="40">Juan</option>
-                                    <option value="50">Juan</option>
-                                </select>
+                               <div id="divCambiarMesero"></div>
+                              
                             </div>
                         </div>
                 </div>
@@ -562,7 +520,7 @@
                
            
                 <div class="modal-footer">
-                    <button type="button" class="btn bg-deep-orange btn-round waves-effect"> ACEPTAR <i class="zmdi zmdi-check"></i>
+                    <button type="button" id="btnCambiarMesero" onclick="realizarCambioMesero();" class="btn bg-deep-orange btn-round waves-effect"> ACEPTAR <i class="zmdi zmdi-check"></i>
                     </button>
                     <button type="button" class="btn bg-black  btn-round waves-effect" data-dismiss="modal">CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
                 </div>
@@ -700,7 +658,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content ">
             <div class="modal-header">
-                    <h4 class="title" id="smallModalLabel">Nuevo nombre. </h4>
+                    <h4 class="title" id="smallModalLabel">Nuevo nombre </h4>
                     <a href="">
                         <img class="icon-menu-principal" src="assets/icon/escritura.png" alt="">
                     </a> 
@@ -711,13 +669,13 @@
                     <div class="col-sm-6">
                         <div class="form-group ">
                             <b>Nombre actual:</b>    
-                            <input type="text"  class="form-control" />          
+                            <input type="text" id="nombreCuentaCambiar" class="form-control" />          
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group ">    
                             <b>Nuevo nombre:</b>
-                            <input type="text"  class="form-control" />          
+                            <input type="text" id="nuevoNombreCuentaCambiar" class="form-control" />          
                         </div>
                     </div>
                 </div>
@@ -726,9 +684,9 @@
            
        
             <div class="modal-footer">
-                <button type="button" class="btn bg-deep-orange btn-round waves-effect"> ACEPTAR <i class="zmdi zmdi-check"></i>
+                <button type="button" onclick="renombrarCuenta();" id="aceptarNuevoNombre" class="btn bg-deep-orange btn-round waves-effect"> ACEPTAR <i class="zmdi zmdi-check"></i>
                 </button>
-                <button type="button" class="btn bg-black  btn-round waves-effect" data-dismiss="modal">CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
+                <button type="button" id="cancelarNuevoNombre" class="btn bg-black  btn-round waves-effect" data-dismiss="modal">CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
             </div>
         </div>
     </div>
@@ -792,13 +750,13 @@
                     <div class="col-sm-6">
                         <div class="form-group ">
                             <b>Cuenta:</b>    
-                            <input type="text"  class="form-control" />          
+                            <input type="text"  id="nombreCuenta" class="form-control" />          
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group ">    
                             <b>Personas:</b>
-                            <input type="text"  class="form-control" />          
+                            <input type="text" id="personasCuenta" class="form-control" />          
                         </div>
                     </div>
                 </div>
@@ -806,18 +764,14 @@
                     <div class="col-sm-12">
                         <div class="form-group form-group-sm">  
                             <b>Mesero:</b>  
-                            <div id="divCuentaMesero">
-                           
-                               
-                          
-                            </div>
+                            <div id="divCuentaMesero"></div>
                         </div>
                     </div>
             </div>
            
        
             <div class="modal-footer">
-                <button type="button" class="btn bg-deep-orange btn-round waves-effect"> ACEPTAR <i class="zmdi zmdi-check"></i>
+                <button type="button" onclick="abrirCuenta();" class="btn bg-deep-orange btn-round waves-effect"> ACEPTAR <i class="zmdi zmdi-check"></i>
                 </button>
                 <button type="button" class="btn bg-black  btn-round waves-effect" data-dismiss="modal">CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
             </div>

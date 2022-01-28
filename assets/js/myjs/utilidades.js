@@ -6,3 +6,7 @@ function revisarSesion() {
         location.href = "index.html"
     }
 }
+
+function eliminarCuenta() {
+    localStorage.removeItem("idCuenta");
+}

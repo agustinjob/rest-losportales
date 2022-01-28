@@ -18,7 +18,6 @@ function abrirTurno() {
                 fondoInicial: fondoInicialtxt,
                 usuario: idUsuariotxt,
                 estatus: "abierto",
-                turno: 1,
                 efectivoDeclarado: 0
             }),
             contentType: 'application/json; charset=utf-8',
