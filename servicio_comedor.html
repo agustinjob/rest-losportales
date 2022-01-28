@@ -179,7 +179,7 @@
                                         </div>
                                       <div id="caja">
                                         <button type="button" class="btnMenu btn-color-azul"> 
-                                            <a href="#defaultModal" data-toggle="modal" data-target="#defaultModal">
+                                            <a href="#cancelModal" data-toggle="modal" data-target="#cancelModal">
                                                 <img src="assets/icon/cancelar_producto.png" alt="">
                                                 <p class="negro-text"> <strong>CANCELAR PROD</strong> </p>
                                             </a>  
@@ -212,7 +212,7 @@
                                       </div>
                                        <div id="caja">
                                          <button type="button" class="btnMenu btn-color-verde1">
-                                             <a href="#defaultModal" data-toggle="modal" data-target="#defaultModal">
+                                             <a href="consultar_cuenta.html">
                                                  <img src="assets/icon/consultar.png" alt="">
                                                  <p class="negro-text"> <strong>CONSULTAR CTAS</strong> </p>
                                              </a>  
@@ -220,7 +220,8 @@
                                         </div>
                                          <div id="caja">
                                           <button type="button" class="btnMenu btn-color-amarillo">
-                                             <a href="#capModal" data-toggle="modal" data-target="#capModal">
+                                            <a href="captura_productos.html">
+                                             <!-- <a href="#capModal" data-toggle="modal" data-target="#capModal"> -->
                                                   <img src="assets/icon/tocar.png" alt="">
                                                   <p class="negro-text"> <strong>CAPTURAR</strong> </p>
 
@@ -246,7 +247,7 @@
                                           </div>
                                           <div id="caja">
                                             <button type="button" class="btnMenu btn-color-gris2">
-                                                <a href="#defaultModal" data-toggle="modal" data-target="#defaultModal">
+                                                <a href="#valDesModal" data-toggle="modal" data-target="#valDesModal">
                                                     <img src="assets/icon/etiqueta.png" alt="">
                                                     <p class="negro-text"> <strong>DECUENTOS</strong> </p>
                                                 </a>  
@@ -493,8 +494,211 @@
   </div>
 </div>
 </section>
-       <!-- Modal Corte Caja -->
-       <div class="modal fade" id="mesModal" tabindex="-1" role="dialog">
+    <!-- Modal Descuento validacion -->
+    <div class="modal fade" id="valDesModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content ">
+            <div class="modal-header">
+                    <h4 class="title" id="smallModalLabel">Contraseña de usuario requerida. </h4>
+                    <a href="">
+                        <img class="icon-menu-principal" src="" alt="">
+                    </a> 
+            </div>
+            <br>
+            <div class="container">
+                <div class="row clearfix">
+                        <div class="col-sm-6">     
+                </div>
+                <div class="container">
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                        
+                            <div class="form-group ">
+                                <b>Contraseña:</b>    
+                                <input type="password"  class="form-control" placeholder="Contraseña" />          
+                            </div>
+                        </div>
+                        </div>
+
+
+        
+    
+            <div class="modal-footer">
+                <button type="button" class="btn bg-deep-orange btn-round "> </a>
+                    <a   href="#destModal" class="text-white" data-toggle="modal" data-target="#destModal" >                    ACEPTAR <i class="zmdi zmdi-check"></i>
+                    </a>
+                </button>
+                <button type="button" class="btn bg-black  btn-round " data-dismiss="modal"
+                >CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
+                </button>
+            </div>
+        </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- Modal Descuentos -->
+<div class="modal fade" id="destModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content ">
+            <div class="modal-header">
+                    <h4 class="title" id="smallModalLabel">Juntar consumo de mesas. </h4>
+                    <a href="">
+                        <img class="icon-menu-principal" src="assets/icon/reunion.png" alt="">
+                    </a> 
+            </div>
+            
+            <div class="container">
+                <div class="row clearfix">
+                    <div class="col-sm-2">
+
+                    </div>
+                    <div class="col-sm-8">
+                        <!-- <div class="col-sm-12"> -->
+                            <div class="form-group form-group-sm">  
+                                <b>Tipo:</b>  
+                                <select class="form-control" >
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Tipo1</option>
+                                    <option value="10">Tipo1</option>
+                                    <option value="20">Tipo1</option>
+
+                                </select>
+                            </div>
+                            <div class="form-group form-group-sm">  
+                                <b>Criterio:</b>  
+                                <select class="form-control" >
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Tipo1</option>
+                                    <option value="10">Tipo1</option>
+                                    <option value="20">Tipo1</option>
+
+                                </select>
+                            </div>
+                        <!-- </div> -->
+                        <div class="form-group ">
+                            <b>Descuento %:</b>    
+                            <input type="text"  class="form-control" placeholder="0.0" />          
+                        </div>
+                        <div class="form-group ">    
+                            <b>Comentario:</b>
+                            <Textarea type="text"  class="form-control" >
+
+                            </Textarea>
+                            <!-- <input  />           -->
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                       
+                    </div>
+                </div>
+            </div>
+     
+           
+       
+            <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-info btn-round waves-effect"> ORIGEN </i> -->
+                </button>
+                <button type="button" class="btn bg-deep-orange btn-round waves-effect"> ACEPTAR <i class="zmdi zmdi-check"></i>
+                </button>
+                <button type="button" class="btn bg-black  btn-round waves-effect" data-dismiss="modal">CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
+            </div>
+        </div>
+    </div>
+    </div>
+ <!-- Modal Cancelar Producto -->
+ <div class="modal fade" id="cancelModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content ">
+        <div class="modal-header">
+                <h4 class="title" id="smallModalLabel">Cancelar producto. </h4>
+                <a href="">
+                    <img class="icon-menu-principal" src="" alt="">
+                </a> 
+        </div>
+        <br>
+        <div class="container">
+            <div class="row clearfix">
+
+                
+                    <div class="col-sm-12">
+                    
+                        <div class="body table-responsive">
+                            <table class="table m-b-0">
+                                <thead class="thead-light">
+                                    <tr>
+                                    <th scope="col">MOV</th>
+                                    <th scope="col">COMANDA</th>
+                                    <th scope="col">CANTIDAD CAPTURADA</th>
+                                    <th scope="col">CLAVE</th>
+                                    <th scope="col">DESCRIPCIÓN</th>
+                                    <th scope="col">CLAVE</th>
+                                    <th scope="col">CANTIDAD CANCELAR</th>            
+                                    <th scope="col">CANCELAR</th>
+
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                    <td><i class='zmdi zmdi-delete'></i></td>
+                                    </tr>
+                                    <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                    <td> <button class='btn bg-danger btn-round'><i class='zmdi zmdi-delete'></i></button></td>
+                                    </tr>
+                                    <tr>
+                                    <th scope="row">3</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                    <td><i class='zmdi zmdi-delete'></i></td>
+                                    </tr>
+                                </tbody>
+                                </table>
+                        </div>
+                    </div>
+                    
+
+                </div>
+    
+
+        <div class="modal-footer" >
+            
+            <button type="button" class="btn bg-deep-orange btn-round" > </a>
+                <a  href="·" ></a>
+                ACEPTAR <i class="zmdi zmdi-check"></i>
+            </button>
+            <button type="button" class="btn bg-black  btn-round " data-dismiss="modal"
+            >CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
+            </button>
+        </div>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<!-- Modal Corte Caja -->
+<div class="modal fade" id="mesModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content ">
                 <div class="modal-header">
