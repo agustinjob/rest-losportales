@@ -20,6 +20,7 @@ function obtenerCuentasAbiertas() {
                         "<td>" + item.orden + "</td>" +
                         "</tr>";
                     $('#tablaCuentas > tbody').append(rows);
+
                 });
             },
             failure: function(data) {
@@ -50,6 +51,27 @@ function datosCuenta(idCuenta) {
             $("#cierreInfo").val(data.cierre);
             $("#nombreCuentaCambiar").val(data.nombreCuenta);
             $("#aceptarNuevoNombre").prop('disabled', false);
+            //IVA * .138
+
+            $('#tablaProductosOrden > tbody').empty();
+            var importeTotal = 0;
+            $.each(data.productos, function(i, item) {
+                console.log("Nombre " + item.nombre);
+                var rowsProd =
+                    "<tr>" +
+                    "<td>" + (i + 1) + "</td>" +
+                    "<td>" + item.nombre + "</td>" +
+                    "<td>" + item.cantidad + "</td>" +
+                    "<td>" + item.costo + "</td>" +
+                    "<td>" + item.importe + "</td>" +
+                    "</tr>";
+                importeTotal = importeTotal + item.importe;
+                $('#tablaProductosOrden > tbody').append(rowsProd);
+            });
+            var iva = importeTotal * .138;
+            $("#subtotal").val(importeTotal - iva);
+            $("#impuesto").val(iva);
+            $("#total").val(importeTotal);
         },
         failure: function(data) {
             alert(data.responseText);
@@ -92,7 +114,7 @@ function abrirCuenta() {
                 nombreCuenta: nombreCuentatxt,
                 idTurno: idTurnotxt,
                 apertura: fecha,
-                cierre: fecha,
+                cierre: "",
                 tipoPago: "",
                 idMesero: idMeserotxt,
                 nombreMesero: nombreMeserotxt,
@@ -103,7 +125,7 @@ function abrirCuenta() {
                 personas: personastxt,
                 orden: "0",
                 folio: "0",
-                productos: [{}],
+                productos: [],
                 estatus: "abierta",
                 impreso: "No",
                 pagoEfectivo: "0",
@@ -170,6 +192,7 @@ function renombrarCuenta() {
         }
     });
 }
+
 
 function realizarCambioMesero() {
     var nuevomeseroidtxt = $("#cambioMesero").val();

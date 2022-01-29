@@ -31,8 +31,6 @@
     function ejecutar() {
         revisarSesion();
         obtenerCuentasAbiertas();
-        eliminarCuenta();
-  
     }
 
     window.onload = ejecutar();
@@ -95,13 +93,7 @@
                         <div class="col-sm-4">
                             <div class="form-group form-group-sm">                                 
                                 <select class="form-control" >
-                                    <option value="">Seleccionar</option>
-                                    <option value="1">01</option>
-                                    <option value="10">10</option>
-                                    <option value="20">20</option>
-                                    <option value="30">30</option>
-                                    <option value="40">40</option>
-                                    <option value="50">50</option>
+                                    <option value="">Comedor</option>         
                                 </select>
                             </div>
                         </div>
@@ -380,15 +372,12 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped" id="editableTable">
+                                <table class="table table-bordered table-striped" id="tablaProductosOrden">
                                 <thead>
                                 <tr>
-                                    <th>MOV.</th>
-                                    <th>COMANDA</th>
-                                    <th>CANT.</th>
-                                    <th>CLAVE</th>
+                                    <th>MOVIMIENTO</th>
                                     <th>DESCRIPCIÓN</th>
-                                    <th>DESC.</th>
+                                    <th>CANT.</th>
                                     <th>PRECIO</th>
                                     <th>IMPORTE</th>
                                 </tr>
@@ -419,7 +408,7 @@
                                 </div>
                                 <div class="col-sm-7">
                                     <div class="form-group ">    
-                                        <input type="text"  class="form-control input-derecha-izquierda" placeholder="0.00" />          
+                                        <input type="text"  id="subtotal" disabled="true"  class="form-control input-derecha-izquierda" placeholder="0.00" />          
                                     </div>
                                 </div>
    
@@ -430,7 +419,7 @@
                                 </div>
                                 <div class="col-sm-7">
                                     <div class="form-group ">    
-                                        <input type="text"  class="form-control input-derecha-izquierda" placeholder="0.00" />           
+                                        <input type="text"  id="descuento" disabled="true" class="form-control input-derecha-izquierda" placeholder="0.00" />           
                                     </div>
                                 </div>
                                 <div class="col-sm-5">
@@ -440,7 +429,7 @@
                                 </div>
                                 <div class="col-sm-7">
                                     <div class="form-group ">    
-                                        <input type="text"  class="form-control input-derecha-izquierda" placeholder="0.00" />          
+                                        <input type="text"  id="impuesto" disabled="true"  class="form-control input-derecha-izquierda" placeholder="0.00" />          
                                     </div>
                                 </div>
                                 <div class="col-sm-5">
@@ -450,7 +439,7 @@
                                 </div>
                                 <div class="col-sm-7">
                                     <div class="form-group ">    
-                                        <input type="text"  class="form-control input-derecha-izquierda" placeholder="0.00" />          
+                                        <input type="text"  id="propina" disabled="true" class="form-control input-derecha-izquierda" placeholder="0.00" />          
                                     </div>
                                 </div>
                                 <div class="col-sm-5">
@@ -460,7 +449,7 @@
                                 </div>
                                 <div class="col-sm-7">
                                     <div class="form-group ">    
-                                        <input type="text"  class="form-control input-derecha-izquierda" placeholder="0.00" />          
+                                        <input type="text"  id="cargo" disabled="true" class="form-control input-derecha-izquierda" placeholder="0.00" />          
                                     </div>
                                 </div>
                                 <div class="col-sm-5">
@@ -470,7 +459,7 @@
                                 </div>
                                 <div class="col-sm-7">
                                     <div class="form-group ">    
-                                        <input type="text"  class="form-control input-derecha-izquierda" placeholder="0.00" />          
+                                        <input type="text"  id="total" disabled="true"  class="form-control input-derecha-izquierda" placeholder="0.00" />          
                                     </div>
                                 </div>
                             </div>

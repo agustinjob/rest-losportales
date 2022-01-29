@@ -145,9 +145,7 @@ function obtenerDatosSelect(div, id, validacion) {
             }
             var option = "<option value=0>Selecciona un mesero</option>";
             $.each(data, function(i, item) {
-
                 option = option + "\n <option value=\"" + item.id + "\">" + item.nombre + "</option>";
-
             });
             $(div).html('<select class="form-control" id="' + id + '">' + option + '</select>');
         },

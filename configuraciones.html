@@ -17,7 +17,17 @@
 <link rel="stylesheet" href="assets/css/main.css">
 <link rel="stylesheet" href="assets/css/color_skins.css">
 <link rel="stylesheet" href="assets/css/mycss.css">
+<script type="text/javascript" src="assets/js/jquery/jquery-3.6.0.min.js"></script>
+<script src="assets/js/myjs/utilidades.js"></script>
+<script src="assets/js/myjs/configuracion.js"></script>
 
+<script>
+    function lanzador(){
+        obtenerDatos();
+        revisarSesion();
+    }
+    window.onload = lanzador();
+</script>
 </head>
 
 <body class="l-amber">
@@ -80,16 +90,16 @@
                                 </div>
                             <form class="form"> 
                                 <div class="input-group" >
-                                    <input type="text" class="form-control" placeholder="Nombre">
+                                    <input type="text" id="nombre" class="form-control" placeholder="Nombre">
                                 </div> 
                                 <div class="input-group">
-                                    <input type="text" placeholder="Dirección" class="form-control" /> 
+                                    <input type="text" id="direccion" placeholder="Dirección" class="form-control" /> 
                                 </div>
                                 <div class="input-group">
-                                    <input type="text" placeholder="Rfc" class="form-control" /> 
+                                    <input type="text" id="rfc" placeholder="Rfc" class="form-control" /> 
                                 </div>
                                 <div class="input-group">
-                                    <input type="text" placeholder="Impresora" class="form-control" /> 
+                                    <input type="text" id="impresora" placeholder="Impresora" class="form-control" /> 
                                 </div>
                                 <!-- <div class="input-group" > -->
                                     <!-- <input type="text" class="form-control" placeholder="Turno"> -->
@@ -104,7 +114,7 @@
                                       <option value="">Turno4</option>
                                   </select> -->
                                     <div class="footer">
-                                        <a href="index.html" class="btn bg-deep-orange btn-round btn-block">MODIFICAR</a>
+                                        <a onclick="modificarDatos();" class="btn bg-deep-orange btn-round btn-block">MODIFICAR</a>
                                         <!-- <a href="index.html" class="btn bg-black btn-round btn-block">CANCELAR</a> -->
 
                                     </div>
@@ -130,19 +140,19 @@
                                     <div class="col-sm-4">
                                         <div class="form">
                                             <div class="input-group">
-                                                <h6>Nombre</h6>
+                                                <h6>Nombre: </h6> <h6 id="nombretxt"></h6>
                                             </div>
                                             <br>
                                             <div class="input-group">
-                                                <h6>Dirección</h6>
+                                                <h6>Dirección: </h6> <h6 id="direcciontxt"></h6>
                                             </div>
                                             <br>
                                             <div class="input-group">
-                                                <h6>Rfc</h6>
+                                                <h6>RFC: </h6> <h6 id="rfctxt"></h6>
                                             </div>
                                             <br>
                                             <div class="input-group">
-                                                <h6>Impresora</h6>
+                                                <h6>Impresora: </h6> <h6 id="impresoratxt"></h6>
                                             </div>
 
                                         </div>

@@ -1,6 +1,6 @@
 var productosArray;
 var productosSeleccionados = [];
-var productoSeleccionado;
+var productoSeleccionado = "";
 
 function buscarProductosPorCategorias() {
     //"/productos-cate/{categoriaGeneral}/{categoriaEspecifica}"
@@ -92,36 +92,98 @@ function productosPorCategoria(categoriageneraltxt, categoriaespecificatxt) {
 
 function agregarProductoTabla(posicion) {
     var item = productosArray[posicion];
-    productosSeleccionados.push(item);
-    var rows =
-        "<tr>" +
-        "<td><a style='cursor:pointer;' onclick=\"seleccionarProducto(\'" + item.id + "\'); \">" + item.nombre + "</a></td>" +
-        "<td>1</td>" +
-        "<td>" + item.precio + "</td>" +
-        "<td>" + item.precio + "</td><tr>";
-    $("#tablaProductosSeleccionados > tbody").append(rows);
+
+    var ProductoCuenta = {
+        id: item.id,
+        nombre: item.nombre,
+        cantidad: 1,
+        costo: item.precio,
+        importe: item.costo,
+        motivoCancelacion: "",
+        catEspecifica: item.categoriaEspecifica,
+        catGeneral: item.categoriaGeneral
+    };
+
+    var objPro = productosSeleccionados.find(product => product.id === item.id);
+    if (objPro == undefined) {
+        productosSeleccionados.push(ProductoCuenta);
+        productoSeleccionado = ProductoCuenta.id;
+        var rows =
+            "<tr>" +
+            "<td><a style='cursor:pointer;' onclick=\"seleccionarProducto(\'" + ProductoCuenta.id + "\'); \">" + ProductoCuenta.nombre + "</a></td>" +
+            "<td>" + ProductoCuenta.cantidad + "</td>" +
+            "<td>" + ProductoCuenta.costo + "</td>" +
+            "<td>" + ProductoCuenta.costo + "</td><tr>";
+        $("#tablaProductosSeleccionados > tbody").append(rows);
+    } else {
+        //  objPro.cantidad = objPro.cantidad + 1;
+    }
+
 }
 
-function sumarEliminar(opcion) {
-    var objPro = productosSeleccionados.find(produc => product.id === productoSeleccionado);
+function eliminarTodo() {
+    $("#tablaProductosSeleccionados > tbody").empty();
+    productosSeleccionados = [];
+    productoSeleccionado = "";
 
-    if(opcion==1){
-objPro.cant
-    }else{
+}
 
+function eliminarUno() {
+    if (productoSeleccionado == "") {
+        alert("Tienes que seleccionar un producto para eliminar");
+    } else {
+
+        for (var i = 0; i < productosSeleccionados.length; i++) {
+
+            if (productosSeleccionados[i].id === productoSeleccionado) {
+                productosSeleccionados.splice(i, 1);
+
+                break;
+            }
+        }
+        mostrarTablaActualizada();
     }
+}
+
+function sumarRestar(opcion) {
+    var objPro = productosSeleccionados.find(product => product.id === productoSeleccionado);
+
+    if (opcion == 1) {
+        objPro.cantidad = objPro.cantidad + 1;
+
+    } else {
+        if (objPro.cantidad <= 1) {
+            alert("No se puede restar uno, la cantidad quedaria en cero");
+        } else {
+            objPro.cantidad = objPro.cantidad - 1;
+        }
+    }
+
+    mostrarTablaActualizada();
 
 }
 
 function seleccionarProducto(idProd) {
     productoSeleccionado = idProd;
-    console.log(productoSeleccionado);
+
 }
 
 
 
 function mostrarTablaActualizada() {
+    $("#tablaProductosSeleccionados > tbody").empty();
+    for (var i = 0; i < productosSeleccionados.length; i++) {
 
+        var rows =
+            "<tr>" +
+            "<td><a style='cursor:pointer;' onclick=\"seleccionarProducto(\'" + productosSeleccionados[i].id + "\'); \">" + productosSeleccionados[i].nombre + "</a></td>" +
+            "<td>" + productosSeleccionados[i].cantidad + "</td>" +
+            "<td>" + productosSeleccionados[i].costo + "</td>" +
+            "<td>" + (productosSeleccionados[i].costo * productosSeleccionados[i].cantidad) + "</td><tr>";
+        productosSeleccionados[i].importe = (productosSeleccionados[i].costo * productosSeleccionados[i].cantidad);
+
+        $("#tablaProductosSeleccionados > tbody").append(rows);
+    }
 }
 
 function productosTodos() {
@@ -149,4 +211,29 @@ function productosTodos() {
         }
     });
 
+}
+
+function agregarProductos() {
+
+    var idCuentatxt = localStorage.getItem("idCuenta");
+    $.ajax({
+        url: "http://localhost:8082/v1/cuentas-cambiar/3",
+        type: "POST",
+        data: JSON.stringify({
+            idCuenta: idCuentatxt,
+            productos: productosSeleccionados
+        }),
+        contentType: 'application/json; charset=utf-8',
+        success: function(data) {
+            $("#cuentaInfo").val(data.nombreCuenta);
+            alert('Productos agregados correctamente!!!');
+            location.href = "servicio_comedor.html";
+        },
+        failure: function(data) {
+            alert(data.responseText);
+        },
+        error: function(data) {
+            alert(data.responseText);
+        }
+    });
 }
