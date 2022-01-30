@@ -14,7 +14,7 @@ function abrirTurno() {
             type: "POST",
             data: JSON.stringify({
                 fechaApertura: fecha,
-                fechaCierre: fecha,
+                fechaCierre: "",
                 fondoInicial: fondoInicialtxt,
                 usuario: idUsuariotxt,
                 estatus: "abierto",
@@ -72,4 +72,29 @@ function cerrarTurno() {
         alert("No puedes cerrar si no haz abierto ningún turno");
         $("#turnoFondoDeclarado").val("");
     }
+}
+
+function buscarTurno() {
+    //  var idTurno = localStorage.getItem('idTurno');
+
+
+    $.ajax({
+        url: "http://localhost:8082/v1/turnos-estatus",
+        type: "GET",
+        contentType: 'application/json; charset=utf-8',
+        success: function(data) {
+            $.each(data, function(i, item) {
+                console.log(item.idTurno);
+                localStorage.setItem("idTurno", item.idTurno);
+            });
+
+        },
+        failure: function(data) {
+            alert(data.responseText);
+        },
+        error: function(data) {
+            alert(data.responseText);
+        }
+    });
+
 }

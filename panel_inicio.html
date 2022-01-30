@@ -22,7 +22,11 @@
 <script src="assets/js/myjs/gastos.js"></script>
 <script src="assets/js/myjs/panel_inicio.js"></script>
 <script>
-    window.onload = revisarSesion();
+    function inicializador(){
+        buscarTurno();
+        revisarSesion();
+    }
+    window.onload = inicializador();
 </script>
 </head>
 </head>

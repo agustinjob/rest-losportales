@@ -20,6 +20,8 @@
 <link rel="stylesheet" href="assets/css/main.css">
 <link rel="stylesheet" href="assets/css/color_skins.css">
 <link rel="stylesheet" href="assets/css/mycss.css">
+<script src="assets/js/jquery/jquery-3.6.0.min.js"></script>
+<script src="assets/js/myjs/cuenta.js"></script>    
 </head>
 <body class="theme-black">
 <!-- Page Loader -->
@@ -81,45 +83,43 @@
                               <label type="text" class="col-form-label" >Cantidad:</label>          
                             </div>
                             <div class="form-group">
-                              <input type="text"  class="form-control input-derecha-izquierda" placeholder="$0.00"/>
+                              <input type="text" id="valorIngresado"  class="form-control input-derecha-izquierda" placeholder="$0.00"/>
+                              <button onclick="asignarDatosPagarCuenta();">Registrar</button>
                           </div>
-                          <div class="col-md-12 " >
+
+                          <div class="col-md-12">
                             <br>
-                            <div  >
-                                <button type="button" class="btnMenu-pago l-amber"> 
-                                    <a href="">
+                            <div>
+                                <button type="button" onclick="asignarTipoPago('efectivo')" class="btnMenu-pago l-amber"> 
+                                 
                                         <img src="assets/icon/dinero.png" alt="">
                                         <p class="negro-text"> <strong>EFECTIVO</strong> </p>
-                                    </a>
+                              
                                 </button>
                              
-                                <button type="button" class="btnMenu-pago l-blue"> 
-                                    <a href="">
+                                <button type="button" onclick="asignarTipoPago('visa')" class="btnMenu-pago l-blue"> 
+                                 
                                         <img src="assets/icon/visa.png" alt="">
                                         <p class="negro-text"> <strong>VISA</strong> </p>
-                                    </a>
+                 
         
                                 </button>
-                                <button type="button" class="btnMenu-pago l-blue">
-                                    <a href="">
+                                <button type="button" onclick="asignarTipoPago('masterCard')" class="btnMenu-pago l-blue">
+                                
                                         <img src="assets/icon/mastercard.png" alt="">
                                         <p class="negro-text"> <strong>MASTERCARD</strong> </p>
-                                    </a> 
+                            
                                 </button>
                               
                              
-                                <button type="button" class="btnMenu-pago l-amber"> 
-                                    <a href="">
+                                <button type="button" onclick="asignarTipoPago('americanExpress')" class="btnMenu-pago l-amber"> 
+                                  
                                         <img src="assets/icon/american-express .png" alt="">
                                         <p class="negro-text"> <strong>AMERICAA EXPESS</strong></p>
-                                    </a>
-        
                                 </button>
-                                <button type="button" class="btnMenu-pago l-amber"> 
-                                    <a href="">
+                                <button type="button"  onclick="asignarTipoPago('propina')" class="btnMenu-pago l-amber"> 
                                         <img src="assets/icon/metodo-de-pago.png" alt="">
                                         <p class="negro-text"> <strong>PROPINA</strong></p>
-                                    </a>
         
                                 </button>
                             </div>        
@@ -154,8 +154,8 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-4">
                                         <div class="form-group ">
-                                            <b>Cuenta:</b>    
-                                            <input type="text"  class="form-control form-control-sm" />          
+                                            <b><strong>Consumo:</strong></b>    
+                                            <input type="text" id="consumoTotal" value="0" class="form-control form-control-sm" />          
                                         </div>
                                     </div>
                                     <!-- <div class="col-sm-3">
@@ -170,7 +170,7 @@
                                     <div class="col-sm-5">
                                         <div class="form-group ">    
 
-                                            <button type="button" class="btn bg-deep-orange btn-round waves-effect"> ACEPTAR <i class="zmdi zmdi-check"></i>
+                                            <button type="button" onclick="cerrarCuenta();" class="btn bg-deep-orange btn-round waves-effect"> ACEPTAR <i class="zmdi zmdi-check"></i>
                                             </button>       
                                             <button type="button" class="btn bg-black  btn-round waves-effect" data-dismiss="modal">
                                                 <a href="servicio_comedor.html" class="text-white">
@@ -194,7 +194,7 @@
                                   </div>
                             </div>
                             
-                            <div class="row clearfix">
+                          <!--  <div class="row clearfix">
                                 <div class="col-sm-4">
                                     <div class="form-group ">
                                         <b>Propina incluida:</b>    
@@ -208,18 +208,18 @@
                                     </div>
                                 </div>
        
-                        </div>
+                        </div>-->
                         <div class="row clearfix">
                             <div class="col-sm-4">
                                 <div class="form-group ">
-                                    <b class="text-danger"><strong>Total en M:N</strong></b>    
-                                    <input type="text"  class="form-control form-control-sm" />          
+                                    <b class="text-danger"><strong>Total en M.N.</strong></b>    
+                                    <input type="text" id="totalMN" class="form-control form-control-sm" />          
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group ">
-                                    <b > <strong>Cambio en MX:</strong> </b>    
-                                    <input type="text"  class="form-control form-control-sm" />          
+                                    <b > <strong>Cambio en M.N.:</strong> </b>    
+                                    <input type="text" id="cambioMN" class="form-control form-control-sm" />          
                                 </div>
                             </div>
                         </div>
@@ -246,7 +246,7 @@
                                 <thead>
                                 <tr>
                                     <th>Clave</th>
-                                    <th>descripción</th>
+                                    <th>Descripción</th>
                                     <th>Importe</th>
                                     <th>Propina</th>
                                     <th>Importe total</th>
@@ -254,30 +254,35 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr data-id="1">
-                                    <td data-field="name"></td>
-                                    <td data-field="birthday"></td>
-                                    <td data-field="age"></td>
-                                    <td data-field="sex"></td>
-                                    <td></td>
-
+                                <tr>
+                                    <td>EF</td>
+                                    <td>EFECTIVO</td>
+                                    <td>$ <span id="importeEfectivo">0</span></td>
+                                    <td>$ <span id="propinaEfectivo">0</span> </td>
+                                    <td>$ <span id="importeTotalEfectivo">0</span></td>
                                 </tr>
-                                <tr data-id="2">
-                                    <td data-field="name"></td>
-                                    <td data-field="birthday"></td>
-                                    <td data-field="age"></td>
-                                    <td data-field="sex"></td>
-                                    <td></td>
-
+                                <tr>
+                                    <td>VISA</td>
+                                    <td>VISA</td>
+                                    <td>$ <span id="importeVisa">0</span></td>
+                                    <td>$ <span id="propinaVisa">0</span> </td>
+                                    <td>$ <span id="importeTotalVisa">0</span></td>
                                 </tr>
-                                <tr data-id="3">
-                                    <td data-field="name"></td>
-                                    <td data-field="birthday"></td>
-                                    <td data-field="age"></td>
-                                    <td data-field="sex"></td>
-                                    <td></td>
-
+                                <tr>
+                                    <td>MC</td>
+                                    <td>MASTERCARD</td>
+                                    <td>$ <span id="importeMasterCard">0</span></td>
+                                    <td>$ <span id="propinaMasterCard">0</span> </td>
+                                    <td>$ <span id="importeTotalMasterCard">0</span></td>
                                 </tr>
+                                <tr>
+                                    <td>AMEX</td>
+                                    <td>AMERICAN EXPESS</td>
+                                    <td>$ <span id="importeAmericanExpress">0</span></td>
+                                    <td>$ <span id="propinaAmericanExpress">0</span> </td>
+                                    <td>$ <span id="importeTotalAmericanExpress">0</span></td>
+                                </tr>
+                               
                                 </tbody>
                             </table>
                             </div>
@@ -287,29 +292,29 @@
                   
                         <div class="col-md-12">
                             <div class="row clearfix">
-                                <div class="col-sm-1">
-                                    <div class="form-group ">    
-                                        <label type="text" class="col-form-label">Saldo:</label>          
-                                    </div>
-                                </div>
                                 <div class="col-sm-2">
                                     <div class="form-group ">    
-                                        <input type="text"  class="form-control" placeholder="$0.00" />          
+                                        <label type="text" disabled="true" class="col-form-label">Saldo:</label>          
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">    
+                                     <input type="text"  class="form-control" placeholder="$0.00" />          
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
                                   <div class="form-group ">    
-                                      <input type="text"  class="form-control" placeholder="$0.00" />          
+                                      <input type="text" id="totalImporte" disabled="true" class="form-control" placeholder="$0.00" />          
                                   </div>
                               </div>
                               <div class="col-sm-2">
                                 <div class="form-group ">    
-                                    <input type="text"  class="form-control" placeholder="$0.00" />          
+                                    <input type="text" id="totalPropina" disabled="true"  class="form-control" placeholder="$0.00" />          
                                 </div>
                             </div>
                             <div class="col-sm-2">
                               <div class="form-group ">    
-                                  <input type="text"  class="form-control" placeholder="$0.00" />          
+                                  <input type="text" id="totalImporteTotal" disabled="true" class="form-control" placeholder="$0.00" />          
                               </div>
                           </div>
 
@@ -418,6 +423,12 @@
 
 <script src="assets/bundles/mainscripts.bundle.js"></script>
 <script src="assets/js/pages/tables/jquery-datatable.js"></script>
+<script>
+    function init() {
+        datosInicialesPagar();
+    }
+    window.onload = init();
+</script>
 
 <!-- <script src="assets/js/pages/index.js"></script> -->
 <!-- <script src="assets/js/pages/charts/polar_area_chart.js"></script> -->
