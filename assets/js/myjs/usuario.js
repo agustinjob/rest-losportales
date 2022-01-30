@@ -127,9 +127,9 @@
                         "<td>" + item.nombre + "</td>" +
                         "<td>" + item.username + "</td>" +
                         "<td>" + item.tipoUsuario + "</td>" +
-                        "<td class='text-center';>  <button class='btn bg-danger btn-round' onclick=\"modificar(\'" + item.id + "\',\'" + item.nombre + "\',\'" + item.username + "\',\'" + item.tipoUsuario + "\',\'" +
+                        "<td class='text-center';>  <button class='btn bg-danger btn-icon  btn-icon-mini btn-round' onclick=\"modificar(\'" + item.id + "\',\'" + item.nombre + "\',\'" + item.username + "\',\'" + item.tipoUsuario + "\',\'" +
                          item.fechaRegistro + "\',\'" + item.password + "\',\'eliminar\');\" ><i class='zmdi zmdi-delete'></i></button> " +
-                        "<button class='btn bg-success btn-round' onclick=\"modificar(\'" + item.id + "\',\'" + item.nombre + "\',\'" + item.username + "\',\'" + item.tipoUsuario + "\',\'" + 
+                        "<button class='btn bg-success btn-icon  btn-icon-mini btn-round' onclick=\"modificar(\'" + item.id + "\',\'" + item.nombre + "\',\'" + item.username + "\',\'" + item.tipoUsuario + "\',\'" + 
                         item.fechaRegistro + "\',\'" + item.password + "\',\'modificar\');\" ><i class='zmdi zmdi-edit'></i></button></td>" +
                         "</tr>";
                     $('#tablaUsuarios > tbody').append(rows);

@@ -330,6 +330,24 @@
                                     </div>
                             </div>
                         </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3">
+                            <div class="body m-b-30 l-green">
+                                <div class="event-name row ">
+                                    <a href="#pagPopModal" id="cerrarTurno"  data-toggle="modal" class="enlace" data-target="#pagPopModal"></a>
+                                    <div class=" col-12 text-center" >
+                                        <h6 class="color-name">PAGAR PROPINAS</h6>
+                                        <a href="">
+                                            <img class="icon-menu-principal" src="assets/icon/metodo-de-pago.png" alt="">
+                                        </a> 
+                                        <!-- <h6 class="color-name" style="display:inline-block;" >Salir</h6>
+                                        <span class="material-icons" style="margin-left: 7px; font-size:25px; display: inline-block; vertical-align: middle;" >
+                                            exit_to_app
+                                            </span> -->
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
                             <div class="col-sm-3 col-md-3 col-lg-3">
                                 <div class="body m-b-30 l-green">
                                     <div class="event-name row ">
@@ -365,7 +383,164 @@
         </div>
     </div>
 </section>
- 
+
+<!-- Modal Pagar Propina -->
+<div class="modal fade" id="pagPopModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content ">
+        <div class="modal-header">
+                <h4 class="title" id="smallModalLabel">Pagar propina. </h4>
+                <a href="">
+                    <img class="icon-menu-principal" src="assets/icon/metodo-de-pago.png" alt="">
+                </a> 
+        </div>
+        <br>
+        
+                      <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        
+                         <div class="row clearfix">
+                            <div class="col-sm-4">
+                                <div class="form-group ">
+                                    <p class="text-blac text-center">Archivo:</p>
+                                    <select class="form-control show-tick" id="tipoUsuario">
+                                      <option value="">Seleccionar</option>
+                                      <option value="Administrador">Turno actual</option>
+                                      <option value="Cajero">Historico</option>
+                                      <!-- <option value="Gerente">Gerente</option>
+                                      <option value="Subgerente">Subgerente</option>
+                                      <option value="Supervisor">Supervisor</option> -->
+                                  </select>        
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <div class="form-group ">  
+                            
+                                    <p class="text-blac text-center">Mesero:</p>
+                                    <select class="form-control show-tick" id="tipoUsuario">
+                                      <option value="">Seleccionar</option>
+                                      <option value="Administrador">Turno actual</option>
+                                      <option value="Cajero">Historico</option>
+                                      <!-- <option value="Gerente">Gerente</option>
+                                      <option value="Subgerente">Subgerente</option>
+                                      <option value="Supervisor">Supervisor</option> -->
+                                  </select>     
+                                </div>
+                            </div>
+                    </div>
+                    </div>
+                </div>
+                      </div>
+    
+        <div class="container">
+            <div class="row clearfix">
+
+                
+                    <div class="col-sm-12">
+                    
+                        <div class="body table-responsive">
+                            <table class="table m-b-0">
+                                <thead class="thead-light">
+                                    <tr>
+                                    <th scope="col">FOLIO</th>
+                                    <th scope="col">FECHA DE CIERRE</th>
+                                    <th scope="col">ORDEN</th>
+                                    <th scope="col">PROPINA EN EFECTIVO</th>
+                                    <th scope="col">PRIPINA EN TARJETA</th>
+                                    <th scope="col">PROPINA TOTAL</th>
+                                    <th scope="col">PAGAR PROPINA</th>            
+                                    <!-- <th scope="col">CANCELAR</th> -->
+
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                    <th scope="row">1</th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <!-- <td><button class='btn bg-danger btn-round'><a class="text-white"  href="#canProModal" data-toggle="modal" data-target="#canProModal"><i class='zmdi zmdi-delete'></i></a></button></td> -->
+
+                                    </tr>
+                                    <tr>
+                                    <th scope="row">2</th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <!-- <td> <button class='btn bg-danger btn-round'><a class="text-white"  href="#canProModal" data-toggle="modal" data-target="#canProModal"><i class='zmdi zmdi-delete'></i></a></button></td> -->
+                                    </tr>
+                                    <tr>
+                                    <th scope="row">3</th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <!-- <td><button class='btn bg-danger btn-round ' ><a class="text-white"  href="#canProModal" data-toggle="modal" data-target="#canProModal"><i class='zmdi zmdi-delete'></i></a></button></td> -->
+                                    </tr>
+                                </tbody>
+                                </table>
+                        </div>
+                    </div>
+                    
+
+                </div>
+                      <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        
+                         <div class="row clearfix">
+                            <div class="col-sm-4">
+                                <div class="form-group ">
+                                    <b>Cuentas:</b>    
+                                    <input type="number" id="mesaInfo" class="form-control form-control-sm" placeholder="0"/>          
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group ">   
+                                    <b>Importe total propina:</b> 
+                                    <input type="number" id="fechaCuentaInfo" value="" class="form-control" placeholder="$0.00" />          
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group ">  
+                                    <b> importa a pagar:</b>  
+                                    <input type="number" id="fechaCuentaInfo" value="" class="form-control" placeholder="$0.00" />          
+                                </div>
+                            </div>
+                    </div>
+                    </div>
+                </div>
+                      </div>
+    
+
+        <div class="modal-footer" >
+      
+            
+            <button type="button" class="btn bg-deep-orange btn-round" > </a>
+                <a  href="·" ></a>
+                ACEPTAR <i class="zmdi zmdi-check"></i>
+            </button>
+            <button type="button" class="btn bg-black  btn-round " data-dismiss="modal"
+            >CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
+            </button>
+        </div>
+        </div>
+        
+    </div>
+    </div>
+</div>
 
 <!-- Apertura de Turno -->
 <div class="modal fade" id="smallModal" tabindex="-1" role="dialog">
@@ -483,12 +658,11 @@
                             <b>Mesero:</b>  
                             <select class="form-control" >
                                 <option value="">Seleccionar</option>
-                                <option value="1">01</option>
-                                <option value="10">10</option>
-                                <option value="20">20</option>
-                                <option value="30">30</option>
-                                <option value="40">40</option>
-                                <option value="50">50</option>
+                                <option value="Luisa">Luisa</option>
+                                <option value="Jessi">Jessi</option>
+                                <option value="juan">juan</option>
+                                <option value="Eduardo">Eduardo</option>
+
                             </select>
                         </div>
 

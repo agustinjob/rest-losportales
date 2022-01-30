@@ -66,7 +66,7 @@
             </div>   
             <div class="col-lg-7 col-md-7 col-sm-12">
                 <ul class="breadcrumb float-md-right padding-0">
-                    <li class="breadcrumb-item"><a href="panel_inicio.html" class="text-black"><i class="zmdi zmdi-home"></i>&nbsp;&nbsp; SALIR</a></li>
+                    <!-- <li class="breadcrumb-item"><a href="panel_inicio.html" class="text-black"><i class="zmdi zmdi-home"></i>&nbsp;&nbsp; SALIR</a></li> -->
                 </ul>
             </div>            
         </div>
@@ -83,8 +83,9 @@
                               <label type="text" class="col-form-label" >Cantidad:</label>          
                             </div>
                             <div class="form-group">
-                              <input type="text" id="valorIngresado"  class="form-control input-derecha-izquierda" placeholder="$0.00"/>
-                              <button onclick="asignarDatosPagarCuenta();">Registrar</button>
+                              <input type="number" id="valorIngresado"  class="form-control input-derecha-izquierda" placeholder="$0.00"/>
+                              <br>
+                              <button class="btn bg-deep-orange btn-round waves-effect" onclick="asignarDatosPagarCuenta();">Registrar</button>
                           </div>
 
                           <div class="col-md-12">
@@ -155,7 +156,7 @@
                                     <div class="col-sm-4">
                                         <div class="form-group ">
                                             <b><strong>Consumo:</strong></b>    
-                                            <input type="text" id="consumoTotal" value="0" class="form-control form-control-sm" />          
+                                            <input type="number" id="consumoTotal" value="0" class="form-control form-control-sm" placeholder="0.00"/>          
                                         </div>
                                     </div>
                                     <!-- <div class="col-sm-3">
@@ -213,13 +214,13 @@
                             <div class="col-sm-4">
                                 <div class="form-group ">
                                     <b class="text-danger"><strong>Total en M.N.</strong></b>    
-                                    <input type="text" id="totalMN" class="form-control form-control-sm" />          
+                                    <input type="number" id="totalMN" class="form-control form-control-sm" placeholder="0.00" />          
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group ">
                                     <b > <strong>Cambio en M.N.:</strong> </b>    
-                                    <input type="text" id="cambioMN" class="form-control form-control-sm" />          
+                                    <input type="number" id="cambioMN" class="form-control form-control-sm" placeholder="0.00" />          
                                 </div>
                             </div>
                         </div>
@@ -294,27 +295,27 @@
                             <div class="row clearfix">
                                 <div class="col-sm-2">
                                     <div class="form-group ">    
-                                        <label type="text" disabled="true" class="col-form-label">Saldo:</label>          
+                                        <label type="number" disabled="true" class="col-form-label">Saldo:</label>          
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <div class="form-group">    
-                                     <input type="text"  class="form-control" placeholder="$0.00" />          
+                                     <input type="number"  class="form-control" placeholder="$0.00" />          
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
                                   <div class="form-group ">    
-                                      <input type="text" id="totalImporte" disabled="true" class="form-control" placeholder="$0.00" />          
+                                      <input type="number" id="totalImporte" disabled="true" class="form-control" placeholder="$0.00" />          
                                   </div>
                               </div>
                               <div class="col-sm-2">
                                 <div class="form-group ">    
-                                    <input type="text" id="totalPropina" disabled="true"  class="form-control" placeholder="$0.00" />          
+                                    <input type="number" id="totalPropina" disabled="true"  class="form-control" placeholder="$0.00" />          
                                 </div>
                             </div>
                             <div class="col-sm-2">
                               <div class="form-group ">    
-                                  <input type="text" id="totalImporteTotal" disabled="true" class="form-control" placeholder="$0.00" />          
+                                  <input type="number" id="totalImporteTotal" disabled="true" class="form-control" placeholder="$0.00" />          
                               </div>
                           </div>
 

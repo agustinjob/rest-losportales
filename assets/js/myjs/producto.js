@@ -126,8 +126,8 @@ function obtenerDatos() {
                     "<td>" + item.categoriaGeneral + "</td>" +
                     "<td>" + item.categoriaEspecifica + "</td>" +
                     "<td>" + item.precio + "</td>" +
-                    "<td class='text-center'> <button class='btn bg-danger btn-round' onclick=\"modificar(\'" + item.id + "\',\'" + item.nombre + "\',\'" + item.categoriaGeneral + "\',\'" + item.categoriaEspecifica + "\',\'" + item.precio + "\',\'" + item.iva + "\',\'eliminar\');\" ><i class='zmdi zmdi-delete'></i></button> " +
-                    "<button class='btn bg-success btn-round' onclick=\"modificar(\'" + item.id + "\',\'" + item.nombre + "\',\'" + item.categoriaGeneral + "\',\'" + item.categoriaEspecifica + "\',\'" + item.precio + "\',\'" + item.iva + "\',\'modificar\');\" ><i class='zmdi zmdi-edit'></i></button></td>" +
+                    "<td class='text-center'> <button class='btn bg-danger btn-icon  btn-icon-mini btn-round' onclick=\"modificar(\'" + item.id + "\',\'" + item.nombre + "\',\'" + item.categoriaGeneral + "\',\'" + item.categoriaEspecifica + "\',\'" + item.precio + "\',\'" + item.iva + "\',\'eliminar\');\" ><i class='zmdi zmdi-delete'></i></button> " +
+                    "<button class='btn bg-success btn-icon  btn-icon-mini btn-round onclick=\"modificar(\'" + item.id + "\',\'" + item.nombre + "\',\'" + item.categoriaGeneral + "\',\'" + item.categoriaEspecifica + "\',\'" + item.precio + "\',\'" + item.iva + "\',\'modificar\');\" ><i class='zmdi zmdi-edit'></i></button></td>" +
                     "</tr>";
                 $('#tablaProductos > tbody').append(rows);
             });
