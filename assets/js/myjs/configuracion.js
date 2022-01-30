@@ -67,3 +67,26 @@ function modificarDatos() {
         }
     });
 }
+
+
+
+function cierreParaImprimir(id) {
+
+    $.ajax({
+        url: "http://localhost:8082/v1/configuracion-imprimir/" + id + "/1",
+        type: "GET",
+        contentType: 'application/json; charset=utf-8',
+        success: function(data) {
+            if (data == false) {
+                alert("Ocurrio un error al realizar la impresión, revisa la conexión de tu impresora o la configuración");
+            }
+            obtenerCuentasAbiertas();
+        },
+        failure: function(data) {
+            alert(data.responseText);
+        },
+        error: function(data) {
+            alert(data.responseText);
+        }
+    });
+}

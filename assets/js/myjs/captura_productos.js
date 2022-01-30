@@ -98,7 +98,7 @@ function agregarProductoTabla(posicion) {
         nombre: item.nombre,
         cantidad: 1,
         costo: item.precio,
-        importe: item.costo,
+        importe: item.precio,
         motivoCancelacion: "",
         catEspecifica: item.categoriaEspecifica,
         catGeneral: item.categoriaGeneral

@@ -73,8 +73,9 @@ function datosCuenta(idCuenta) {
                 $('#tablaProductosOrden > tbody').append(rowsProd);
             });
             var iva = importeTotal * .138;
+            console.log("importe total " + importeTotal);
             $("#subtotal").val(importeTotal - iva);
-            $("#impuesto").val(iva);
+            $("#impuesto").val(iva.toFixed(2));
             $("#total").val(importeTotal);
             sessionStorage.setItem("totalConsumo", importeTotal);
         },
@@ -219,6 +220,37 @@ function cerrarCuenta() {
             }
         });
     }
+}
+
+function cerrarCuentaSoloImpresion() {
+    var fecha = new Date(new Date().getTime() - (new Date().getTimezoneOffset() * 60000));
+    idCuentatxt = localStorage.getItem("idCuenta");
+
+
+    $.ajax({
+        url: "http://localhost:8082/v1/cuentas-cambiar/5",
+        type: "POST",
+        data: JSON.stringify({
+            idCuenta: idCuentatxt,
+            cierre: fecha,
+            descuento: "0",
+            montoTotal: $("#totalConsumo").val(),
+            montoSubtotal: $("#subtotal").val(),
+            iva: $("#impuesto").val(),
+            montoTotalDescuento: "0",
+            huboDescuento: "false"
+        }),
+        contentType: 'application/json; charset=utf-8',
+        success: function(data) {
+            cierreParaImprimir(idCuentatxt);
+        },
+        failure: function(data) {
+            alert(data.responseText);
+        },
+        error: function(data) {
+            alert(data.responseText);
+        }
+    });
 }
 
 function renombrarCuenta() {
