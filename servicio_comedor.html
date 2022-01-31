@@ -25,6 +25,8 @@
 <script src="assets/js/myjs/mesero.js"></script>
 <script src="assets/js/myjs/configuracion.js"></script>
 <script src="assets/js/myjs/cuenta.js"></script>
+<script src="assets/js/myjs/mesa.js"></script>
+
 
 
 <script>
@@ -164,9 +166,9 @@
                                  <div class="div-scroll-btn-productos">
                                       <div id="caja">
                                           <button type="button" class="btnMenu btn-color-rojo"> 
-                                                <a href="#defaultModal" onclick="obtenerDatosSelect('#divCuentaMesero','cuentaMeseros','NO');" data-toggle="modal" data-target="#defaultModal">
+                                                <a href="#defaultModal" onclick="obtenerCatalogos()" data-toggle="modal" data-target="#defaultModal">
                                                     <img src="assets/icon/recibo.png" alt="">
-                                                    <p class="negro-text"> <strong>ABRIR CTA</strong> </p>
+                                                    <p class="negro-text"> <strong>ABRIR CTA</strong> </p>  
                                                 </a>                                            
                                             </button>
                                         </div>
@@ -179,10 +181,10 @@
                                         </button>
                                       </div> 
                                       <div id="caja">
-                                        <button type="button" class="btnMenu btn-color-amarillo"> 
+                                        <button type="button" onclick="asignarDatosJuntarCuenta();" class="btnMenu btn-color-amarillo"> 
                                             <a href="#jubtModal" data-toggle="modal" data-target="#jubtModal">
                                                 <img src="assets/icon/reunion.png" alt="">
-                                                <p class="negro-text"> <strong>JUNTAR CLIENTES</strong> </p>
+                                                <p class="negro-text"> <strong>JUNTAR CUENTAS</strong> </p>
 
                                             </a> 
                                         </button>
@@ -306,7 +308,7 @@
                                     <div class="col-sm-4">
                                         <div class="form-group ">
                                             <b>Cuenta:</b>    
-                                            <input type="number" id="cuentaInfo" class="form-control form-control-sm" />          
+                                            <input type="text" id="cuentaInfo" class="form-control form-control-sm" />          
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
@@ -832,13 +834,13 @@
                     <div class="col-sm-6">
                         <div class="form-group ">
                             <b>Mesa origen:</b>    
-                            <input type="text"  class="form-control" />          
+                            <input type="text" id="cuentaOrigen" disabled="true"  class="form-control" />          
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group ">    
                             <b>Mesa destino:</b>
-                            <input type="text"  class="form-control" />          
+                            <input type="text" id="cuentaDestino"  class="form-control" />          
                         </div>
                     </div>
                 </div>
@@ -847,9 +849,9 @@
            
        
             <div class="modal-footer">
-                <button type="button" class="btn btn-info btn-round waves-effect"> ORIGEN </i>
-                </button>
-                <button type="button" class="btn bg-deep-orange btn-round waves-effect"> ACEPTAR <i class="zmdi zmdi-check"></i>
+             <!--   <button type="button" class="btn btn-info btn-round waves-effect"> ORIGEN </i>
+                </button>>-->
+                <button type="button" onclick="juntarCuentas();" class="btn bg-deep-orange btn-round waves-effect"> ACEPTAR <i class="zmdi zmdi-check"></i>
                 </button>
                 <button type="button" class="btn bg-black  btn-round waves-effect" data-dismiss="modal">CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
             </div>
@@ -1038,7 +1040,7 @@
                     <div class="col-sm-6">
                         <div class="form-group ">
                             <b>Cuenta:</b>    
-                            <input type="number"  id="nombreCuenta" class="form-control" />          
+                            <input type="text"  id="nombreCuenta" class="form-control" />          
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -1058,15 +1060,7 @@
                     <div class="col-sm-6">
                         <div class="form-group form-group-sm">  
                             <b>Mesa:</b>  
-                            <select class="form-control" >
-                                <option value="">Seleccionar mesa</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                            </select>
+                            <div id="divCuentaMesa"></div>
                         </div>
                     </div>
             </div>       

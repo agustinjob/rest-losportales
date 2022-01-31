@@ -143,7 +143,7 @@ function obtenerDatosSelect(div, id, validacion) {
             if (hayIdCuenta == true) {
                 $("#btnCambiarMesero").prop('disabled', false);
             }
-            var option = "<option value=0>Selecciona un mesero</option>";
+            var option = "<option value='0'>Selecciona un mesero</option>";
             $.each(data, function(i, item) {
                 option = option + "\n <option value=\"" + item.id + "\">" + item.nombre + "</option>";
             });

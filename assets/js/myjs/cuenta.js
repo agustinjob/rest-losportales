@@ -1,5 +1,12 @@
 var tipoPago = "";
 var esPropina = false;
+var productosAdividir = [];
+var productosAdividirN1 = [];
+var productosAdividirN2 = [];
+var productosAdividirN3 = [];
+var productosAdividirTemporal = [];
+var cantidadProductosTotal = 0;
+var cantidadProductosTomada = 0;
 
 
 function obtenerCuentasAbiertas() {
@@ -46,6 +53,7 @@ function datosCuenta(idCuenta) {
         contentType: 'application/json; charset=utf-8',
         success: function(data) {
             $("#cuentaInfo").val(data.nombreCuenta);
+            sessionStorage.setItem("nombreCuenta", data.nombreCuenta);
             $("#folioInfo").val(data.folio);
             $("#mesaInfo").val(data.mesa);
             $("#meseroInfo").val(data.nombreMesero);
@@ -104,11 +112,19 @@ function abrirCuenta() {
     var idTurnotxt = localStorage.getItem('idTurno');
     if (idTurnotxt == null) {
         alert("Tienes que abrir turno para abrir una cuenta");
+        return null;
+    }
+
+    if (nombreCuenta === "" || personasCuenta === "" || $("#cuentaMeseros").val() === "0" || $("#cuentaMesa").val() === "0") {
+
+        alert("Por favor llena todos los datos");
+        return null; //
     } else {
         nombreCuentatxt = $("#nombreCuenta").val();
         personastxt = $("#personasCuenta").val();
         idMeserotxt = $("#cuentaMeseros").val();
         nombreMeserotxt = $("#cuentaMeseros option:selected").text();
+        nombreMesatxt = $("#cuentaMesa option:selected").text();
         idTurnotxt = localStorage.getItem("idTurno");
         var fecha = new Date(new Date().getTime() - (new Date().getTimezoneOffset() * 60000));
 
@@ -120,6 +136,7 @@ function abrirCuenta() {
                 nombreCuenta: nombreCuentatxt,
                 idTurno: idTurnotxt,
                 apertura: fecha,
+                mesa: nombreMesatxt,
                 cierre: "",
                 idMesero: idMeserotxt,
                 nombreMesero: nombreMeserotxt,
@@ -378,4 +395,242 @@ function actualizarValores() {
 function datosInicialesPagar() {
     $("#consumoTotal").val(sessionStorage.getItem("totalConsumo"));
     $("#totalMN").val(sessionStorage.getItem("totalConsumo"));
+}
+
+function obtenerCatalogos() {
+
+    obtenerDatosSelect('#divCuentaMesero', 'cuentaMeseros', 'NO');
+    obtenerDatosSelectMesa('#divCuentaMesa', 'cuentaMesa', 'NO');
+}
+
+function asignarDatosJuntarCuenta() {
+    var ncuenta = sessionStorage.getItem("nombreCuenta");
+    $("#cuentaOrigen").val(ncuenta);
+
+}
+
+function juntarCuentas() {
+    var cuentaDestino = $("#cuentaDestino").val();
+    var idTurno = localStorage.getItem("idTurno");
+    var idCuenta = localStorage.getItem("idCuenta");
+
+
+    $.ajax({
+        url: "http://localhost:8082/v1/cuentas-juntar/" + idTurno + "/abierta/" + cuentaDestino + "/" + idCuenta,
+        type: "POST",
+        contentType: 'application/json; charset=utf-8',
+        success: function(data) {
+            if (data == null) {
+                alert("El nombre de la cuenta no existe");
+            } else {
+                alert("Cuentas unidas satisfactoriamente");
+                obtenerCuentasAbiertas();
+                datosCuenta(data.idCuenta);
+            }
+        },
+        failure: function(data) {
+            alert(data.responseText);
+        },
+        error: function(data) {
+            alert(data.responseText);
+        }
+    });
+}
+
+// DIVIDIR CUENTA //////////////////////////////////////***************************************************************************************** */
+
+function datosCuentaDividir() {
+
+    var idCuenta = localStorage.getItem("idCuenta");
+    $.ajax({
+        url: "http://localhost:8082/v1/cuentas/" + idCuenta,
+        type: "GET",
+        contentType: 'application/json; charset=utf-8',
+        success: function(data) {
+            productosAdividir = data.productos;
+            $("#NombreDividirCuentaOrigen").val(data.nombreCuenta);
+            $("#NombreDividirCuentaOrigen").prop("disabled", true);
+
+            imprimirDatosCuentaOrigen();
+        },
+        failure: function(data) {
+            alert(data.responseText);
+        },
+        error: function(data) {
+            alert(data.responseText);
+        }
+    });
+
+}
+
+function imprimirDatosCuentaOrigen() {
+    $('#tablaDividirCuentaProductos > tbody').empty();
+
+    $.each(productosAdividir, function(i, item) {
+
+        var rowsProd =
+            "<tr>" +
+            "<td><button onclick='asignarProductosDividir(" + i + ");' id='" + i + "'>" + (i + 1) + "</button></td>" +
+            "<td> <span id='" + i + "cantidadProducto'>" + item.cantidad + "</span></td>" +
+            "<td> <input type='number' value='0' id='" + i + "cantidad'></td>" +
+            "<td>" + item.nombre + "</td>" +
+            "</tr>";
+        cantidadProductosTotal = cantidadProductosTotal + item.cantidad;
+
+        $('#tablaDividirCuentaProductos > tbody').append(rowsProd);
+    });
+}
+/*
+var cantidadProductosTotal = 0;
+var cantidadProductosTomada = 0;
+* */
+function asignarProductosDividir(id) {
+
+    var cantidad = parseInt($("#" + id + "cantidad").val());
+    var cantidadProducto = parseInt($("#" + id + "cantidadProducto").text());
+
+    if (cantidad === 0) {
+        alert("Por favor ingresa una cantidad");
+        return null;
+    }
+    if (cantidad > cantidadProducto) {
+        alert("La cantidad ingresada no puede ser mayor a la cantidad que se tiene del procuto");
+        return null;
+    } else {
+        cantidadProductosTomada = cantidadProductosTomada + cantidad;
+        if (cantidadProductosTomada < cantidadProductosTotal) {
+            $("#" + id).prop('disabled', true);
+
+            var productoTemp = $.extend({}, productosAdividir[id]);
+            var res = productoTemp.cantidad - cantidad;
+            productosAdividir[id].cantidad = res;
+            productoTemp.cantidad = cantidad;
+            productosAdividirTemporal.push(productoTemp);
+
+            $("#" + id + "cantidad").prop('disabled', true);
+
+        } else {
+            alert("No puedes enviar todos los productos a otras cuentas");
+        }
+    }
+}
+
+function asignarProductosANuevaTabla(numCuenta) {
+    if (numCuenta === 1) {
+        productosAdividirN1 = productosAdividirTemporal.slice();
+        productosAdividirTemporal = [];
+    }
+    if (numCuenta === 2) {
+        productosAdividirN2 = productosAdividirTemporal.slice();
+        productosAdividirTemporal = [];
+    }
+    if (numCuenta === 3) {
+        productosAdividirN3 = productosAdividirTemporal.slice();
+        productosAdividirTemporal = [];
+    }
+
+    $("#asignar" + numCuenta).prop('disabled', true);
+
+
+    productosAdividir = productosAdividir.filter(item => item.cantidad != 0);
+    imprimirValoresEnTabla(numCuenta);
+    imprimirDatosCuentaOrigen();
+}
+
+function imprimirValoresEnTabla(numCuenta) {
+
+    $('#cuentaNueva' + numCuenta + '> tbody').empty();
+    var importeTotal = 0;
+    var nombre = "productosAdividirN" + numCuenta;
+    $.each(eval(nombre), function(i, item) {
+        var rowsProd =
+            "<tr>" +
+            "<td>" + item.cantidad + "</td>" +
+            "<td>" + item.nombre + "</td>" +
+            "</tr>";
+        importeTotal = importeTotal + (item.cantidad * item.costo);
+        $('#cuentaNueva' + numCuenta + '> tbody').append(rowsProd);
+
+    });
+
+    $("#cuentaN" + numCuenta + "txt").val(importeTotal);
+}
+/**
+ * var productosAdividir = [];
+var productosAdividirN1 = [];
+var productosAdividirN2 = [];
+var productosAdividirN3 = [];
+ */
+
+function realizarDivision() {
+    modificarCuentaPrincipalPorDivision();
+    var nombreC = $("#NombreDividirCuentaOrigen").val();
+    if (productosAdividirN1.length > 0) {
+        agregarCuentasSecundariasPorDivision(productosAdividirN1, nombreC + '-A');
+    }
+    if (productosAdividirN2.length > 0) {
+        agregarCuentasSecundariasPorDivision(productosAdividirN2, nombreC + '-B');
+    }
+    if (productosAdividirN3.length > 0) {
+        agregarCuentasSecundariasPorDivision(productosAdividirN3, nombreC + '-C');
+    }
+    alert("Se ha relizado la división de cuentas de manera correcta");
+    location.href = "servicio_comedor.html";
+
+}
+
+function modificarCuentaPrincipalPorDivision() {
+    var idCuentatxt = localStorage.getItem("idCuenta");
+    $.ajax({
+        url: "http://localhost:8082/v1/cuentas-cambiar/6",
+        type: "POST",
+        data: JSON.stringify({
+            idCuenta: idCuentatxt,
+            productos: productosAdividir
+        }),
+        contentType: 'application/json; charset=utf-8',
+        success: function(data) {
+            if (data == null) {
+                alert("El nombre de la cuenta no existe");
+            } else {
+                obtenerCuentasAbiertas();
+                datosCuenta(data.idCuenta);
+            }
+        },
+        failure: function(data) {
+            alert(data.responseText);
+        },
+        error: function(data) {
+            alert(data.responseText);
+        }
+    });
+}
+
+function agregarCuentasSecundariasPorDivision(productosArray, nombreCu) {
+    var idCuentatxt = localStorage.getItem("idCuenta");
+    $.ajax({
+        url: "http://localhost:8082/v1/cuentas-cambiar/7",
+        type: "POST",
+        data: JSON.stringify({
+            idCuenta: idCuentatxt,
+            productos: productosArray,
+            nombreCuenta: nombreCu
+        }),
+        contentType: 'application/json; charset=utf-8',
+        success: function(data) {
+            if (data == null) {
+                alert("El nombre de la cuenta no existe");
+            } else {
+                alert("Cuentas unidas satisfactoriamente");
+                obtenerCuentasAbiertas();
+                datosCuenta(data.idCuenta);
+            }
+        },
+        failure: function(data) {
+            alert(data.responseText);
+        },
+        error: function(data) {
+            alert(data.responseText);
+        }
+    });
 }

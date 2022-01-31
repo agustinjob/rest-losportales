@@ -22,20 +22,20 @@
 <link rel="stylesheet" href="assets/css/mycss.css">
 <script src="assets/js/jquery/jquery-3.6.0.min.js"></script>
 <script src="assets/js/myjs/utilidades.js"></script>
-<script src="assets/js/myjs/mesero.js"></script>
 <script src="assets/js/myjs/cuenta.js"></script>
 
 
 <script>
 
-    // function ejecutar() {
-    //     revisarSesion();
+    function ejecutar() {
+        revisarSesion();
+        datosCuentaDividir();
     //     obtenerCuentasAbiertas();
     //     eliminarCuenta();
   
-    // }
+     }
 
-    // window.onload = ejecutar();
+    window.onload = ejecutar();
 </script>
 
 </head>
@@ -88,7 +88,7 @@
 
                         </div>
                         <div class="col-sm-6">
-                        <input type="text" class="form-control">
+                        <input type="text" id="NombreDividirCuentaOrigen" class="form-control">
                         </div>
 
                 </div>
@@ -102,155 +102,16 @@
                 <div class="div-scroll-tabla">
                     <!-- <div class="body"> -->
                         <div class="table-responsive">
-                            <table class="table table-bordered" id="">
+                            <table class="table table-bordered" id="tablaDividirCuentaProductos">
                                 <thead>
                                     <tr>
                                         <th>Mov.</th>
-                                        <th>Comanda</th>
                                         <th>Cant.</th>
-                                        <th>Clave</th>
+                                        <th></th>
                                         <th>Descripción</th>
-                                        <th>Traspasar</th>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                   
-                                    </tbody>
+                                <tbody>   
+                                </tbody>
                             </table>
                         </div>
 </div>
@@ -269,7 +130,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <button type="button" class="btn btn-round bg-deep-orange  float-right"> ACEPTAR</button>
+                                <button type="button" onclick="realizarDivision();" class="btn btn-round bg-deep-orange  float-right"> ACEPTAR</button>
                                 <button type="button" class="btn btn-round bg-blue float-right">IMPRIMIR</button>
                                 <button type="button" class="btn btn-round bg-black  float-right">CANCELAR</button>
                                 
@@ -282,60 +143,20 @@
                 <div class="body">
                     <div class="row clearfix" >
                         <div class="col-sm-4">
-                            <b>Cuenta nueva: 1</b>
+                            <button type="button" id="asignar1" onclick="asignarProductosANuevaTabla(1);" class="btn btn-round bg-deep-orange  float-right"> Cuenta nueva 1</button>
                         </div>
                           <div class="container">
                               <div class="row">
                                    <div class="col-md-12">
                                       <div class="table-responsive">
-                                             <table class="table table-bordered" id="">
+                                             <table class="table table-bordered" id="cuentaNueva1">
                                             <thead>
                                                 <tr>
                                                     <th>Cant.</th>
-                                                    <th>Clave</th>
                                                     <th>Descripción</th>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-
-                                                </tr>
-
-                                                </tr>
-                                            
-                                                </tbody>
+                                            </tbody>
                                              </table>
                                          </div>
                                      
@@ -348,7 +169,7 @@
                         <b>Total:</b>
                     </div>
                     <div class="col-sm-4 ">
-                        <input type="text" class="form-control"  placeholder="0.00">
+                        <input type="text" class="form-control" disabled="true" id="cuentaN1txt" placeholder="0.00">
                     </div>
                 </div>
             </div>
@@ -358,59 +179,20 @@
                 <div class="body">
                     <div class="row clearfix" >
                         <div class="col-sm-4">
-                            <b>Cuenta nueva: 2</b>
+                            <button type="button" id="asignar2" onclick="asignarProductosANuevaTabla(2);" class="btn btn-round bg-deep-orange  float-right"> Cuenta nueva 2</button>
                         </div>
                           <div class="container">
                               <div class="row">
                                    <div class="col-md-12">
                                       <div class="table-responsive">
-                                             <table class="table table-bordered" id="">
+                                             <table class="table table-bordered" id="cuentaNueva2">
                                             <thead>
                                                 <tr>
                                                     <th>Cant.</th>
-                                                    <th>Clave</th>
                                                     <th>Descripción</th>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-
-                                                </tr>
-
-                                                </tr>
-                                            
+                                                                                          
                                                 </tbody>
                                              </table>
                                          </div>
@@ -424,7 +206,7 @@
                         <b>Total:</b>
                     </div>
                     <div class="col-sm-4 ">
-                        <input type="text" class="form-control">
+                        <input type="text" disabled="true" id="cuentaN2txt" placeholder="0.00" class="form-control">
                     </div>
                 </div>
             </div>
@@ -435,59 +217,20 @@
                 <div class="body">
                     <div class="row clearfix" >
                         <div class="col-sm-4">
-                            <b>Cuenta nueva: 3</b>
+                            <button type="button" id="asignar3" onclick="asignarProductosANuevaTabla(3);" class="btn btn-round bg-deep-orange  float-right"> Cuenta nueva 3</button>
                         </div>
                           <div class="container">
                               <div class="row">
                                    <div class="col-md-12">
                                       <div class="table-responsive">
-                                             <table class="table table-bordered" id="">
+                                             <table class="table table-bordered" id="cuentaNueva3">
                                             <thead>
                                                 <tr>
                                                     <th>Cant.</th>
-                                                    <th>Clave</th>
                                                     <th>Descripción</th>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-
-                                                </tr>
-
-                                                </tr>
-                                            
+                                             
                                                 </tbody>
                                              </table>
                                          </div>
@@ -501,7 +244,7 @@
                         <b>Total:</b>
                     </div>
                     <div class="col-sm-4 ">
-                        <input type="text" class="form-control" placeholder="0.00">
+                        <input type="text" disabled="true" id="cuentaN3txt"  class="form-control" placeholder="0.00">
                     </div>
                 </div>
             </div>
