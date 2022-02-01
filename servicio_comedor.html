@@ -23,6 +23,7 @@
 <script src="assets/js/jquery/jquery-3.6.0.min.js"></script>
 <script src="assets/js/myjs/utilidades.js"></script>
 <script src="assets/js/myjs/mesero.js"></script>
+<script src="assets/js/rollups/md5.js"></script>
 <script src="assets/js/myjs/configuracion.js"></script>
 <script src="assets/js/myjs/cuenta.js"></script>
 <script src="assets/js/myjs/mesa.js"></script>
@@ -32,6 +33,7 @@
 <script>
 
     function ejecutar() {
+        limpiarComedor();
         revisarSesion();
         obtenerCuentasAbiertas();
     }
@@ -165,15 +167,15 @@
                             <div class="col-md-12">
                                  <div class="div-scroll-btn-productos">
                                       <div id="caja">
-                                          <button type="button" class="btnMenu btn-color-rojo"> 
-                                                <a href="#defaultModal" onclick="obtenerCatalogos()" data-toggle="modal" data-target="#defaultModal">
+                                          <button type="button" id="btnAbrirC" class="btnMenu btn-color-rojo"> 
+                                                <a href="#defaultModal"  onclick="obtenerCatalogos()" data-toggle="modal" data-target="#defaultModal">
                                                     <img src="assets/icon/recibo.png" alt="">
                                                     <p class="negro-text"> <strong>ABRIR CTA</strong> </p>  
                                                 </a>                                            
                                             </button>
                                         </div>
                                       <div id="caja">
-                                        <button type="button" onclick='datosCuentaCancelarProductos();' class="btnMenu btn-color-azul"> 
+                                        <button type="button" id="btnCancelar" onclick='datosCuentaCancelarProductos();' class="btnMenu btn-color-azul"> 
                                             <a href="#cancelModal" data-toggle="modal" data-target="#cancelModal">
                                                 <img src="assets/icon/cancelar_producto.png" alt="">
                                                 <p class="negro-text"> <strong>CANCELAR PROD</strong> </p>
@@ -181,7 +183,7 @@
                                         </button>
                                       </div> 
                                       <div id="caja">
-                                        <button type="button" onclick="asignarDatosJuntarCuenta();" class="btnMenu btn-color-amarillo"> 
+                                        <button type="button" id="btnJuntar" onclick="asignarDatosJuntarCuenta();" class="btnMenu btn-color-amarillo"> 
                                             <a href="#jubtModal" data-toggle="modal" data-target="#jubtModal">
                                                 <img src="assets/icon/reunion.png" alt="">
                                                 <p class="negro-text"> <strong>JUNTAR CUENTAS</strong> </p>
@@ -192,7 +194,7 @@
 
                                       
                                       <div id="caja">
-                                        <button type="button" class="btnMenu btn-color-morado"> 
+                                        <button type="button" id="btnDividir" class="btnMenu btn-color-morado"> 
                                             <a href="dividir_cuenta.html" >
                                                 <img src="assets/icon/dividido.png" alt="">
                                                 <p class="negro-text"> <strong>DIVIDIR CTA</strong> </p>
@@ -201,7 +203,7 @@
                                       </div>
                                
                                          <div id="caja">
-                                          <button type="button" class="btnMenu btn-color-amarillo">
+                                          <button type="button" id="btnCapturar" class="btnMenu btn-color-amarillo">
                                             <a href="captura_productos.html">
                                              <!-- <a href="#capModal" data-toggle="modal" data-target="#capModal"> -->
                                                   <img src="assets/icon/tocar.png" alt="">
@@ -211,7 +213,7 @@
                                           </button>
                                          </div>
                                          <div id="caja">
-                                          <button type="button" onclick="verificaCuentaSeleccionada();" class="btnMenu btn-color-gris1"> 
+                                          <button type="button" id="btnRenombrar" onclick="verificaCuentaSeleccionada();" class="btnMenu btn-color-gris1"> 
                                               <a href="#renModal" data-toggle="modal" data-target="#renModal">
                                                   <img src="assets/icon/escritura.png" alt="">
                                                   <p class="negro-text"> <strong>RENOMBRAR CTA</strong> </p>
@@ -220,7 +222,7 @@
                                          </div>
                                           <div id="caja">
                                    
-                                            <button type="button"  class="btnMenu btn-color-naranja1"> 
+                                            <button type="button" id="btnMesero" class="btnMenu btn-color-naranja1"> 
                                                 <a href="#mesModal" onclick="obtenerDatosSelect('#divCambiarMesero', 'cambioMesero','SI');" data-toggle="modal" data-target="#mesModal">
                                                     <img src="assets/icon/cambio.png" alt="">
                                                     <p class="negro-text"> <strong>CAMBIAR MESERO</strong> </p>
@@ -228,7 +230,7 @@
                                             </button>
                                           </div>
                                           <div id="caja">
-                                            <button type="button" class="btnMenu btn-color-gris2">
+                                            <button type="button" id="btnDescuentos" class="btnMenu btn-color-gris2">
                                                 <a href="#valDesModal" data-toggle="modal" data-target="#valDesModal">
                                                     <img src="assets/icon/etiqueta.png" alt="">
                                                     <p class="negro-text"> <strong>DECUENTOS</strong> </p>
@@ -236,7 +238,7 @@
                                             </button>
                                           </div>
                                           <div  id="caja">
-                                            <button type="button" class="btnMenu btn-color-naranja2"> 
+                                            <button type="button" id="btnPagar" class="btnMenu btn-color-naranja2"> 
                                                 <a href="pagar.html">
                                                     <img src="assets/icon/dar-dinero.png" alt="">
                                                     <p class="negro-text"> <strong>&nbsp;PAGAR CUENTA&nbsp;</strong> </p>
@@ -244,7 +246,7 @@
                                             </button>
                                           </div>
                                         <div id="caja">
-                                            <button type="button" onclick="cerrarCuentaSoloImpresion();" class="btnMenu btn-color-morado2"> 
+                                            <button type="button" id="btnImprimir" onclick="cerrarCuentaSoloImpresion();" class="btnMenu btn-color-morado2"> 
                                             
                                                     <img src="assets/icon/impresora.png" alt="">
                                                     <p class="negro-text"> <strong>IMPRIMIR</strong> </p>
@@ -252,7 +254,7 @@
                                             </button>
                                           </div>
                                           <div id="caja">
-                                            <button type="button" class="btnMenu btn-color-rojo"> 
+                                            <button type="button" id="btnReabrir" class="btnMenu btn-color-rojo"> 
                                                 <a href="#reNomModal" data-toggle="modal" data-target="#reNomModal">
                                                     <img src="assets/icon/pagar_cuenta.png" alt="">
                                                     <p class="negro-text"> <strong>REABRIR CUENTA</strong> </p>
@@ -593,20 +595,20 @@
                         
                             <div class="form-group ">
                                 <b>Contraseña:</b>    
-                                <input type="password"  class="form-control" placeholder="Contraseña" />          
+                                <input type="password" id="password2" class="form-control" placeholder="Contraseña" />          
                             </div>
                         </div>
                         </div>
 
 
         
-    
+    <!-- agregar funcionalidad de reabrir cuenta-->
             <div class="modal-footer">
                 <button type="button" class="btn bg-deep-orange btn-round "> </a>
-                    <a   href="#destModal" class="text-white" data-toggle="modal" data-target="#destModal" >                    ACEPTAR <i class="zmdi zmdi-check"></i>
-                    </a>
+                                    ACEPTAR <i class="zmdi zmdi-check"></i>
+               
                 </button>
-                <button type="button" class="btn bg-black  btn-round " data-dismiss="modal"
+                <button type="button" onclick="limpiarCampoInput('password2');" class="btn bg-black  btn-round " data-dismiss="modal"
                 >CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
                 </button>
             </div>
@@ -637,20 +639,17 @@
                         
                             <div class="form-group ">
                                 <b>Contraseña:</b>    
-                                <input type="password"  class="form-control" placeholder="Contraseña" />          
+                                <input type="password" id="password" class="form-control" placeholder="Contraseña" />          
                             </div>
                         </div>
                         </div>
 
-
-        
-    
             <div class="modal-footer">
-                <button type="button" class="btn bg-deep-orange btn-round "> </a>
-                    <a   href="#destModal" class="text-white" data-toggle="modal" data-target="#destModal" >                    ACEPTAR <i class="zmdi zmdi-check"></i>
-                    </a>
+                <button type="button" onclick="verificarPass('destModal');" class="btn bg-deep-orange btn-round "> </a>
+                                      ACEPTAR <i class="zmdi zmdi-check"></i>
+                    
                 </button>
-                <button type="button" class="btn bg-black  btn-round " data-dismiss="modal"
+                <button type="button" onclick="limpiarCampoInput('password');" class="btn bg-black  btn-round " data-dismiss="modal"
                 >CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
                 </button>
             </div>
@@ -1006,9 +1005,7 @@
     </div>
 
 
-<!-- Jquery Core Js -->
-<script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) -->
-<script src="assets/bundles/vendcripts.bundle.js"></script> <!-- slimscroll, waves Scripts Plugin Js -->
+
 
 
 <!-- Jquery DataTable Plugin Js --> 
@@ -1017,7 +1014,13 @@
 <script src="assets/plugins/jquery-datatable/buttons/buttons.bootstrap4.min.js"></script>
 <script src="assets/plugins/jquery-datatable/buttons/buttons.colVis.min.js"></script>
 <script src="assets/plugins/jquery-datatable/buttons/buttons.html5.min.js"></script>
-<script src="assets/plugins/jquery-datatable/buttons/buttons.print.min.js"></script> -->
+<script src="assets/plugins/jquery-datatable/buttons/buttons.print.min.js"></script>
+<script src="assets/js/pages/charts/polar_area_chart.js"></script> -->
+
+<!-- Jquery Core Js -->
+<script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) -->
+<script src="assets/bundles/vendcripts.bundle.js"></script> <!-- slimscroll, waves Scripts Plugin Js -->
+
 
 <!-- formato tabla -->
 <script src="assets/js/myjs/formato_tabla.js" ></script>

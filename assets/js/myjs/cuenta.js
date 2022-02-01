@@ -10,6 +10,37 @@ var cantidadProductosTomada = 0;
 var productosACancelar = [];
 
 
+function hayCuentaSeleccionada() {
+    var idCuenta = localStorage.getItem("idCuenta");
+    console.log("entro" + idCuenta);
+    if (idCuenta === null) {
+        $("#btnAbrirC").prop('disabled', true);
+        $("#btnCancelar").prop('disabled', true);
+        $("#btnJuntar").prop("disabled", true);
+        $("#btnDividir").prop("disabled", true);
+        $("#btnCapturar").prop("disabled", true);
+        $("#btnRenombrar").prop("disabled", true);
+        $("#btnMesero").prop("disabled", true);
+        $("#btnDescuentos").prop("disabled", true);
+        $("#btnPagar").prop("disabled", true);
+        $("#btnImprimir").prop("disabled", true);
+        $("#btnReabrir").prop("disabled", true);
+    } else {
+        $("#btnAbrirC").prop("disabled", false);
+        $("#btnCancelar").prop("disabled", false);
+        $("#btnJuntar").prop("disabled", false);
+        $("#btnDividir").prop("disabled", false);
+        $("#btnCapturar").prop("disabled", false);
+        $("#btnRenombrar").prop("disabled", false);
+        $("#btnMesero").prop("disabled", false);
+        $("#btnDescuentos").prop("disabled", false);
+        $("#btnPagar").prop("disabled", false);
+        $("#btnImprimir").prop("disabled", false);
+        $("#btnReabrir").prop("disabled", false);
+
+    }
+}
+
 function obtenerCuentasAbiertas() {
 
     var idTurno = localStorage.getItem('idTurno');
@@ -142,9 +173,12 @@ function asignarDescuento() {
 }
 
 
-function limpiar() {
+function limpiarComedor() {
     $("#nombreCuenta").val('');
     $("#personasCuenta").val('');
+    localStorage.removeItem("idCuenta");
+    sessionStorage.removeItem("totalConsumo");
+    hayCuentaSeleccionada();
     //  $("#cuentaMeseros").val('');
     //  $("#cuentaMeseros").text('');
 
@@ -207,7 +241,7 @@ function abrirCuenta() {
             }),
             contentType: 'application/json; charset=utf-8',
             success: function(data) {
-                limpiar();
+                limpiarComedor();
                 obtenerCuentasAbiertas();
                 $("#cuentaInfo").val(data.nombreCuenta);
                 $("#folioInfo").val(data.folio);
@@ -286,7 +320,7 @@ function cerrarCuenta() {
 function cerrarCuentaSoloImpresion() {
     var fecha = new Date(new Date().getTime() - (new Date().getTimezoneOffset() * 60000));
     idCuentatxt = localStorage.getItem("idCuenta");
-
+    v
 
     $.ajax({
         url: "http://localhost:8082/v1/cuentas-cambiar/5",
@@ -294,12 +328,10 @@ function cerrarCuentaSoloImpresion() {
         data: JSON.stringify({
             idCuenta: idCuentatxt,
             cierre: fecha,
-            descuento: "0",
             montoTotal: $("#totalConsumo").val(),
             montoSubtotal: $("#subtotal").val(),
             iva: $("#impuesto").val(),
-            montoTotalDescuento: "0",
-            huboDescuento: "false"
+            montoTotalDescuento: $("#descuento").val(),
         }),
         contentType: 'application/json; charset=utf-8',
         success: function(data) {
@@ -508,7 +540,8 @@ function datosCuentaDividir() {
 
 function imprimirDatosCuentaOrigen() {
     $('#tablaDividirCuentaProductos > tbody').empty();
-
+    cantidadProductosTotal = 0;
+    cantidadProductosTomada = 0;
     $.each(productosAdividir, function(i, item) {
 
         var rowsProd =
@@ -597,20 +630,23 @@ function imprimirValoresEnTabla(numCuenta) {
 }
 
 function realizarDivision() {
-    modificarCuentaPrincipalPorDivision();
-    var nombreC = $("#NombreDividirCuentaOrigen").val();
-    if (productosAdividirN1.length > 0) {
-        agregarCuentasSecundariasPorDivision(productosAdividirN1, nombreC + '-A');
+    if (productosAdividirN1.length > 0 || productosAdividirN2.length > 0 || productosAdividirN3.length > 0) {
+        modificarCuentaPrincipalPorDivision();
+        var nombreC = $("#NombreDividirCuentaOrigen").val();
+        if (productosAdividirN1.length > 0) {
+            agregarCuentasSecundariasPorDivision(productosAdividirN1, nombreC + '-A');
+        }
+        if (productosAdividirN2.length > 0) {
+            agregarCuentasSecundariasPorDivision(productosAdividirN2, nombreC + '-B');
+        }
+        if (productosAdividirN3.length > 0) {
+            agregarCuentasSecundariasPorDivision(productosAdividirN3, nombreC + '-C');
+        }
+        alert("Se ha relizado la división de cuentas de manera correcta");
+        location.href = "servicio_comedor.html";
+    } else {
+        alert("No hay ninguna modificación que realizar");
     }
-    if (productosAdividirN2.length > 0) {
-        agregarCuentasSecundariasPorDivision(productosAdividirN2, nombreC + '-B');
-    }
-    if (productosAdividirN3.length > 0) {
-        agregarCuentasSecundariasPorDivision(productosAdividirN3, nombreC + '-C');
-    }
-    alert("Se ha relizado la división de cuentas de manera correcta");
-    location.href = "servicio_comedor.html";
-
 }
 
 function modificarCuentaPrincipalPorDivision() {
