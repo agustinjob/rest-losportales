@@ -8,8 +8,10 @@
             "type": "pwa-chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "file:///C:/Users/agus_/Desktop/Restaurante/frontend/rest-losportales/index.html",
+            "url":"file:///Users/agustinjobhernandezmontes/Desktop/restaurante/rest-losportales/index.html" ,
             "webRoot": "${workspaceFolder}"
         }
+        // mac 
+        // windows "file:///C:/Users/agus_/Desktop/Restaurante/frontend/rest-losportales/index.html"
     ]
 }

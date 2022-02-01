@@ -47,10 +47,21 @@ function verificarPass(modal) {
 }
 
 function limpiarDatosInicioSesion() {
-    console.log("entro");
     localStorage.removeItem("idUsuario");
     localStorage.removeItem("user");
     localStorage.removeItem("tipoUsuario");
     localStorage.removeItem("password");
     localStorage.removeItem("idTurno");
+}
+
+function abrirModal(modal) {
+    $("#" + modal).modal('show');
+}
+
+function agregarClase(id) {
+    $("#" + id).addClass("deshabilitarDiv");
+}
+
+function quitarClase(id) {
+    $("#" + id).removeClass("deshabilitarDiv");
 }

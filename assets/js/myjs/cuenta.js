@@ -12,31 +12,29 @@ var productosACancelar = [];
 
 function hayCuentaSeleccionada() {
     var idCuenta = localStorage.getItem("idCuenta");
-    console.log("entro" + idCuenta);
+    console.log("esto tiene: " + idCuenta);
     if (idCuenta === null) {
-        $("#btnAbrirC").prop('disabled', true);
-        $("#btnCancelar").prop('disabled', true);
-        $("#btnJuntar").prop("disabled", true);
-        $("#btnDividir").prop("disabled", true);
-        $("#btnCapturar").prop("disabled", true);
-        $("#btnRenombrar").prop("disabled", true);
-        $("#btnMesero").prop("disabled", true);
-        $("#btnDescuentos").prop("disabled", true);
-        $("#btnPagar").prop("disabled", true);
-        $("#btnImprimir").prop("disabled", true);
-        $("#btnReabrir").prop("disabled", true);
+        agregarClase("btnCancelar");
+        agregarClase("btnJuntar");
+        agregarClase("btnDividir");
+        agregarClase("btnCapturar");
+        agregarClase("btnRenombrar");
+        agregarClase("btnMesero");
+        agregarClase("btnDescuentos");
+        agregarClase("btnPagar");
+        agregarClase("btnImprimir");
+        agregarClase("btnReabrir");
     } else {
-        $("#btnAbrirC").prop("disabled", false);
-        $("#btnCancelar").prop("disabled", false);
-        $("#btnJuntar").prop("disabled", false);
-        $("#btnDividir").prop("disabled", false);
-        $("#btnCapturar").prop("disabled", false);
-        $("#btnRenombrar").prop("disabled", false);
-        $("#btnMesero").prop("disabled", false);
-        $("#btnDescuentos").prop("disabled", false);
-        $("#btnPagar").prop("disabled", false);
-        $("#btnImprimir").prop("disabled", false);
-        $("#btnReabrir").prop("disabled", false);
+        quitarClase("btnCancelar");
+        quitarClase("btnJuntar");
+        quitarClase("btnDividir");
+        quitarClase("btnCapturar");
+        quitarClase("btnRenombrar");
+        quitarClase("btnMesero");
+        quitarClase("btnDescuentos");
+        quitarClase("btnPagar");
+        quitarClase("btnImprimir");
+        quitarClase("btnReabrir");
 
     }
 }
@@ -65,6 +63,7 @@ function obtenerCuentasAbiertas() {
                     $('#tablaCuentas > tbody').append(rows);
 
                 });
+                hayCuentaSeleccionada();
             },
             failure: function(data) {
                 alert(data.responseText);
@@ -120,6 +119,7 @@ function datosCuenta(idCuenta) {
             $("#impuesto").val(iva.toFixed(2));
             $("#total").val(importeTotal - data.montoTotalDescuento);
             sessionStorage.setItem("totalConsumo", importeTotal);
+            hayCuentaSeleccionada();
         },
         failure: function(data) {
             alert(data.responseText);
@@ -178,7 +178,7 @@ function limpiarComedor() {
     $("#personasCuenta").val('');
     localStorage.removeItem("idCuenta");
     sessionStorage.removeItem("totalConsumo");
-    hayCuentaSeleccionada();
+
     //  $("#cuentaMeseros").val('');
     //  $("#cuentaMeseros").text('');
 
@@ -243,6 +243,7 @@ function abrirCuenta() {
             success: function(data) {
                 limpiarComedor();
                 obtenerCuentasAbiertas();
+                cerrarModal("defaultModal");
                 $("#cuentaInfo").val(data.nombreCuenta);
                 $("#folioInfo").val(data.folio);
                 $("#mesaInfo").val(data.mesa);

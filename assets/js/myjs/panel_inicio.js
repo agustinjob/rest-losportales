@@ -23,6 +23,9 @@ function abrirTurno() {
             contentType: 'application/json; charset=utf-8',
             success: function(data) {
                 localStorage.setItem("idTurno", data.idTurno);
+                agregarClase("abrirTurno");
+                noHayTurno("quitar");
+                cerrarModal("smallModal");
                 alert('Registro agregado exitosamente !!!');
                 $("#turnoFondoInicial").val("");
             },
@@ -52,11 +55,15 @@ function cerrarTurno() {
             data: JSON.stringify({
                 idTurno: idTurnotxt,
                 fechaCierre: fecha,
-                efectivoDeclarado: fondoDeclaradotxt
+                efectivoDeclarado: fondoDeclaradotxt,
+                estatus: "cerrado"
             }),
             contentType: 'application/json; charset=utf-8',
             success: function(data) {
                 localStorage.removeItem("idTurno");
+                noHayTurno("agregar");
+                quitarClase("abrirTurno");
+                cerrarModal("ceModal");
                 $("#turnoFondoDeclarado").val("");
                 alert('Registro agregado exitosamente !!!');
             },
@@ -76,17 +83,21 @@ function cerrarTurno() {
 
 function buscarTurno() {
     //  var idTurno = localStorage.getItem('idTurno');
-
-
     $.ajax({
         url: "http://localhost:8082/v1/turnos-estatus",
         type: "GET",
         contentType: 'application/json; charset=utf-8',
         success: function(data) {
-            $.each(data, function(i, item) {
-                console.log(item.idTurno);
-                localStorage.setItem("idTurno", item.idTurno);
-            });
+            if (data.length === 0) {
+                localStorage.removeItem("idTurno");
+                noHayTurno("agregar");
+                return null;
+            } else {
+                $.each(data, function(i, item) {
+                    localStorage.setItem("idTurno", item.idTurno);
+                    agregarClase("abrirTurno");
+                });
+            }
 
         },
         failure: function(data) {
@@ -97,4 +108,18 @@ function buscarTurno() {
         }
     });
 
+}
+
+function noHayTurno(tipo) {
+    arrayIds = ["comedor",
+        "retiroDeposito",
+        "cerrarTurno"
+    ];
+    for (var i = 0; i < arrayIds.length; i++) {
+        if (tipo === "agregar") {
+            agregarClase(arrayIds[i]);
+        } else {
+            quitarClase(arrayIds[i]);
+        }
+    }
 }
