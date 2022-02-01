@@ -7,6 +7,7 @@ var productosAdividirN3 = [];
 var productosAdividirTemporal = [];
 var cantidadProductosTotal = 0;
 var cantidadProductosTomada = 0;
+var productosACancelar = [];
 
 
 function obtenerCuentasAbiertas() {
@@ -67,25 +68,68 @@ function datosCuenta(idCuenta) {
 
             $('#tablaProductosOrden > tbody').empty();
             var importeTotal = 0;
+            productosACancelar = data.productos;
             $.each(data.productos, function(i, item) {
-                console.log("Nombre " + item.nombre);
-                var rowsProd =
-                    "<tr>" +
-                    "<td>" + (i + 1) + "</td>" +
-                    "<td>" + item.nombre + "</td>" +
-                    "<td>" + item.cantidad + "</td>" +
-                    "<td>" + item.costo + "</td>" +
-                    "<td>" + item.importe + "</td>" +
-                    "</tr>";
-                importeTotal = importeTotal + item.importe;
-                $('#tablaProductosOrden > tbody').append(rowsProd);
+                if (item.estatus != "cancelado") {
+                    var rowsProd =
+                        "<tr>" +
+                        "<td>" + (i + 1) + "</td>" +
+                        "<td>" + item.nombre + "</td>" +
+                        "<td>" + item.cantidad + "</td>" +
+                        "<td>" + item.costo + "</td>" +
+                        "<td>" + item.importe + "</td>" +
+                        "</tr>";
+                    importeTotal = importeTotal + item.importe;
+                    $('#tablaProductosOrden > tbody').append(rowsProd);
+                }
             });
             var iva = importeTotal * .138;
-            console.log("importe total " + importeTotal);
+            $("#descuento").val(data.montoTotalDescuento);
             $("#subtotal").val(importeTotal - iva);
             $("#impuesto").val(iva.toFixed(2));
-            $("#total").val(importeTotal);
+            $("#total").val(importeTotal - data.montoTotalDescuento);
             sessionStorage.setItem("totalConsumo", importeTotal);
+        },
+        failure: function(data) {
+            alert(data.responseText);
+        },
+        error: function(data) {
+            alert(data.responseText);
+        }
+    });
+
+}
+
+
+
+function asignarDescuento() {
+    var importeTotal = $("#total").val();
+    var porcentajeDescunto = $("#porcentajeDescuento").val();
+    var porcentaje = porcentajeDescunto / 100;
+    var descuentoTotal = porcentaje * importeTotal;
+    $("#descuento").val(descuentoTotal);
+    $("#total").val(importeTotal - descuentoTotal);
+    var idCuentatxt = localStorage.getItem("idCuenta");
+
+    $.ajax({
+        url: "http://localhost:8082/v1/cuentas-cambiar/8",
+        type: "POST",
+        data: JSON.stringify({
+            idCuenta: idCuentatxt,
+            comentarioDescuento: $("#comentarioDescuento").val(),
+            descuento: porcentajeDescunto,
+            montoTotal: $("#total").val(),
+            montoTotalDescuento: descuentoTotal
+        }),
+        contentType: 'application/json; charset=utf-8',
+        success: function(data) {
+            if (data == null) {
+                alert("Ocurrio un error");
+            } else {
+                alert("Descuento agregado correctamente");
+                obtenerCuentasAbiertas();
+                datosCuenta(data.idCuenta);
+            }
         },
         failure: function(data) {
             alert(data.responseText);
@@ -341,7 +385,6 @@ function asignarTipoPago(tipoPago) {
     if (tipoPago === "propina") {
         this.esPropina = !this.esPropina;
     } else {
-        console.log("ingreso");
         this.tipoPago = tipoPago;
     }
 }
@@ -480,10 +523,7 @@ function imprimirDatosCuentaOrigen() {
         $('#tablaDividirCuentaProductos > tbody').append(rowsProd);
     });
 }
-/*
-var cantidadProductosTotal = 0;
-var cantidadProductosTomada = 0;
-* */
+
 function asignarProductosDividir(id) {
 
     var cantidad = parseInt($("#" + id + "cantidad").val());
@@ -555,12 +595,6 @@ function imprimirValoresEnTabla(numCuenta) {
 
     $("#cuentaN" + numCuenta + "txt").val(importeTotal);
 }
-/**
- * var productosAdividir = [];
-var productosAdividirN1 = [];
-var productosAdividirN2 = [];
-var productosAdividirN3 = [];
- */
 
 function realizarDivision() {
     modificarCuentaPrincipalPorDivision();
@@ -622,6 +656,97 @@ function agregarCuentasSecundariasPorDivision(productosArray, nombreCu) {
                 alert("El nombre de la cuenta no existe");
             } else {
                 alert("Cuentas unidas satisfactoriamente");
+                obtenerCuentasAbiertas();
+                datosCuenta(data.idCuenta);
+            }
+        },
+        failure: function(data) {
+            alert(data.responseText);
+        },
+        error: function(data) {
+            alert(data.responseText);
+        }
+    });
+}
+
+// Cancelar productos
+
+function datosCuentaCancelarProductos() {
+
+
+    $('#tablaProductosACancelar > tbody').empty();
+    $.each(productosACancelar, function(i, item) {
+        var rowsProd =
+            "<tr>" +
+            "<td><button onclick='asignarProductosACancelar(" + i + ");' id='btnCance" + i + "'>" + (i + 1) + "</button></td>" +
+            "<td> <span id='" + i + "cantidadCapturadaProducto'>" + item.cantidad + "</span></td>" +
+            "<td>" + item.nombre + "</td>" +
+            "<td> <input type='number' value='0' id='" + i + "cantidadACancelar'></td>" +
+            "<td><select id='motivoCancelacion'>" +
+            "<option value='ERROR DE CAPTURA'>ERROR DE CAPTURA</option> <option value='CAMBIO DE OPINION CLIENTE'>CAMBIO OPINION CLIENTE</option>" +
+            "<option value='MAL SABOR'>MAL SABOR</option><option value='SERVICIO LENTO'>SERVICIO LENTO</option>" +
+            "</select></td>" +
+            "</tr>";
+
+        $('#tablaProductosACancelar > tbody').append(rowsProd);
+    });
+
+}
+
+function asignarProductosACancelar(posicion) {
+
+    var cantidadCapturada = parseInt($("#" + posicion + "cantidadCapturadaProducto").text());
+    var cantidadACancelar = parseInt($("#" + posicion + "cantidadACancelar").val());
+
+    var motivo = $("#motivoCancelacion option:selected").text();
+
+    if (cantidadACancelar === 0) {
+        alert("Por favor ingresa una cantidad");
+        return null;
+    } else {
+        if (cantidadACancelar > cantidadCapturada) {
+            alert("No puedes cancelar más producto del que se tiene");
+            return null;
+        } else {
+
+            $("#btnCance" + posicion).prop('disabled', true);
+            var res = cantidadCapturada - cantidadACancelar;
+            console.log(motivo);
+            var procancetem = productosACancelar[posicion];
+            if (res === 0) {
+
+                procancetem.estatus = "cancelado";
+                procancetem.cantidadCancelado = cantidadACancelar;
+                procancetem.motivoCancelacion = motivo;
+            } else {
+
+                procancetem.estatus = "Parcial";
+                procancetem.cantidadCancelado = cantidadACancelar;
+                procancetem.motivoCancelacion = motivo;
+                procancetem.cantidad = res;
+                procancetem.importe = (res * procancetem.costo);
+            }
+            console.log(procancetem);
+        }
+    }
+}
+
+
+function modificarCuentaProductosCancelados() {
+    var idCuentatxt = localStorage.getItem("idCuenta");
+    $.ajax({
+        url: "http://localhost:8082/v1/cuentas-cambiar/6",
+        type: "POST",
+        data: JSON.stringify({
+            idCuenta: idCuentatxt,
+            productos: productosACancelar
+        }),
+        contentType: 'application/json; charset=utf-8',
+        success: function(data) {
+            if (data == null) {
+                alert("Ocurrio un error");
+            } else {
+                alert("Datos cancelados correctamente");
                 obtenerCuentasAbiertas();
                 datosCuenta(data.idCuenta);
             }

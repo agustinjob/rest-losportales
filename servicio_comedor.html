@@ -173,7 +173,7 @@
                                             </button>
                                         </div>
                                       <div id="caja">
-                                        <button type="button" class="btnMenu btn-color-azul"> 
+                                        <button type="button" onclick='datosCuentaCancelarProductos();' class="btnMenu btn-color-azul"> 
                                             <a href="#cancelModal" data-toggle="modal" data-target="#cancelModal">
                                                 <img src="assets/icon/cancelar_producto.png" alt="">
                                                 <p class="negro-text"> <strong>CANCELAR PROD</strong> </p>
@@ -499,7 +499,7 @@
     <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content ">
         <div class="modal-header">
-                <h4 class="title" id="smallModalLabel">Cancelar producto. </h4>
+                <h4 class="title" id="smallModalLabel">Cancelar producto</h4>
                 <a href="">
                     <img class="icon-menu-principal" src="" alt="">
                 </a> 
@@ -512,53 +512,18 @@
                     <div class="col-sm-12">
                     
                         <div class="body table-responsive">
-                            <table class="table m-b-0">
+                            <table class="table m-b-0" id="tablaProductosACancelar">
                                 <thead class="thead-light">
                                     <tr>
                                     <th scope="col">MOV</th>
-                                    <th scope="col">COMANDA</th>
                                     <th scope="col">CANTIDAD CAPTURADA</th>
-                                    <th scope="col">CLAVE</th>
                                     <th scope="col">DESCRIPCIÓN</th>
-                                    <th scope="col">CLAVE</th>
-                                    <th scope="col">CANTIDAD CANCELAR</th>            
-                                    <th scope="col">CANCELAR</th>
-
-
-
+                                    <th scope="col">CANT. CANCELAR</th>            
+                                    <th scope="col">MOTIVO</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td><button class='btn bg-danger  btn-icon  btn-icon-mini btn-round'><a class="text-white"  href="#canProModal" data-toggle="modal" data-target="#canProModal"><i class='zmdi zmdi-delete'></i></a></button></td>
-                                    </tr>
-                                    <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td> <button class='btn bg-danger  btn-icon  btn-icon-mini btn-round'><a class="text-white"  href="#canProModal" data-toggle="modal" data-target="#canProModal"><i class='zmdi zmdi-delete'></i></a></button></td>
-                                    </tr>
-                                    <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td><button class='btn bg-danger  btn-icon  btn-icon-mini btn-round ' ><a class="text-white"  href="#canProModal" data-toggle="modal" data-target="#canProModal"><i class='zmdi zmdi-delete'></i></a></button></td>
-                                    </tr>
+                                    
                                 </tbody>
                                 </table>
                         </div>
@@ -570,8 +535,8 @@
 
         <div class="modal-footer" >
             
-            <button type="button" class="btn bg-deep-orange btn-round" > </a>
-                <a  href="·" ></a>
+            <button type="button" onclick="modificarCuentaProductosCancelados();" class="btn bg-deep-orange btn-round" >
+        
                 ACEPTAR <i class="zmdi zmdi-check"></i>
             </button>
             <button type="button" class="btn bg-black  btn-round " data-dismiss="modal"
@@ -720,7 +685,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content ">
             <div class="modal-header">
-                    <h4 class="title" id="smallModalLabel">Descuentos. </h4>
+                    <h4 class="title" id="smallModalLabel">Descuentos </h4>
                     <a href="">
                         <img class="icon-menu-principal" src="assets/icon/reunion.png" alt="">
                     </a> 
@@ -733,34 +698,21 @@
                     </div>
                     <div class="col-sm-8">
                         <!-- <div class="col-sm-12"> -->
-                            <div class="form-group form-group-sm">  
-                                <b>Tipo:</b>  
-                                <select class="form-control" >
-                                    <option value="">Seleccionar</option>
-                                    <option value="1">Tipo1</option>
-                                    <option value="10">Tipo1</option>
-                                    <option value="20">Tipo1</option>
-
-                                </select>
-                            </div>
+                   
                             <div class="form-group form-group-sm">  
                                 <b>Criterio:</b>  
-                                <select class="form-control" >
-                                    <option value="">Seleccionar</option>
-                                    <option value="1">Tipo1</option>
-                                    <option value="10">Tipo1</option>
-                                    <option value="20">Tipo1</option>
-
+                                <select id="criterioDescuento" disabled="true" class="form-control" >
+                                <option value="Porcentaje">Porcentaje</option>
                                 </select>
                             </div>
                         <!-- </div> -->
                         <div class="form-group ">
                             <b>Descuento %:</b>    
-                            <input type="text"  class="form-control" placeholder="0.0" />          
+                            <input type="number" min="1" max="100" pattern="^[0-9]+" id="porcentajeDescuento" class="form-control" placeholder="0.0" />          
                         </div>
                         <div class="form-group ">    
                             <b>Comentario:</b>
-                            <Textarea type="text"  class="form-control" >
+                            <Textarea type="text" id="comentarioDescuento" class="form-control" >
 
                             </Textarea>
                             <!-- <input  />           -->
@@ -777,7 +729,7 @@
             <div class="modal-footer">
                 <!-- <button type="button" class="btn btn-info btn-round waves-effect"> ORIGEN </i> -->
                 </button>
-                <button type="button" class="btn bg-deep-orange btn-round waves-effect"> ACEPTAR <i class="zmdi zmdi-check"></i>
+                <button type="button" onclick="asignarDescuento();" class="btn bg-deep-orange btn-round waves-effect"> ACEPTAR <i class="zmdi zmdi-check"></i>
                 </button>
                 <button type="button" class="btn bg-black  btn-round waves-effect" data-dismiss="modal">CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
             </div>
