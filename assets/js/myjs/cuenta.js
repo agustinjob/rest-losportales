@@ -8,11 +8,24 @@ var productosAdividirTemporal = [];
 var cantidadProductosTotal = 0;
 var cantidadProductosTomada = 0;
 var productosACancelar = [];
+var cuentasGlobal = [];
 
+function inicializarArrays() {
+    tipoPago = "";
+    esPropina = false;
+    productosAdividir = [];
+    productosAdividirN1 = [];
+    productosAdividirN2 = [];
+    productosAdividirN3 = [];
+    productosAdividirTemporal = [];
+    cantidadProductosTotal = 0;
+    cantidadProductosTomada = 0;
+    productosACancelar = [];
+    cuentasGlobal = [];
+}
 
 function hayCuentaSeleccionada() {
     var idCuenta = localStorage.getItem("idCuenta");
-    console.log("esto tiene: " + idCuenta);
     if (idCuenta === null) {
         agregarClase("btnCancelar");
         agregarClase("btnJuntar");
@@ -25,19 +38,29 @@ function hayCuentaSeleccionada() {
         agregarClase("btnImprimir");
         agregarClase("btnReabrir");
     } else {
-        quitarClase("btnCancelar");
-        quitarClase("btnJuntar");
-        quitarClase("btnDividir");
-        quitarClase("btnCapturar");
-        quitarClase("btnRenombrar");
-        quitarClase("btnMesero");
-        quitarClase("btnDescuentos");
-        quitarClase("btnPagar");
-        quitarClase("btnImprimir");
-        quitarClase("btnReabrir");
+        var cuenta = buscarCuentaPorId(idCuenta)[0];
+        modificable = cuenta.esModificable;
+        if (modificable == true) {
+            quitarClase("btnCancelar");
+            quitarClase("btnJuntar");
+            quitarClase("btnDividir");
+            quitarClase("btnCapturar");
+            quitarClase("btnRenombrar");
+            quitarClase("btnMesero");
+            quitarClase("btnDescuentos");
+            quitarClase("btnPagar");
+            quitarClase("btnImprimir");
+            quitarClase("btnReabrir");
+        } else {
+            quitarClase("btnImprimir");
+            quitarClase("btnReabrir");
+            quitarClase("btnPagar");
+        }
+
 
     }
 }
+
 
 function obtenerCuentasAbiertas() {
 
@@ -51,6 +74,8 @@ function obtenerCuentasAbiertas() {
             type: "GET",
             contentType: 'application/json; charset=utf-8',
             success: function(data) {
+                cuentasGlobal = data;
+
                 $('#tablaCuentas > tbody').empty();
                 $.each(data, function(i, item) {
                     var rows =
@@ -63,6 +88,7 @@ function obtenerCuentasAbiertas() {
                     $('#tablaCuentas > tbody').append(rows);
 
                 });
+
                 hayCuentaSeleccionada();
             },
             failure: function(data) {
@@ -184,7 +210,37 @@ function limpiarComedor() {
 
 }
 
+function ReabrirCuenta() {
 
+    var passCorrecto = verificarPasswordRegresandoRespuesta("password2");
+
+    if (passCorrecto === true) {
+        $("#password2").val("");
+        var idCuentatxt = localStorage.getItem('idCuenta');
+        $.ajax({
+            url: "http://localhost:8082/v1/cuentas-cambiar/9",
+            type: "POST",
+            data: JSON.stringify({
+                idCuenta: idCuentatxt,
+                esModificable: true
+            }),
+            contentType: 'application/json; charset=utf-8',
+            success: function(data) {
+                cerrarModal("reNomModal");
+                alert("Cuenta Re-Abierta correctamente");
+                obtenerCuentasAbiertas();
+            },
+            failure: function(data) {
+                alert(data.responseText);
+            },
+            error: function(data) {
+                alert(data.responseText);
+            }
+        });
+    } else {
+        alert("password incorrecto");
+    }
+}
 
 function abrirCuenta() {
     var idTurnotxt = localStorage.getItem('idTurno');
@@ -254,6 +310,8 @@ function abrirCuenta() {
                 $("#cierreInfo").val(data.cierre);
                 localStorage.setItem("idCuenta", data.idCuenta);
                 $("#aceptarNuevoNombre").prop('disabled', false);
+                $("#tablaProductosOrden > tbody").empty(); //aqui
+                inicializarArrays();
                 alert('Registro agregado exitosamente !!!');
             },
             failure: function(data) {
@@ -318,10 +376,11 @@ function cerrarCuenta() {
     }
 }
 
+// Funcionalidad de imprimir
+
 function cerrarCuentaSoloImpresion() {
     var fecha = new Date(new Date().getTime() - (new Date().getTimezoneOffset() * 60000));
     idCuentatxt = localStorage.getItem("idCuenta");
-    v
 
     $.ajax({
         url: "http://localhost:8082/v1/cuentas-cambiar/5",
@@ -333,6 +392,8 @@ function cerrarCuentaSoloImpresion() {
             montoSubtotal: $("#subtotal").val(),
             iva: $("#impuesto").val(),
             montoTotalDescuento: $("#descuento").val(),
+            esModificable: false
+
         }),
         contentType: 'application/json; charset=utf-8',
         success: function(data) {
@@ -350,28 +411,34 @@ function cerrarCuentaSoloImpresion() {
 function renombrarCuenta() {
 
     var nuevotxt = $("#nuevoNombreCuentaCambiar").val();
-    var idCuentatxt = localStorage.getItem("idCuenta");
-    $.ajax({
-        url: "http://localhost:8082/v1/cuentas-cambiar/1",
-        type: "POST",
-        data: JSON.stringify({
-            idCuenta: idCuentatxt,
-            nombreCuenta: nuevotxt
+    var encontrado = buscarCuentaPorNombre(nuevotxt);
+    if (encontrado === true) {
+        mostrarMensaje("Ya existe una cuenta con ese nombre");
+    } else {
+        var idCuentatxt = localStorage.getItem("idCuenta");
+        $.ajax({
+            url: "http://localhost:8082/v1/cuentas-cambiar/1",
+            type: "POST",
+            data: JSON.stringify({
+                idCuenta: idCuentatxt,
+                nombreCuenta: nuevotxt
 
-        }),
-        contentType: 'application/json; charset=utf-8',
-        success: function(data) {
-            $("#cuentaInfo").val(data.nombreCuenta);
-            obtenerCuentasAbiertas();
-            alert('Registro modificado exitosamente !!!');
-        },
-        failure: function(data) {
-            alert(data.responseText);
-        },
-        error: function(data) {
-            alert(data.responseText);
-        }
-    });
+            }),
+            contentType: 'application/json; charset=utf-8',
+            success: function(data) {
+                $("#cuentaInfo").val(data.nombreCuenta);
+                obtenerCuentasAbiertas();
+                cerrarModal("renModal");
+                alert('Registro modificado exitosamente !!!');
+            },
+            failure: function(data) {
+                alert(data.responseText);
+            },
+            error: function(data) {
+                alert(data.responseText);
+            }
+        });
+    }
 }
 
 
@@ -420,6 +487,40 @@ function asignarTipoPago(tipoPago) {
     } else {
         this.tipoPago = tipoPago;
     }
+}
+
+// Logica de pagar cuenta 
+
+function enviarAPagar() {
+    var fecha = new Date(new Date().getTime() - (new Date().getTimezoneOffset() * 60000));
+    idCuentatxt = localStorage.getItem("idCuenta");
+
+    $.ajax({
+        url: "http://localhost:8082/v1/cuentas-cambiar/5",
+        type: "POST",
+        data: JSON.stringify({
+            idCuenta: idCuentatxt,
+            cierre: fecha,
+            montoTotal: $("#totalConsumo").val(),
+            montoSubtotal: $("#subtotal").val(),
+            iva: $("#impuesto").val(),
+            montoTotalDescuento: $("#descuento").val(),
+            esModificable: false
+
+        }),
+        contentType: 'application/json; charset=utf-8',
+        success: function(data) {
+            location.href = "pagar.html";
+            //   cierreParaImprimir(idCuentatxt);
+        },
+        failure: function(data) {
+            alert(data.responseText);
+        },
+        error: function(data) {
+            alert(data.responseText);
+        }
+    });
+
 }
 
 function asignarDatosPagarCuenta() {
@@ -795,4 +896,20 @@ function modificarCuentaProductosCancelados() {
             alert(data.responseText);
         }
     });
+}
+
+// Buscar cuentas por nombre
+
+function buscarCuentaPorNombre(nombre) {
+
+    var encontrado = cuentasGlobal.filter(item => item.nombreCuenta === nombre);
+    if (encontrado.length > 0) {
+        return true;
+    }
+    return false;
+}
+
+function buscarCuentaPorId(id) {
+    var encontrado = cuentasGlobal.filter(item => item.idCuenta === id);
+    return encontrado;
 }

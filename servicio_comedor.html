@@ -33,7 +33,6 @@
 
     <script>
         function ejecutar() {
-
             limpiarComedor();
             revisarSesion();
             obtenerCuentasAbiertas();
@@ -240,11 +239,11 @@
                                             </button>
                                                 </div>
                                                 <div id="btnPagar">
-                                                    <button type="button" class="btnMenu btn-color-naranja2"> 
-                                                <a href="pagar.html">
+                                                    <button type="button" onclick="enviarAPagar();" class="btnMenu btn-color-naranja2"> 
+                                               
                                                     <img src="assets/icon/dar-dinero.png" alt="">
                                                     <p class="negro-text"> <strong>&nbsp;PAGAR CUENTA&nbsp;</strong> </p>
-                                                </a>
+                                            
                                             </button>
                                                 </div>
                                                 <div id="btnImprimir">
@@ -579,7 +578,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content ">
                 <div class="modal-header">
-                    <h4 class="title" id="smallModalLabel">Contraseña de usuario requerida. </h4>
+                    <h4 class="title" id="smallModalLabel">Contraseña de usuario requerida</h4>
                     <a href="">
                         <img class="icon-menu-principal" src="" alt="">
                     </a>
@@ -604,7 +603,7 @@
 
                             <!-- agregar funcionalidad de reabrir cuenta-->
                             <div class="modal-footer">
-                                <button type="button" class="btn bg-deep-orange btn-round "> </a>
+                                <button type="button" onclick="ReabrirCuenta();" class="btn bg-deep-orange btn-round "> </a>
                                     ACEPTAR <i class="zmdi zmdi-check"></i>
                
                 </button>
@@ -888,7 +887,7 @@
                         <div class="col-sm-6">
                             <div class="form-group ">
                                 <b>Nombre actual:</b>
-                                <input type="text" id="nombreCuentaCambiar" class="form-control" />
+                                <input type="text" id="nombreCuentaCambiar" disabled="true" class="form-control" />
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -1001,8 +1000,9 @@
                 </div>
             </div>
         </div>
+        
 
-
+     
 
 
 

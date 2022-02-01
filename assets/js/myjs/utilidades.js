@@ -34,8 +34,7 @@ function verificarPass(modal) {
     var pass = $("#password").val();
     var passEncrip = CryptoJS.MD5(pass);
     var encrip = localStorage.getItem("password");
-    console.log(pass);
-    console.log(passEncrip);
+
     if (passEncrip == encrip) {
         $("#password").val("");
         $("#" + modal).modal('show');
@@ -44,6 +43,17 @@ function verificarPass(modal) {
         alert("Datos incorrectos");
     }
 
+}
+
+function verificarPasswordRegresandoRespuesta(campo) {
+    var pass = $("#" + campo).val();
+    var passEncrip = CryptoJS.MD5(pass);
+    var encrip = localStorage.getItem("password");
+    if (passEncrip == encrip) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 function limpiarDatosInicioSesion() {
@@ -64,4 +74,12 @@ function agregarClase(id) {
 
 function quitarClase(id) {
     $("#" + id).removeClass("deshabilitarDiv");
+}
+
+function mostrarMensaje(mensaje) {
+
+    window.setTimeout(function() {
+        $("#mensajeAlerta").text(mensaje);
+
+    }, 2000);
 }
