@@ -45,6 +45,7 @@ function obtenerDatosCategorias(categoriaGeneral) {
         contentType: 'application/json; charset=utf-8',
         success: function(data) {
             var datos = "";
+
             $.each(data, function(i, item) {
 
                 datos = datos + '<div id = "caja" >' +
@@ -67,16 +68,19 @@ function obtenerDatosCategorias(categoriaGeneral) {
 function productosPorCategoria(categoriageneraltxt, categoriaespecificatxt) {
 
     $.ajax({
-        url: "http://localhost:8082/v1//productos-cate/" + categoriageneraltxt + "/" + categoriaespecificatxt,
+        url: "http://localhost:8082/v1/productos-cate/" + categoriageneraltxt + "/" + categoriaespecificatxt,
         type: "GET",
         contentType: 'application/json; charset=utf-8',
         success: function(data) {
             var rows = "";
+            productosArray = data;
             $.each(data, function(i, item) {
+
                 rows = rows + '  <div id="caja">' +
-                    '<button type = "button" class = "btnMenu btn-color-naranja2">' +
+                    '<button onclick=\"agregarProductoTabla(\'' + i + '\');\" type = "button" class = "btnMenu btn-color-naranja2">' +
                     '<p> <strong> ' + item.nombre + ' </strong>  </p>' +
                     '</button> </div>';
+
             });
             $('#listaProductos').html(rows);
         },
