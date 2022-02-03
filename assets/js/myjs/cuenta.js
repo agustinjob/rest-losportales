@@ -255,72 +255,77 @@ function abrirCuenta() {
         return null; //
     } else {
         nombreCuentatxt = $("#nombreCuenta").val();
-        personastxt = $("#personasCuenta").val();
-        idMeserotxt = $("#cuentaMeseros").val();
-        nombreMeserotxt = $("#cuentaMeseros option:selected").text();
-        nombreMesatxt = $("#cuentaMesa option:selected").text();
-        idTurnotxt = localStorage.getItem("idTurno");
-        var fecha = new Date(new Date().getTime() - (new Date().getTimezoneOffset() * 60000));
+        var seEncontro = buscarCuentaPorNombre(nombreCuentatxt);
+        if (seEncontro == false) {
+            personastxt = $("#personasCuenta").val();
+            idMeserotxt = $("#cuentaMeseros").val();
+            nombreMeserotxt = $("#cuentaMeseros option:selected").text();
+            nombreMesatxt = $("#cuentaMesa option:selected").text();
+            idTurnotxt = localStorage.getItem("idTurno");
+            var fecha = new Date(new Date().getTime() - (new Date().getTimezoneOffset() * 60000));
 
-        //puede que no vaya el tipoPago
-        $.ajax({
-            url: "http://localhost:8082/v1/cuentas",
-            type: "POST",
-            data: JSON.stringify({
-                nombreCuenta: nombreCuentatxt,
-                idTurno: idTurnotxt,
-                apertura: fecha,
-                mesa: nombreMesatxt,
-                cierre: "",
-                idMesero: idMeserotxt,
-                nombreMesero: nombreMeserotxt,
-                propina: "0",
-                descuento: "0",
-                montoTotal: "0",
-                montoTotalDescuento: "0",
-                personas: personastxt,
-                orden: "0",
-                folio: "0",
-                productos: [],
-                estatus: "abierta",
-                impreso: "No",
-                pagoEfectivo: "0",
-                pagoVisa: "0",
-                pagoMasterCard: "0",
-                pagoAmericanExpress: "0",
-                propinaEfectivo: "0",
-                propinaVisa: "0",
-                propinaMasterCard: "0",
-                propinaAmericanExpress: "0",
-                propinaPagada: "false",
-                huboDescuento: "false"
-            }),
-            contentType: 'application/json; charset=utf-8',
-            success: function(data) {
-                limpiarComedor();
-                obtenerCuentasAbiertas();
-                cerrarModal("defaultModal");
-                $("#cuentaInfo").val(data.nombreCuenta);
-                $("#folioInfo").val(data.folio);
-                $("#mesaInfo").val(data.mesa);
-                $("#meseroInfo").val(data.nombreMesero);
-                $("#ordenInfo").val(data.orden);
-                $("#personaInfo").val(data.personas);
-                $("#aperturaInfo").val(data.apertura);
-                $("#cierreInfo").val(data.cierre);
-                localStorage.setItem("idCuenta", data.idCuenta);
-                $("#aceptarNuevoNombre").prop('disabled', false);
-                $("#tablaProductosOrden > tbody").empty(); //aqui
-                inicializarArrays();
-                alert('Registro agregado exitosamente !!!');
-            },
-            failure: function(data) {
-                alert(data.responseText);
-            },
-            error: function(data) {
-                alert(data.responseText);
-            }
-        });
+            //puede que no vaya el tipoPago
+            $.ajax({
+                url: "http://localhost:8082/v1/cuentas",
+                type: "POST",
+                data: JSON.stringify({
+                    nombreCuenta: nombreCuentatxt,
+                    idTurno: idTurnotxt,
+                    apertura: fecha,
+                    mesa: nombreMesatxt,
+                    cierre: "",
+                    idMesero: idMeserotxt,
+                    nombreMesero: nombreMeserotxt,
+                    propina: "0",
+                    descuento: "0",
+                    montoTotal: "0",
+                    montoTotalDescuento: "0",
+                    personas: personastxt,
+                    orden: "0",
+                    folio: "0",
+                    productos: [],
+                    estatus: "abierta",
+                    impreso: "No",
+                    pagoEfectivo: "0",
+                    pagoVisa: "0",
+                    pagoMasterCard: "0",
+                    pagoAmericanExpress: "0",
+                    propinaEfectivo: "0",
+                    propinaVisa: "0",
+                    propinaMasterCard: "0",
+                    propinaAmericanExpress: "0",
+                    propinaPagada: "false",
+                    huboDescuento: "false"
+                }),
+                contentType: 'application/json; charset=utf-8',
+                success: function(data) {
+                    limpiarComedor();
+                    obtenerCuentasAbiertas();
+                    cerrarModal("defaultModal");
+                    $("#cuentaInfo").val(data.nombreCuenta);
+                    $("#folioInfo").val(data.folio);
+                    $("#mesaInfo").val(data.mesa);
+                    $("#meseroInfo").val(data.nombreMesero);
+                    $("#ordenInfo").val(data.orden);
+                    $("#personaInfo").val(data.personas);
+                    $("#aperturaInfo").val(data.apertura);
+                    $("#cierreInfo").val(data.cierre);
+                    localStorage.setItem("idCuenta", data.idCuenta);
+                    $("#aceptarNuevoNombre").prop('disabled', false);
+                    $("#tablaProductosOrden > tbody").empty(); //aqui
+                    inicializarArrays();
+                    alert('Registro agregado exitosamente !!!');
+                },
+                failure: function(data) {
+                    alert(data.responseText);
+                },
+                error: function(data) {
+                    alert(data.responseText);
+                }
+            });
+        } else {
+            alert("Ya existe otra cuenta con ese nombre");
+        }
     }
 }
 
