@@ -29,9 +29,9 @@
     height: 70px;
     text-decoration: none;
     border-radius: 10%;
-    border: 0px;
+    border: 1px solid #1668c4;
     position: relative;
-    float: left;
+    /* float: left; */
 }
 
 .negro-text {
@@ -143,3 +143,9 @@ img {
 
 
 /* waves-effect" ala izquirda */
+
+.int_prod{
+    height: 19px;
+    width: 50px;
+    text-align: center;
+}
