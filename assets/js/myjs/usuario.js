@@ -10,9 +10,16 @@
 
         //  console.log(nom + " " + user + " " + pass + " " + tipU);
         if (nom == "" || user == "" || pass == "" || tipU == "") {
-            alert("Completa la información por favor");
+            // alert("Completa la información por favor");
+            toastr["info"]("", "Completa la información por favor")
+
+            
+              
+     
+
             return null;
         }
+        
 
         if (operacion == "REGISTRARSE") {
             $.ajax({
@@ -30,13 +37,17 @@
                 success: function(data) {
                     limpiar();
                     obtenerDatos();
-                    alert('Registro agregado exitosamente !!!');
+                    // alert('Registro agregado exitosamente !!!');
+                    toastr["success"]("", "¡¡¡Registro agregado exitosamente!!!")
+     
                 },
                 failure: function(data) {
                     alert(data.responseText);
                 },
                 error: function(data) {
-                    alert(data.responseText);
+                    toastr["error"]("", "¡¡¡Error!!!")
+             
+                    // alert(data.responseText);
                 }
             });
         } else {
@@ -56,19 +67,24 @@
                 success: function(data) {
                     limpiar();
 
-                    alert('Registro modificado exitosamente !!!');
+                    // alert('Registro modificado exitosamente !!!');
+                    toastr["success"]("", "¡¡¡Registro modificado exitosamente!!!")
+
                     obtenerDatos();
                 },
                 failure: function(data) {
                     alert(data.responseText);
                 },
                 error: function(data) {
-                    alert(data.responseText);
+                    // alert(data.responseText);
+                    toastr["error"]("", "¡¡¡Error!!!")
+
                 }
             });
         }
 
-    }
+    
+}
 
     function modificar(ids, nom, user, tipU, fech, pass, operacion) {
 
@@ -88,14 +104,18 @@
                 }),
                 contentType: 'application/json; charset=utf-8',
                 success: function(data) {
-                    alert("Eliminado correctamente");
+                    toastr["success"]("", "¡¡¡Eliminado correctamente!!!")
+
+                    // alert("Eliminado correctamente");
                     obtenerDatos();
                 },
                 failure: function(data) {
                     alert(data.responseText);
                 },
                 error: function(data) {
-                    alert(data.responseText);
+                    // alert(data.responseText);
+                    toastr["error"]("", "¡¡¡Error!!!")
+
                 }
             });
         } else {
@@ -139,7 +159,9 @@
                 alert(data.responseText);
             },
             error: function(data) {
-                alert(data.responseText);
+                // alert(data.responseText);
+                toastr["error"]("", "¡¡¡Error!!!")
+
             }
         });
     }
