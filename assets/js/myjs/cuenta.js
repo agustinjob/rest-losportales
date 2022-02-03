@@ -653,9 +653,9 @@ function imprimirDatosCuentaOrigen() {
 
         var rowsProd =
             "<tr>" +
-            "<td><button onclick='asignarProductosDividir(" + i + ");' id='" + i + "'>" + (i + 1) + "</button></td>" +
+            "<td><button class='btn bg-success btn-icon  btn-icon-mini btn-round' onclick='asignarProductosDividir(" + i + ");' id='" + i + "'>" + (i + 1) + "</button></td>" +
             "<td> <span id='" + i + "cantidadProducto'>" + item.cantidad + "</span></td>" +
-            "<td> <input type='number' value='0' id='" + i + "cantidad'></td>" +
+            "<td> <input type='number' class='int_prod' value='0' id='" + i + "cantidad'></td>" +
             "<td>" + item.nombre + "</td>" +
             "</tr>";
         cantidadProductosTotal = cantidadProductosTotal + item.cantidad;
@@ -821,10 +821,10 @@ function datosCuentaCancelarProductos() {
     $.each(productosACancelar, function(i, item) {
         var rowsProd =
             "<tr>" +
-            "<td><button onclick='asignarProductosACancelar(" + i + ");' id='btnCance" + i + "'>" + (i + 1) + "</button></td>" +
+            "<td><button class='btn btn-success btn-round' onclick='asignarProductosACancelar(" + i + ");' id='btnCance" + i + "'>" + (i + 1) + " <i class='zmdi zmdi-close-circle'></i></button></td>" +
             "<td> <span id='" + i + "cantidadCapturadaProducto'>" + item.cantidad + "</span></td>" +
             "<td>" + item.nombre + "</td>" +
-            "<td> <input type='number' value='0' id='" + i + "cantidadACancelar'></td>" +
+            "<td> <input class='int_prod' type='number' value='0' id='" + i + "cantidadACancelar'></td>" +
             "<td><select id='motivoCancelacion'>" +
             "<option value='ERROR DE CAPTURA'>ERROR DE CAPTURA</option> <option value='CAMBIO DE OPINION CLIENTE'>CAMBIO OPINION CLIENTE</option>" +
             "<option value='MAL SABOR'>MAL SABOR</option><option value='SERVICIO LENTO'>SERVICIO LENTO</option>" +
