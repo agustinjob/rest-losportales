@@ -23,10 +23,13 @@
     <script src="assets/js/myjs/utilidades.js"></script>
     <script src="assets/js/myjs/gastos.js"></script>
     <script src="assets/js/myjs/panel_inicio.js"></script>
+    <script src="assets/js/myjs/propinas.js"></script>
+    <script src="assets/js/myjs/mesero.js"></script>
     <script>
         function inicializador() {
             buscarTurno();
             revisarSesion();
+            pintarSelectMeseros("#divMeserosPropinas","idMeseroPropina");
         }
         window.onload = inicializador();
     </script>
@@ -337,7 +340,7 @@
                             <div class="col-sm-3 col-md-3 col-lg-3">
                                 <div class="body m-b-30 l-green">
                                     <div class="event-name row" id="pagarPropinas">
-                                        <a href="#pagPopModal" data-toggle="modal" class="enlace" data-target="#pagPopModal"></a>
+                                        <a href="#pagPopModal" onclick="limpiarTodo();" data-toggle="modal" class="enlace" data-target="#pagPopModal"></a>
                                         <div class=" col-12 text-center">
                                             <h6 class="color-name">PAGAR PROPINAS</h6>
                                             <a href="">
@@ -393,7 +396,11 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content ">
                 <div class="modal-header">
+<<<<<<< HEAD
                     <h4 class="title" id="smallModalLabel">Pagar propina </h4>
+=======
+                    <h4 class="title" id="smallModalLabel">Pagar propina</h4>
+>>>>>>> 8541d08ff574a18939a6e6e434ad6469971938ff
                     <a href="">
                         <img class="icon-menu-principal" src="assets/icon/metodo-de-pago.png" alt="">
                     </a>
@@ -403,35 +410,31 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-
                             <div class="row clearfix">
                                 <div class="col-sm-4">
                                     <div class="form-group ">
                                         <p class="text-blac text-center">Archivo:</p>
-                                        <select class="form-control show-tick" id="tipoUsuario">
-                                      <option value="">Seleccionar</option>
-                                      <option value="Administrador">Turno actual</option>
-                                      <option value="Cajero">Historico</option>
-                                      <!-- <option value="Gerente">Gerente</option>
-                                      <option value="Subgerente">Subgerente</option>
-                                      <option value="Supervisor">Supervisor</option> -->
+                                        <select class="form-control" id="tipoBusquedaPropina">
+                                     <option value="0">Selecciona un turno</option>
+                                      <option value="turno">Turno actual</option>
+                                      <option value="historico">Historico</option>
                                   </select>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-4">
                                     <div class="form-group ">
-
                                         <p class="text-blac text-center">Mesero:</p>
-                                        <select class="form-control show-tick" id="tipoUsuario">
-                                      <option value="">Seleccionar</option>
-                                      <option value="Administrador">Turno actual</option>
-                                      <option value="Cajero">Historico</option>
+                                        <div id="divMeserosPropinas"></div>
                                       <!-- <option value="Gerente">Gerente</option>
                                       <option value="Subgerente">Subgerente</option>
                                       <option value="Supervisor">Supervisor</option> -->
-                                  </select>
+                              
                                     </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <br><br>
+                                    <button class="btn btn-primary" onclick="buscarPropinasNoPagadas();">Buscar</button>
                                 </div>
                             </div>
                         </div>
@@ -443,56 +446,24 @@
 
 
                         <div class="col-sm-12">
+                            <br><br>
 
                             <div class="body table-responsive">
-                                <table class="table m-b-0">
+                                <table class="table m-b-0" id="tablaPropinas">
                                     <thead class="thead-light">
                                         <tr>
                                             <th scope="col">FOLIO</th>
-                                            <th scope="col">FECHA DE CIERRE</th>
+                                            <th scope="col">FECHA CIERR</th>
                                             <th scope="col">ORDEN</th>
-                                            <th scope="col">PROPINA EN EFECTIVO</th>
-                                            <th scope="col">PRIPINA EN TARJETA</th>
+                                            <th scope="col">PROPINA EFEC</th>
+                                            <th scope="col">PROPINA TARJ</th>
                                             <th scope="col">PROPINA TOTAL</th>
-                                            <th scope="col">PAGAR PROPINA</th>
+                                            <th scope="col">PAGAR PROPI</th>
                                             <!-- <th scope="col">CANCELAR</th> -->
-
-
-
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <!-- <td><button class='btn bg-danger btn-round'><a class="text-white"  href="#canProModal" data-toggle="modal" data-target="#canProModal"><i class='zmdi zmdi-delete'></i></a></button></td> -->
-
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <!-- <td> <button class='btn bg-danger btn-round'><a class="text-white"  href="#canProModal" data-toggle="modal" data-target="#canProModal"><i class='zmdi zmdi-delete'></i></a></button></td> -->
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <!-- <td><button class='btn bg-danger btn-round ' ><a class="text-white"  href="#canProModal" data-toggle="modal" data-target="#canProModal"><i class='zmdi zmdi-delete'></i></a></button></td> -->
-                                        </tr>
+                                       
                                     </tbody>
                                 </table>
                             </div>
@@ -508,19 +479,19 @@
                                     <div class="col-sm-4">
                                         <div class="form-group ">
                                             <b>Cuentas:</b>
-                                            <input type="number" id="mesaInfo" class="form-control form-control-sm" placeholder="0" />
+                                            <input type="number" id="numCuentas" disabled="true" class="form-control form-control-sm" placeholder="0" />
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="form-group ">
                                             <b>Importe total propina:</b>
-                                            <input type="number" id="fechaCuentaInfo" value="" class="form-control" placeholder="$0.00" />
+                                            <input type="number" id="importeTotalPropinas" disabled="true" value="" class="form-control" placeholder="$0.00" />
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group ">
                                             <b> importa a pagar:</b>
-                                            <input type="number" id="fechaCuentaInfo" value="" class="form-control" placeholder="$0.00" />
+                                            <input type="number" id="importeAPagar" value="" disabled="true" class="form-control" placeholder="$0.00" />
                                         </div>
                                     </div>
                                 </div>
@@ -532,12 +503,9 @@
                     <div class="modal-footer">
 
 
-                        <button type="button" class="btn bg-deep-orange btn-round"> </a>
-                <a  href="·" ></a>
-                ACEPTAR <i class="zmdi zmdi-check"></i>
-            </button>
-                        <button type="button" class="btn bg-black  btn-round " data-dismiss="modal">CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
-                        </button>
+                        <button type="button" onclick="propinasActualizar();" class="btn bg-deep-orange btn-round">  ACEPTAR <i class="zmdi zmdi-check"></i> </button>
+                        <button type="button" class="btn bg-black  btn-round " data-dismiss="modal">CANCELAR <i class="zmdi zmdi-close-circle"></i></button> </button>
+                       
                     </div>
                 </div>
 
@@ -576,7 +544,11 @@
         <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content ">
                 <div class="modal-header">
+<<<<<<< HEAD
                     <h4 class="title" id="smallModalLabel">Cierre de turno </h4>
+=======
+                    <h4 class="title" id="smallModalLabel">Cierre de turno</h4>
+>>>>>>> 8541d08ff574a18939a6e6e434ad6469971938ff
                     <!-- <span class="material-icons">
                         query_builder
                         </span> -->
@@ -604,7 +576,11 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content ">
                 <div class="modal-header">
+<<<<<<< HEAD
                     <h4 class="title" id="smallModalLabel">Contraseña de usuario requerida </h4>
+=======
+                    <h4 class="title" id="smallModalLabel">Contraseña de usuario requerida</h4>
+>>>>>>> 8541d08ff574a18939a6e6e434ad6469971938ff
                     <a href="">
                         <img class="icon-menu-principal" src="" alt="">
                     </a>
