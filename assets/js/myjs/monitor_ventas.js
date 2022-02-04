@@ -51,6 +51,6 @@ function formatoFecha(fecha, formato) {
 }
 
 function inicializarDatos() {
-    var fechatxt = formatoFecha(new Date(), "yy/mm/dd");
+    var fechatxt = formatoFecha(new Date(), "yy/mm/dd h:mm:ss");
     $("#fechaDia").val(fechatxt);
 }

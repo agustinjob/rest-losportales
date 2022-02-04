@@ -68,6 +68,31 @@ function modificarDatos() {
     });
 }
 
+function imprimirGastos(tipotxt, importetxt, meserotxt) {
+    var fechatxt = new Date(new Date().getTime() - (new Date().getTimezoneOffset() * 60000));
+    $.ajax({
+        url: "http://localhost:8082/v1/configuracion-imprimir-gastos",
+        type: "POST",
+        data: JSON.stringify({
+            tipo: tipotxt,
+            importe: importetxt,
+            fecha: fechatxt,
+            mesero: meserotxt
+        }),
+        contentType: 'application/json; charset=utf-8',
+        success: function(data) {
+            if (data == false) {
+                alert("Ocurrio un error al realizar la impresión, revisa la conexión de tu impresora o la configuración");
+            }
+        },
+        failure: function(data) {
+            alert(data.responseText);
+        },
+        error: function(data) {
+            alert(data.responseText);
+        }
+    });
+}
 
 
 function cierreParaImprimir(id) {
@@ -95,6 +120,27 @@ function cierreParaImprimirSinObtenerCuentas(id) {
 
     $.ajax({
         url: "http://localhost:8082/v1/configuracion-imprimir/" + id + "/1",
+        type: "GET",
+        contentType: 'application/json; charset=utf-8',
+        success: function(data) {
+            if (data == false) {
+                alert("Ocurrio un error al realizar la impresión, revisa la conexión de tu impresora o la configuración");
+            }
+
+        },
+        failure: function(data) {
+            alert(data.responseText);
+        },
+        error: function(data) {
+            alert(data.responseText);
+        }
+    });
+}
+
+function cierreParaImprimirSinObtenerCuentasOpcionDos(id) {
+
+    $.ajax({
+        url: "http://localhost:8082/v1/configuracion-imprimir/" + id + "/2",
         type: "GET",
         contentType: 'application/json; charset=utf-8',
         success: function(data) {

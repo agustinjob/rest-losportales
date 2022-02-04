@@ -47,7 +47,9 @@ function guardarGastos() {
         }),
         contentType: 'application/json; charset=utf-8',
         success: function(data) {
-
+            if (tipotxt === "Retiro") {
+                imprimirGastos("GASTOS", importetxt, "");
+            }
             alert('Registro agregado exitosamente !!!');
             limpiarRetiro();
         },

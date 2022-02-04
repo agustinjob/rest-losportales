@@ -87,11 +87,14 @@ function propinasActualizar() {
             contentType: 'application/json; charset=utf-8',
             success: function(data) {
                 if (data === true) {
-                    limpiarTodo();
+                    var mesero = $("#idMeseroPropina option:selected").text();
+                    var importe = $("#importeAPagar").val();
+                    imprimirGastos("PAGO PROPINA", importe, mesero);
                     alert("Datos modificados correctamente");
                 } else {
                     alert("Ocurrio un error no se modificaron los datos correctamente, revisa la información");
                 }
+                limpiarTodo();
 
             },
             failure: function(data) {

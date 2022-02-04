@@ -351,9 +351,7 @@ function cerrarCuenta() {
                 idCuenta: idCuentatxt,
                 cierre: fecha,
                 propina: totalPropinatxt,
-                descuento: "0",
                 montoTotal: consumo,
-                montoTotalDescuento: "0",
                 estatus: "cerrada",
                 impreso: "Si",
                 pagoEfectivo: importeEfectivotxt,
@@ -364,10 +362,12 @@ function cerrarCuenta() {
                 propinaVisa: $("#propinaVisa").text(),
                 propinaMasterCard: $("#propinaMasterCard").text(),
                 propinaAmericanExpress: $("#propinaAmericanExpress").text(),
-                huboDescuento: "false"
+                cambio: $("#cambioMN").val(),
+                catidadPago: parseFloat($("#cambioMN").val()) + parseFloat($("#totalMN").val())
             }),
             contentType: 'application/json; charset=utf-8',
             success: function(data) {
+                cierreParaImprimirSinObtenerCuentasOpcionDos(idCuentatxt);
                 alert('Se registro el pago correctamente !!!');
                 location.href = "servicio_comedor.html";
             },
