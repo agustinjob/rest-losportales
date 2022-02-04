@@ -1,98 +1,98 @@
 <!doctype html>
 <html class="no-js " lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-<meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
-<title>Restaurante</title>
-<link rel="icon" href="assets/icon/restaurant.png" type="image/x-icon">
- <!-- Favicon-->
-<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-<!-- <link rel="stylesheet" href="assets/plugins/morrisjs/morris.css" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
+    <title>Restaurante</title>
+    <link rel="icon" href="assets/icon/restaurant.png" type="image/x-icon">
+    <!-- Favicon-->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="assets/plugins/morrisjs/morris.css" />
 <link rel="stylesheet" href="assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.css"/> -->
-<!-- JQuery DataTable Css -->
-<!-- <link rel="stylesheet" href="assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css"> -->
+    <!-- JQuery DataTable Css -->
+    <!-- <link rel="stylesheet" href="assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css"> -->
 
-<!-- Bootstrap Select Css -->
-<link href="assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
-<!-- Custom Css -->
-<link rel="stylesheet" href="assets/css/main.css">
-<link rel="stylesheet" href="assets/css/color_skins.css">
-<link rel="stylesheet" href="assets/css/mycss.css">
-<script src="assets/js/jquery/jquery-3.6.0.min.js"></script>
-<script src="assets/js/myjs/utilidades.js"></script>
-<script src="assets/js/myjs/mesero.js"></script>
-<script src="assets/js/myjs/cuenta.js"></script>
+    <!-- Bootstrap Select Css -->
+    <link href="assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/color_skins.css">
+    <link rel="stylesheet" href="assets/css/mycss.css">
+    <script src="assets/js/jquery/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/myjs/consultar_cuentas.js"></script>
 
 
-<script>
 
-    // function ejecutar() {
-    //     revisarSesion();
-    //     obtenerCuentasAbiertas();
-    //     eliminarCuenta();
-  
-    // }
+    <script>
+        // function ejecutar() {
+        //     revisarSesion();
+        //     obtenerCuentasAbiertas();
+        //     eliminarCuenta();
 
-    // window.onload = ejecutar();
-</script>
+        // }
+
+        // window.onload = ejecutar();
+    </script>
 
 </head>
 </head>
+
 <body class="theme-black">
-<nav class="navbar ">
-    <div class="container">
-    <ul class="nav navbar-nav">
-        <li>
-            <div class="navbar-header">
-                <!-- <a href="javascript:void(0);" class="h-bars"></a> -->
-                <a class="navbar-brand" href="index.html"><img src="assets/images/restaurant-orage.png" width="35" alt="Alpino"><span class="m-l-10"><strong>Restaurante</strong></span></a>
-            </div>
-        </li>
-        <li class="float-right">
-            <a href="sign-in.html" class="mega-menu"><i class="zmdi zmdi-power"></i></a>
-        </li>   
-        <li class="dropdown task badgebit"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-local_dining"></i>
+    <nav class="navbar ">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li>
+                    <div class="navbar-header">
+                        <!-- <a href="javascript:void(0);" class="h-bars"></a> -->
+                        <a class="navbar-brand" href="index.html"><img src="assets/images/restaurant-orage.png" width="35" alt="Alpino"><span class="m-l-10"><strong>Restaurante</strong></span></a>
+                    </div>
+                </li>
+                <li class="float-right">
+                    <a href="sign-in.html" class="mega-menu"><i class="zmdi zmdi-power"></i></a>
+                </li>
+                <li class="dropdown task badgebit"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-local_dining"></i>
      
         </a>
-      
-    </li>     
-    </ul>
-    </div>
-</nav>
 
-<!-- Main Content -->
-<section class="l-amber">
-    <div class="container">
-        <br><br><br>
-    <div class="block-header">
-        <div class="row clearfix">
-            <div class="col-lg-5 col-md-5 col-sm-12">
-                <h2>Consultar cuentas</h2>                    
-            </div> 
-            <div class="col-lg-7 col-md-7 col-sm-12">
-                <ul class="breadcrumb float-md-right padding-0">
-                    <li class="breadcrumb-item"><a href="panel_inicio.html" class="text-black"><i class="zmdi zmdi-home"></i>&nbsp;&nbsp; SALIR</a></li>
-                </ul>
-            </div>              
+                </li>
+            </ul>
         </div>
-    </div>
-  <div class="container">
-      <div class="row">
-          <div class="col-lg-5 ">
-            <div class="card">
-                <div class="body">
-                    <div class="row clearfix" >
-                        <!-- <div class="col-sm-4">
+    </nav>
+
+    <!-- Main Content -->
+    <section class="l-amber">
+        <div class="container">
+            <br><br><br>
+            <div class="block-header">
+                <div class="row clearfix">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <h2>Consultar cuentas</h2>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-12">
+                        <ul class="breadcrumb float-md-right padding-0">
+                            <li class="breadcrumb-item"><a href="panel_inicio.html" class="text-black"><i class="zmdi zmdi-home"></i>&nbsp;&nbsp; SALIR</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 ">
+                        <div class="card">
+                            <div class="body">
+                                <div class="row clearfix">
+                                    <!-- <div class="col-sm-4">
                             &nbsp;&nbsp;&nbsp;
                             <b>Área activa:</b>
                         </div> -->
-                        <!-- <div class="col-sm-8"> -->
-                            <!-- &nbsp;&nbsp;&nbsp; -->
-                            <!-- <b>Cuentas:</b> -->
-                        <!-- </div> -->
-                        <!-- <div class="col-sm-4">
+                                    <!-- <div class="col-sm-8"> -->
+                                    <!-- &nbsp;&nbsp;&nbsp; -->
+                                    <!-- <b>Cuentas:</b> -->
+                                    <!-- </div> -->
+                                    <!-- <div class="col-sm-4">
                             <div class="form-group form-group-sm">                                 
                                 <select class="form-control" >
                                     <option value="">Seleccionar</option>
@@ -107,428 +107,430 @@
                         </div> -->
 
 
-                        <!-- <div class="col-sm-8" >
+                                    <!-- <div class="col-sm-8" >
                             <div class="form-group">                                    
                                 <input type="text"  class="form-control"  />
                             </div>
                         </div> -->
-                </div>
-                <div class="row clearfix">
-                    <div class="col-sm-8">
-                        &nbsp;&nbsp;&nbsp;
-                        <b>Buscar cuenta:</b>
-                    </div>
-                    <!-- <div class="col-sm-4">
-                        &nbsp;&nbsp;&nbsp;
-                        <b>Cuentas:</b>
-                    </div>
+                                </div>
+                                <div class="row clearfix">
+                                    <div class="col-sm-6">
+                                        &nbsp;&nbsp;&nbsp;
+                                        <b>Archivo:</b>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        &nbsp;&nbsp;&nbsp;
+                                        <b>Periodo:</b>
+                                    </div>
 
-                    <div class="col-sm-8" >
-                        <div class="form-group">                                    
-                            <input type="text"  class="form-control" />
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <select class="form-control" id="tipo">
+                                                <option value="actual">Turno actual</option>
+                                                <option value="cerrados">Turnos cerrados</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <input type="date" id="fecha" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <button onclick="obtenerCuentas();" class="btn btn-primary">Actualizar</button>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                                <br>
+                                <div class="div-scroll-tabla">
+                                    <!-- <div class="body"> -->
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-striped table-hover js-basic-example dataTable" id="tablaCuentas">
+                                            <thead>
+                                                <tr>
+                                                    <th>Folio</th>
+                                                    <th>Fecha cierre</th>
+                                                    <th>Cuenta/Mesa</th>
+                                            </thead>
+                                            <tbody>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="body"> -->
+
+                            </div>
                         </div>
+
                     </div>
+                    <div class="col-lg-7 ">
 
-                    <div class="col-sm-4" >
-                        <div class="form-group">                                    
-                            <input type="text"  class="form-control"  />
-                        </div>
-                    </div> -->
-                </div>
-                <br>
-                <div class="div-scroll-tabla">
-                    <!-- <div class="body"> -->
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-striped table-hover js-basic-example dataTable" id="tablaConsultarCuenta">
-                                <thead>
-                                    <tr>
-                                        <th>Folio</th>
-                                        <th>Folio nota consumo</th>
-                                        <th>Fecha cierre</th>
-                                        <th>Cuenta/Mesa</th>
-                                        <th>Cancel</th>
-                                        <th>Fact</th>
-                                        <th>Estacíon</th>
-                                        <th>Total</th>
+                        <div class="card">
+                            <div class="body">
 
-
-
-
-                                </thead>
-                                <tbody>
-                                   
-                                    </tbody>
-                            </table>
-                        </div>
-</div>
-
-                <!-- <div class="body"> -->
-
-                </div>
-            </div>
-
-          </div>
-          <div class="col-lg-7 ">
- 
-            <div class="card">
-                <div class="body" >
-                    
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                 <div class="div-scroll-btn-productos">
-                                      <div id="caja">
-                                          <button type="button" class="btnMenu btn-color-rojo"> 
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="div-scroll-btn-productos">
+                                                <div id="caja">
+                                                    <button type="button" class="btnMenu btn-color-rojo"> 
                                                 <a href="#valDesModal" onclick="obtenerDatosSelect('#divCuentaMesero','cuentaMeseros','NO');" data-toggle="modal" data-target="#valDesModal">
                                                     <img src="assets/icon/recibo.png" alt="">
                                                     <p class="negro-text"> <strong>REABRIR CTA</strong> </p>
                                                 </a>                                            
                                             </button>
-                                        </div>
-                                      <div id="caja">
-                                        <button type="button" class="btnMenu btn-color-azul"> 
+                                                </div>
+                                                <div id="caja">
+                                                    <button type="button" class="btnMenu btn-color-azul"> 
                                             <a href="#" data-toggle="modal" data-target="#">
                                                 <img src="assets/icon/cerca.png" alt="">
                                                 <p class="negro-text"> <strong>CANCELAR FOLIO</strong> </p>
                                             </a>  
                                         </button>
-                                      </div> 
-                                      <div id="caja">
-                                        <button type="button" class="btnMenu btn-color-amarillo"> 
+                                                </div>
+                                                <div id="caja">
+                                                    <button type="button" class="btnMenu btn-color-amarillo"> 
                                             <a href="#jubtModal" data-toggle="modal" data-target="#jubtModal">
                                                 <img src="assets/icon/dar-dinero.png" alt="">
                                                 <p class="negro-text"> <strong>FORMA DE PAGO</strong> </p>
 
                                             </a> 
                                         </button>
-                                      </div>
-                                      <div  id="caja">
-                                        <button type="button" class="btnMenu l-green"> 
+                                                </div>
+                                                <div id="caja">
+                                                    <button type="button" class="btnMenu l-green"> 
                                             <a href="#" data-toggle="modal" data-target="#">
                                                 <img src="assets/icon/impresora.png" alt="">
                                                 <p class="negro-text"> <strong>REMPRIMIR</strong> </p>
                                             </a> 
                                          </button>
-                                      </div>
-                                      <div id="caja">
-                                        <button type="button" class="btnMenu btn-color-morado"> 
+                                                </div>
+                                                <div id="caja">
+                                                    <button type="button" class="btnMenu btn-color-morado"> 
                                             <a href="#divModal" data-toggle="modal" data-target="#divModal">
                                                 <img src="assets/icon/salida.png" alt="">
                                                 <p class="negro-text"> <strong>SALIR</strong> </p>
                                             </a> 
                                         </button>
-                                      </div>
-                                      
+                                                </div>
 
-                                 </div>
 
-                                      
-                            </div>
+                                            </div>
 
-                           
-                        </div>
-                    </div>
-                   
-                    <div>
 
-                    </div>
-                </div>
-            </div>
-
-            <!-- Formulario -->
-            <div class="card">
-                <div class="body" >
-                    
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                
-                                <div class="row clearfix">
-                                    <div class="col-sm-4">
-                                        <div class="form-group ">
-                                            <b>Mesa:</b>    
-                                            <input type="text" id="mesaInfo" class="form-control form-control-sm" />          
                                         </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group ">   
-                                            <b>Fecha cuenta:</b> 
-                                            <input type="text" id="fechaCuentaInfo" value="" class="form-control" />          
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group "> 
-                                            <b>Folio de consumo:</b>   
-                                            <input type="number" id="foiloConsumoInfo" class="form-control" />          
-                                        </div>
-                                    </div>
-                                    
-                            </div>
-                            <div class="row clearfix">
-                                <div class="col-lg-4">
-                                    <div class="form-group ">  
-                                        <b> Mesero:</b>  
-                                        <input type="text" id="meseroInfo" class="form-control text-danger " placeholder="0" />          
+
+
                                     </div>
                                 </div>
-                                <div class="col-sm-4">
-                                    <div class="form-group ">  
-                                        <b>Cliente:</b>  
-                                        <input type="text" id="clienteInfo" class="form-control" />          
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="form-group ">  
-                                        <b>Folio factura:</b>  
-                                        <input type="number" id="folioFacturaInfo" class="form-control" placeholder="0" />          
-                                    </div>
-                                </div>
-                        </div>
-                        <div class="row clearfix">
 
-                            <div class="col-sm-4">
-                                <div class="form-group ">
-                                    <b>Personas:</b>    
-                                    <input type="number" id="personaInfo" class="form-control" />          
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-group ">
-                                    <b>Orden:</b>    
-                                    <input type="number" id="ordenInfo" class="form-control" />          
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-group ">   
-                                    <b>Descuento:</b>
-                                    <input type="number" id="descuentoInfo" class="form-control" placeholder="0.00%" />          
-                                </div>
-                            </div>
-                    </div>
-                    <div class="row clearfix">
-                        
-                        <div class="col-sm-4">
-                            <div class="form-group ">
-                                <b>Apertura:</b>    
-                                <input type="text" id="aperturaInfo" class="form-control" />          
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="form-group ">
-                                <b>Id Turno:</b>    
-                                <input type="number" id="idTurnoInfo" class="form-control" />          
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="form-group ">   
-                                <b>Cierre:</b>
-                                <input type="text" id="cierreInfo" class="form-control" />                      
-                             </div>
-                            </div>
-                        </div>
-                    </div>
-                
+                                <div>
 
-
-            </div>
-            <div class="row clearfix">
-                <div class="col-sm-4">
-                    <div class="form-group ">
-                        <b>Área:</b>    
-                        <input type="number" id="areaInfo" class="form-control" />          
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                </div>
-                <div class="col-sm-3">
-                    <div class="form-group ">    
-                        <button class="btn btn-round bg-deep-orange" type="button">IMPRESO <a><i class="zmdi zmdi-print"></i>
-                        </a></button>          
-                    </div>
-                </div>
-            </div>
-
-     
-            <br>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-striped" id="editableTable">
-                                <thead>
-                                <tr>
-                                    <th>CLAVE.</th>
-                                    <th>COMANDA</th>
-                                    <th>CANT.</th>
-                                    <th>CLAVE</th>
-                                    <th>DESCRIPCIÓN</th>
-                                    <th>IMPORTE</th>
-                                    <th>PROPINA.</th>
-                                    <!-- <th>PROPONAS</th> -->
-                                </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <!-- <td><button class='btn bg-danger btn-round'><i class='zmdi zmdi-delete'></i></button></td> -->
-                                        </tr>
-                                        <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <!-- <td> <button class='btn bg-danger btn-round'><i class='zmdi zmdi-delete'></i></button></td> -->
-                                        </tr>
-                                        <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <!-- <td><button class='btn bg-danger btn-round'><i class='zmdi zmdi-delete'></i></button></td> -->
-                                        </tr>
-
-                                </tbody>
-                            </table>
-                            </div>
-                         </div>
-                    </div>
-                    <br>
-                    <div class="row clearfix">
-                        <div class="col-md-6">
-
-                            <div class="form-group">
-                                <!-- <b>Observaciones:</b> -->
-                                <div class="form-line">
-                                    <div class="col-sm-12">
-                                            
-                                        <div class="body table-responsive">
-                                            <table class="table m-b-0">
-                                                <thead class="thead-light">
-                                                    <tr>
-                                                    <th scope="col">Clave</th>
-                                                    <th scope="col">Descripción</th>
-                                                    <th scope="col">Importe</th>
-                                                    <th scope="col">Propina</th>
-
-                
-                
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>Mark</td>
-                                                    <td>Otto</td>
-                                                    <td>@mdo</td>
-
-                                                    </tr>
-                                                    <tr>
-                                                    <th scope="row">2</th>
-                                                    <td>Jacob</td>
-                                                    <td>Thornton</td>
-                                                    <td>@fat</td>
-
-                                                    </tr>
-                                                    <tr>
-                                                    <th scope="row">3</th>
-                                                    <td>Larry</td>
-                                                    <td>the Bird</td>
-                                                    <td>@twitter</td>
-
-                                                    </tr>
-                                                </tbody>
-                                                </table>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- <textarea rows="4" class="form-control no-resize" placeholder="Observaciones"></textarea> -->
-                                    
-                                     
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-5">
-                            <div class="row clearfix">
-                                <div class="col-sm-5">
-                                    <div class="form-group ">    
-                                        <label type="number" class="col-form-label">Subtotal:</label>          
-                                    </div>
-                                </div>
-                                <div class="col-sm-7">
-                                    <div class="form-group ">    
-                                        <input type="number"  class="form-control input-derecha-izquierda" placeholder="0.00" />          
-                                    </div>
-                                </div>
-   
-                                <div class="col-sm-5">
-                                    <div class="form-group ">    
-                                        <label type="number" class="col-form-label">Descuento:&nbsp;&nbsp;0.0%</label>          
-                                    </div>
-                                </div>
-                                <div class="col-sm-7">
-                                    <div class="form-group ">    
-                                        <input type="number"  class="form-control input-derecha-izquierda" placeholder="0.00" />           
-                                    </div>
-                                </div>
-                                <div class="col-sm-5">
-                                    <div class="form-group ">    
-                                        <label type="number" class="col-form-label">Impuesto:</label>          
-                                    </div>
-                                </div>
-                                <div class="col-sm-7">
-                                    <div class="form-group ">    
-                                        <input type="number"  class="form-control input-derecha-izquierda" placeholder="0.00" />          
-                                    </div>
-                                </div>
-                                <div class="col-sm-5">
-                                    <div class="form-group ">    
-                                        <label type="number" class="col-form-label">Propina:</label>          
-                                    </div>
-                                </div>
-                                <div class="col-sm-7">
-                                    <div class="form-group ">    
-                                        <input type="number"  class="form-control input-derecha-izquierda" placeholder="0.00" />          
-                                    </div>
-                                </div>
-                                <div class="col-sm-5">
-                                    <div class="form-group ">    
-                                        <label type="number" class="col-form-label">Cargo:</label>          
-                                    </div>
-                                </div>
-                                <div class="col-sm-7">
-                                    <div class="form-group ">    
-                                        <input type="number"  class="form-control input-derecha-izquierda" placeholder="0.00" />          
-                                    </div>
-                                </div>
-                                <div class="col-sm-5">
-                                    <div class="form-group ">    
-                                        <label type="number" class="col-form-label text-danger"><strong>Total:</strong> </label>          
-                                    </div>
-                                </div>
-                                <div class="col-sm-7">
-                                    <div class="form-group ">    
-                                        <input type="number"  class="form-control input-derecha-izquierda" placeholder="0.00" />          
-                                    </div>
-                                </div>
-                            </div>
-     
-                                    </div>
-                                </div>
+
+                        <!-- Formulario -->
+                        <div class="card">
+                            <div class="body">
+
                                 <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+                                            <div class="row clearfix">
+                                                <div class="col-sm-4">
+                                                    <div class="form-group ">
+                                                        <b>Mesa:</b>
+                                                        <input type="text" id="mesaInfo" class="form-control form-control-sm" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group ">
+                                                        <b>Fecha cuenta:</b>
+                                                        <input type="text" id="fechaCuentaInfo" value="" class="form-control" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group ">
+                                                        <b>Folio de consumo:</b>
+                                                        <input type="number" id="foiloConsumoInfo" class="form-control" />
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row clearfix">
+                                                <div class="col-lg-4">
+                                                    <div class="form-group ">
+                                                        <b> Mesero:</b>
+                                                        <input type="text" id="meseroInfo" class="form-control text-danger " placeholder="0" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group ">
+                                                        <b>Cliente:</b>
+                                                        <input type="text" id="clienteInfo" class="form-control" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="form-group ">
+                                                        <b>Folio factura:</b>
+                                                        <input type="number" id="folioFacturaInfo" class="form-control" placeholder="0" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row clearfix">
+
+                                                <div class="col-sm-4">
+                                                    <div class="form-group ">
+                                                        <b>Personas:</b>
+                                                        <input type="number" id="personaInfo" class="form-control" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="form-group ">
+                                                        <b>Orden:</b>
+                                                        <input type="number" id="ordenInfo" class="form-control" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="form-group ">
+                                                        <b>Descuento:</b>
+                                                        <input type="number" id="descuentoInfo" class="form-control" placeholder="0.00%" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row clearfix">
+
+                                                <div class="col-sm-4">
+                                                    <div class="form-group ">
+                                                        <b>Apertura:</b>
+                                                        <input type="text" id="aperturaInfo" class="form-control" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="form-group ">
+                                                        <b>Id Turno:</b>
+                                                        <input type="number" id="idTurnoInfo" class="form-control" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="form-group ">
+                                                        <b>Cierre:</b>
+                                                        <input type="text" id="cierreInfo" class="form-control" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
                                     <div class="row clearfix">
-                        
-                                        
+                                        <div class="col-sm-4">
+                                            <div class="form-group ">
+                                                <b>Área:</b>
+                                                <input type="number" id="areaInfo" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group ">
+                                                <button class="btn btn-round bg-deep-orange" type="button">IMPRESO <a><i class="zmdi zmdi-print"></i>
+                        </a></button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered table-striped" id="editableTable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>CLAVE.</th>
+                                                            <th>COMANDA</th>
+                                                            <th>CANT.</th>
+                                                            <th>CLAVE</th>
+                                                            <th>DESCRIPCIÓN</th>
+                                                            <th>IMPORTE</th>
+                                                            <th>PROPINA.</th>
+                                                            <!-- <th>PROPONAS</th> -->
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th scope="row">1</th>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td>@mdo</td>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td>@mdo</td>
+                                                            <!-- <td><button class='btn bg-danger btn-round'><i class='zmdi zmdi-delete'></i></button></td> -->
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">2</th>
+                                                            <td>Jacob</td>
+                                                            <td>Thornton</td>
+                                                            <td>@fat</td>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td>@mdo</td>
+                                                            <!-- <td> <button class='btn bg-danger btn-round'><i class='zmdi zmdi-delete'></i></button></td> -->
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">3</th>
+                                                            <td>Larry</td>
+                                                            <td>the Bird</td>
+                                                            <td>@twitter</td>
+                                                            <td>Mark</td>
+                                                            <td>Otto</td>
+                                                            <td>@mdo</td>
+                                                            <!-- <td><button class='btn bg-danger btn-round'><i class='zmdi zmdi-delete'></i></button></td> -->
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row clearfix">
+                                        <div class="col-md-6">
+
+                                            <div class="form-group">
+                                                <!-- <b>Observaciones:</b> -->
+                                                <div class="form-line">
+                                                    <div class="col-sm-12">
+
+                                                        <div class="body table-responsive">
+                                                            <table class="table m-b-0">
+                                                                <thead class="thead-light">
+                                                                    <tr>
+                                                                        <th scope="col">Clave</th>
+                                                                        <th scope="col">Descripción</th>
+                                                                        <th scope="col">Importe</th>
+                                                                        <th scope="col">Propina</th>
+
+
+
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <th scope="row">1</th>
+                                                                        <td>Mark</td>
+                                                                        <td>Otto</td>
+                                                                        <td>@mdo</td>
+
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">2</th>
+                                                                        <td>Jacob</td>
+                                                                        <td>Thornton</td>
+                                                                        <td>@fat</td>
+
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">3</th>
+                                                                        <td>Larry</td>
+                                                                        <td>the Bird</td>
+                                                                        <td>@twitter</td>
+
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- <textarea rows="4" class="form-control no-resize" placeholder="Observaciones"></textarea> -->
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="row clearfix">
+                                                <div class="col-sm-5">
+                                                    <div class="form-group ">
+                                                        <label type="number" class="col-form-label">Subtotal:</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-7">
+                                                    <div class="form-group ">
+                                                        <input type="number" class="form-control input-derecha-izquierda" placeholder="0.00" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-5">
+                                                    <div class="form-group ">
+                                                        <label type="number" class="col-form-label">Descuento:&nbsp;&nbsp;0.0%</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-7">
+                                                    <div class="form-group ">
+                                                        <input type="number" class="form-control input-derecha-izquierda" placeholder="0.00" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-5">
+                                                    <div class="form-group ">
+                                                        <label type="number" class="col-form-label">Impuesto:</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-7">
+                                                    <div class="form-group ">
+                                                        <input type="number" class="form-control input-derecha-izquierda" placeholder="0.00" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-5">
+                                                    <div class="form-group ">
+                                                        <label type="number" class="col-form-label">Propina:</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-7">
+                                                    <div class="form-group ">
+                                                        <input type="number" class="form-control input-derecha-izquierda" placeholder="0.00" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-5">
+                                                    <div class="form-group ">
+                                                        <label type="number" class="col-form-label">Cargo:</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-7">
+                                                    <div class="form-group ">
+                                                        <input type="number" class="form-control input-derecha-izquierda" placeholder="0.00" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-5">
+                                                    <div class="form-group ">
+                                                        <label type="number" class="col-form-label text-danger"><strong>Total:</strong> </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-7">
+                                                    <div class="form-group ">
+                                                        <input type="number" class="form-control input-derecha-izquierda" placeholder="0.00" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="container">
+                                        <div class="row clearfix">
+
+
                                             <!-- <div class="col-sm-12">
                                             
                                                 <div class="body table-responsive">
@@ -570,87 +572,85 @@
                                                         </table>
                                                 </div>
                                             </div> -->
-                                            
-                        
+
+
                                         </div>
-                            
-                        
-                                <div class="modal-footer" >
-                                    
-                                    <button type="button" class="btn bg-deep-orange btn-round" > </a>
+
+
+                                        <div class="modal-footer">
+
+                                            <button type="button" class="btn bg-deep-orange btn-round"> </a>
                                         <a  href="·" ></a>
                                         ACEPTAR <i class="zmdi zmdi-check"></i>
                                     </button>
-                                    <button type="button" class="btn bg-black  btn-round " data-dismiss="modal"
-                                    >CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
-                                    </button>
-                                </div>
-                                </div>
+                                            <button type="button" class="btn bg-black  btn-round " data-dismiss="modal">CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
 
-                           
+
+                            </div>
                         </div>
-                    </div>
-                   
-                    <div>
 
+                        <div>
+
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-      </div>
-  </div>
-</div>
-</section>
+        </div>
+        </div>
+        </div>
+    </section>
     <!-- Modal reabrir cuenta validacion -->
     <div class="modal fade" id="valDesModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
-        <div class="modal-content ">
-            <div class="modal-header">
+            <div class="modal-content ">
+                <div class="modal-header">
                     <h4 class="title" id="smallModalLabel">Contraseña de usuario requerida. </h4>
                     <a href="">
                         <img class="icon-menu-principal" src="" alt="">
-                    </a> 
-            </div>
-            <br>
-            <div class="container">
-                <div class="row clearfix">
-                        <div class="col-sm-6">     
+                    </a>
                 </div>
+                <br>
                 <div class="container">
                     <div class="row clearfix">
-                        <div class="col-sm-12">
-                        
-                            <div class="form-group ">
-                                <b>Contraseña:</b>    
-                                <input type="password"  class="form-control" placeholder="Contraseña" />          
+                        <div class="col-sm-6">
+                        </div>
+                        <div class="container">
+                            <div class="row clearfix">
+                                <div class="col-sm-12">
+
+                                    <div class="form-group ">
+                                        <b>Contraseña:</b>
+                                        <input type="password" class="form-control" placeholder="Contraseña" />
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        </div>
 
 
-        
-    
-            <div class="modal-footer">
-                <button type="button" class="btn bg-deep-orange btn-round "> </a>
+
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn bg-deep-orange btn-round "> </a>
                     <a   href="#destModal" class="text-white" data-toggle="modal" data-target="#destModal" >                    ACEPTAR <i class="zmdi zmdi-check"></i>
                     </a>
                 </button>
-                <button type="button" class="btn bg-black  btn-round " data-dismiss="modal"
-                >CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
-                </button>
+                                <button type="button" class="btn bg-black  btn-round " data-dismiss="modal">CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-            </div>
-            </div>
-        </div>
         </div>
     </div>
 
 
-       <!-- Modal Cambiar Mesero -->
-   <!-- <div class="modal fade" id="mesModal" tabindex="-1" role="dialog">
+    <!-- Modal Cambiar Mesero -->
+    <!-- <div class="modal fade" id="mesModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content ">
             <div class="modal-header">
@@ -692,73 +692,76 @@
     </div> -->
 
 
-   <!-- Modal Abrir Cuenta -->
+    <!-- Modal Abrir Cuenta -->
     <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
-        <div class="modal-content ">
-            <div class="modal-header">
+            <div class="modal-content ">
+                <div class="modal-header">
                     <h4 class="title" id="smallModalLabel">Abrir cuenta comedor </h4>
                     <a href="">
                         <img class="icon-menu-principal" src="assets/icon/recibo.png" alt="">
-                    </a> 
-            </div>
-            <br>
-            <div class="container">
-                <div class="row clearfix">
-                    <div class="col-sm-6">
-                        <div class="form-group ">
-                            <b>Cuenta:</b>    
-                            <input type="text"  id="nombreCuenta" class="form-control" />          
+                    </a>
+                </div>
+                <br>
+                <div class="container">
+                    <div class="row clearfix">
+                        <div class="col-sm-6">
+                            <div class="form-group ">
+                                <b>Cuenta:</b>
+                                <input type="text" id="nombreCuenta" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group ">
+                                <b>Personas:</b>
+                                <input type="text" id="personasCuenta" class="form-control" />
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="form-group ">    
-                            <b>Personas:</b>
-                            <input type="text" id="personasCuenta" class="form-control" />          
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            <div class="form-group form-group-sm">
+                                <b>Mesero:</b>
+                                <div id="divCuentaMesero"></div>
+                            </div>
                         </div>
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <button type="button" onclick="abrirCuenta();" class="btn bg-deep-orange btn-round waves-effect"> ACEPTAR <i class="zmdi zmdi-check"></i>
+                </button>
+                        <button type="button" class="btn bg-black  btn-round waves-effect" data-dismiss="modal">CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
                     </div>
                 </div>
-                <div class="row clearfix">
-                    <div class="col-sm-12">
-                        <div class="form-group form-group-sm">  
-                            <b>Mesero:</b>  
-                            <div id="divCuentaMesero"></div>
-                        </div>
-                    </div>
-            </div>
-           
-       
-            <div class="modal-footer">
-                <button type="button" onclick="abrirCuenta();" class="btn bg-deep-orange btn-round waves-effect"> ACEPTAR <i class="zmdi zmdi-check"></i>
-                </button>
-                <button type="button" class="btn bg-black  btn-round waves-effect" data-dismiss="modal">CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
             </div>
         </div>
-    </div>
-    </div>
 
 
-<!-- Jquery Core Js -->
-<script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) -->
-<script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- slimscroll, waves Scripts Plugin Js -->
+        <!-- Jquery Core Js -->
+        <script src="assets/bundles/libscripts.bundle.js"></script>
+        <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) -->
+        <script src="assets/bundles/vendorscripts.bundle.js"></script>
+        <!-- slimscroll, waves Scripts Plugin Js -->
 
 
-<!-- Jquery DataTable Plugin Js --> 
-<script src="assets/bundles/datatablescripts.bundle.js"></script>
-<script src="assets/plugins/jquery-datatable/buttons/dataTables.buttons.min.js"></script>
-<script src="assets/plugins/jquery-datatable/buttons/buttons.bootstrap4.min.js"></script>
-<script src="assets/plugins/jquery-datatable/buttons/buttons.colVis.min.js"></script>
-<script src="assets/plugins/jquery-datatable/buttons/buttons.html5.min.js"></script>
-<script src="assets/plugins/jquery-datatable/buttons/buttons.print.min.js"></script>
+        <!-- Jquery DataTable Plugin Js -->
+        <script src="assets/bundles/datatablescripts.bundle.js"></script>
+        <script src="assets/plugins/jquery-datatable/buttons/dataTables.buttons.min.js"></script>
+        <script src="assets/plugins/jquery-datatable/buttons/buttons.bootstrap4.min.js"></script>
+        <script src="assets/plugins/jquery-datatable/buttons/buttons.colVis.min.js"></script>
+        <script src="assets/plugins/jquery-datatable/buttons/buttons.html5.min.js"></script>
+        <script src="assets/plugins/jquery-datatable/buttons/buttons.print.min.js"></script>
 
-<!-- formato tabla -->
-<script src="assets/js/myjs/formato_tabla.js" ></script>
+        <!-- formato tabla -->
+        <script src="assets/js/myjs/formato_tabla.js"></script>
 
 
-<script src="assets/bundles/mainscripts.bundle.js"></script>
-<script src="assets/js/pages/tables/jquery-datatable.js"></script>
+        <script src="assets/bundles/mainscripts.bundle.js"></script>
+        <script src="assets/js/pages/tables/jquery-datatable.js"></script>
 
-<!-- <script src="assets/js/pages/index.js"></script> -->
-<!-- <script src="assets/js/pages/charts/polar_area_chart.js"></script> -->
+        <!-- <script src="assets/js/pages/index.js"></script> -->
+        <!-- <script src="assets/js/pages/charts/polar_area_chart.js"></script> -->
 </body>
+
 </html>
