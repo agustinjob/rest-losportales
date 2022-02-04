@@ -545,7 +545,9 @@ function asignarDatosPagarCuenta() {
         } else {
             if (this.tipoPago === "efectivo") {
                 $("#importeEfectivo").text(txtValor);
-                $("#cambioMN").val(txtValor - $("#totalMN").val());
+                if (txtValor >= $("#totalMN").val()) {
+                    $("#cambioMN").val(txtValor - $("#totalMN").val());
+                } else { $("#cambioMN").val(0); }
             }
             if (this.tipoPago === "visa") { $("#importeVisa").text(txtValor); }
             if (this.tipoPago === "masterCard") { $("#importeMasterCard").text(txtValor); }

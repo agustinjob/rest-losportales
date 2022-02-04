@@ -22,7 +22,12 @@
     <link rel="stylesheet" href="assets/css/color_skins.css">
     <link rel="stylesheet" href="assets/css/mycss.css">
     <script src="assets/js/jquery/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/rollups/md5.js"></script>
     <script src="assets/js/myjs/consultar_cuentas.js"></script>
+    <script src="assets/js/myjs/utilidades.js"></script>
+    <script src="assets/js/myjs/configuracion.js"></script>
+
+
 
 
 
@@ -197,7 +202,7 @@
                                                 </div>
                                                 <div id="caja">
                                                     <button type="button" class="btnMenu btn-color-amarillo"> 
-                                            <a href="#jubtModal" data-toggle="modal" data-target="#jubtModal">
+                                            <a onclick="mostrarPago();">
                                                 <img src="assets/icon/dar-dinero.png" alt="">
                                                 <p class="negro-text"> <strong>FORMA DE PAGO</strong> </p>
 
@@ -206,7 +211,7 @@
                                                 </div>
                                                 <div id="caja">
                                                     <button type="button" class="btnMenu l-green"> 
-                                            <a href="#" data-toggle="modal" data-target="#">
+                                            <a oncanplay="cerrarCuentaSoloImpresion();">
                                                 <img src="assets/icon/impresora.png" alt="">
                                                 <p class="negro-text"> <strong>REMPRIMIR</strong> </p>
                                             </a> 
@@ -261,7 +266,7 @@
                                                 <div class="col-sm-4">
                                                     <div class="form-group ">
                                                         <b>Folio de consumo:</b>
-                                                        <input type="number" id="foiloConsumoInfo" class="form-control" />
+                                                        <input type="number" id="folioConsumoInfo" class="form-control" />
                                                     </div>
                                                 </div>
 
@@ -275,21 +280,6 @@
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group ">
-                                                        <b>Cliente:</b>
-                                                        <input type="text" id="clienteInfo" class="form-control" />
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <div class="form-group ">
-                                                        <b>Folio factura:</b>
-                                                        <input type="number" id="folioFacturaInfo" class="form-control" placeholder="0" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row clearfix">
-
-                                                <div class="col-sm-4">
-                                                    <div class="form-group ">
                                                         <b>Personas:</b>
                                                         <input type="number" id="personaInfo" class="form-control" />
                                                     </div>
@@ -300,25 +290,26 @@
                                                         <input type="number" id="ordenInfo" class="form-control" />
                                                     </div>
                                                 </div>
+
+                                            </div>
+
+                                            <div class="row clearfix">
+                                                <!-- <div class="col-lg-4">
+                                                    <div class="form-group ">
+                                                        <b>Id Turno:</b>
+                                                        <input type="number" id="idTurnoInfo" class="form-control" />
+                                                    </div>
+                                                </div>-->
                                                 <div class="col-lg-4">
                                                     <div class="form-group ">
                                                         <b>Descuento:</b>
                                                         <input type="number" id="descuentoInfo" class="form-control" placeholder="0.00%" />
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="row clearfix">
-
                                                 <div class="col-sm-4">
                                                     <div class="form-group ">
                                                         <b>Apertura:</b>
                                                         <input type="text" id="aperturaInfo" class="form-control" />
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <div class="form-group ">
-                                                        <b>Id Turno:</b>
-                                                        <input type="number" id="idTurnoInfo" class="form-control" />
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
@@ -337,10 +328,15 @@
                                         <div class="col-sm-4">
                                             <div class="form-group ">
                                                 <b>Área:</b>
-                                                <input type="number" id="areaInfo" class="form-control" />
+                                                <input type="text" disabled="disabled" value="Comedor" id="areaInfo" class="form-control" />
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
+                                            <div class="form-group ">
+                                                <b>Cuenta:</b>
+                                                <input type="text" disabled="disabled" id="cuentaInfo" class="form-control" />
+                                            </div>
+
                                         </div>
                                         <div class="col-sm-3">
                                             <div class="form-group ">
@@ -355,50 +351,17 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="table-responsive">
-                                                <table class="table table-bordered table-striped" id="editableTable">
+                                                <table class="table table-bordered table-striped" id="tablaProductosOrden">
                                                     <thead>
                                                         <tr>
-                                                            <th>CLAVE.</th>
-                                                            <th>COMANDA</th>
-                                                            <th>CANT.</th>
-                                                            <th>CLAVE</th>
+                                                            <th>MOV</th>
                                                             <th>DESCRIPCIÓN</th>
+                                                            <th>CANT.</th>
+                                                            <th>PRECIO</th>
                                                             <th>IMPORTE</th>
-                                                            <th>PROPINA.</th>
-                                                            <!-- <th>PROPONAS</th> -->
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <th scope="row">1</th>
-                                                            <td>Mark</td>
-                                                            <td>Otto</td>
-                                                            <td>@mdo</td>
-                                                            <td>Mark</td>
-                                                            <td>Otto</td>
-                                                            <td>@mdo</td>
-                                                            <!-- <td><button class='btn bg-danger btn-round'><i class='zmdi zmdi-delete'></i></button></td> -->
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">2</th>
-                                                            <td>Jacob</td>
-                                                            <td>Thornton</td>
-                                                            <td>@fat</td>
-                                                            <td>Mark</td>
-                                                            <td>Otto</td>
-                                                            <td>@mdo</td>
-                                                            <!-- <td> <button class='btn bg-danger btn-round'><i class='zmdi zmdi-delete'></i></button></td> -->
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">3</th>
-                                                            <td>Larry</td>
-                                                            <td>the Bird</td>
-                                                            <td>@twitter</td>
-                                                            <td>Mark</td>
-                                                            <td>Otto</td>
-                                                            <td>@mdo</td>
-                                                            <!-- <td><button class='btn bg-danger btn-round'><i class='zmdi zmdi-delete'></i></button></td> -->
-                                                        </tr>
 
                                                     </tbody>
                                                 </table>
@@ -406,132 +369,79 @@
                                         </div>
                                     </div>
                                     <br>
-                                    <div class="row clearfix">
-                                        <div class="col-md-6">
 
-                                            <div class="form-group">
-                                                <!-- <b>Observaciones:</b> -->
-                                                <div class="form-line">
-                                                    <div class="col-sm-12">
-
-                                                        <div class="body table-responsive">
-                                                            <table class="table m-b-0">
-                                                                <thead class="thead-light">
-                                                                    <tr>
-                                                                        <th scope="col">Clave</th>
-                                                                        <th scope="col">Descripción</th>
-                                                                        <th scope="col">Importe</th>
-                                                                        <th scope="col">Propina</th>
-
-
-
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <th scope="row">1</th>
-                                                                        <td>Mark</td>
-                                                                        <td>Otto</td>
-                                                                        <td>@mdo</td>
-
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th scope="row">2</th>
-                                                                        <td>Jacob</td>
-                                                                        <td>Thornton</td>
-                                                                        <td>@fat</td>
-
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th scope="row">3</th>
-                                                                        <td>Larry</td>
-                                                                        <td>the Bird</td>
-                                                                        <td>@twitter</td>
-
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-
-                                                    <!-- <textarea rows="4" class="form-control no-resize" placeholder="Observaciones"></textarea> -->
-
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <div class="row clearfix">
-                                                <div class="col-sm-5">
-                                                    <div class="form-group ">
-                                                        <label type="number" class="col-form-label">Subtotal:</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-7">
-                                                    <div class="form-group ">
-                                                        <input type="number" class="form-control input-derecha-izquierda" placeholder="0.00" />
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-sm-5">
-                                                    <div class="form-group ">
-                                                        <label type="number" class="col-form-label">Descuento:&nbsp;&nbsp;0.0%</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-7">
-                                                    <div class="form-group ">
-                                                        <input type="number" class="form-control input-derecha-izquierda" placeholder="0.00" />
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-5">
-                                                    <div class="form-group ">
-                                                        <label type="number" class="col-form-label">Impuesto:</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-7">
-                                                    <div class="form-group ">
-                                                        <input type="number" class="form-control input-derecha-izquierda" placeholder="0.00" />
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-5">
-                                                    <div class="form-group ">
-                                                        <label type="number" class="col-form-label">Propina:</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-7">
-                                                    <div class="form-group ">
-                                                        <input type="number" class="form-control input-derecha-izquierda" placeholder="0.00" />
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-5">
-                                                    <div class="form-group ">
-                                                        <label type="number" class="col-form-label">Cargo:</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-7">
-                                                    <div class="form-group ">
-                                                        <input type="number" class="form-control input-derecha-izquierda" placeholder="0.00" />
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-5">
-                                                    <div class="form-group ">
-                                                        <label type="number" class="col-form-label text-danger"><strong>Total:</strong> </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-7">
-                                                    <div class="form-group ">
-                                                        <input type="number" class="form-control input-derecha-izquierda" placeholder="0.00" />
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="container">
+                                    <div class="col-md-5">
                                         <div class="row clearfix">
+                                            <div class="col-sm-5">
+                                                <div class="form-group ">
+                                                    <label class="col-form-label">Subtotal:</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <div class="form-group ">
+                                                    <input type="number" id="subtotal" disabled="true" class="form-control input-derecha-izquierda" placeholder="0.00" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-5">
+                                                <div class="form-group ">
+                                                    <label class="col-form-label">Descuento:&nbsp;&nbsp;0.0%</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <div class="form-group ">
+                                                    <input type="number" id="descuento" disabled="true" class="form-control input-derecha-izquierda" placeholder="0.00" />
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <div class="form-group ">
+                                                    <label type="text" class="col-form-label">Impuesto:</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <div class="form-group ">
+                                                    <input type="number" id="impuesto" disabled="true" class="form-control input-derecha-izquierda" placeholder="0.00" />
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <div class="form-group ">
+                                                    <label type="number" class="col-form-label">Propina:</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <div class="form-group ">
+                                                    <input type="number" id="propina" disabled="true" class="form-control input-derecha-izquierda" placeholder="0.00" />
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <div class="form-group ">
+                                                    <label type="number" class="col-form-label">Cargo:</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <div class="form-group ">
+                                                    <input type="number" id="cargo" disabled="true" class="form-control input-derecha-izquierda" placeholder="0.00" />
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <div class="form-group ">
+                                                    <label type="number" class="col-form-label text-danger"><strong>Total:</strong> </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <div class="form-group ">
+                                                    <input type="number" id="total" disabled="true" class="form-control input-derecha-izquierda" placeholder="0.00" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="container">
+                                    <div class="row clearfix">
 
 
-                                            <!-- <div class="col-sm-12">
+                                        <!-- <div class="col-sm-12">
                                             
                                                 <div class="body table-responsive">
                                                     <table class="table m-b-0">
@@ -574,31 +484,31 @@
                                             </div> -->
 
 
-                                        </div>
+                                    </div>
 
 
-                                        <div class="modal-footer">
+                                    <div class="modal-footer">
 
-                                            <button type="button" class="btn bg-deep-orange btn-round"> </a>
+                                        <button type="button" class="btn bg-deep-orange btn-round"> </a>
                                         <a  href="·" ></a>
                                         ACEPTAR <i class="zmdi zmdi-check"></i>
                                     </button>
-                                            <button type="button" class="btn bg-black  btn-round " data-dismiss="modal">CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
-                                            </button>
-                                        </div>
+                                        <button type="button" class="btn bg-black  btn-round " data-dismiss="modal">CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
+                                        </button>
                                     </div>
                                 </div>
-
-
                             </div>
-                        </div>
 
-                        <div>
 
                         </div>
                     </div>
+
+                    <div>
+
+                    </div>
                 </div>
             </div>
+        </div>
 
         </div>
         </div>
@@ -625,20 +535,20 @@
 
                                     <div class="form-group ">
                                         <b>Contraseña:</b>
-                                        <input type="password" class="form-control" placeholder="Contraseña" />
+                                        <input type="password" id="password2" class="form-control" placeholder="Contraseña" />
                                     </div>
                                 </div>
                             </div>
 
 
 
-
+                            <!-- agregar funcionalidad de reabrir cuenta-->
                             <div class="modal-footer">
-                                <button type="button" class="btn bg-deep-orange btn-round "> </a>
-                    <a   href="#destModal" class="text-white" data-toggle="modal" data-target="#destModal" >                    ACEPTAR <i class="zmdi zmdi-check"></i>
-                    </a>
+                                <button type="button" onclick="ReabrirCuenta();" class="btn bg-deep-orange btn-round "> </a>
+                                    ACEPTAR <i class="zmdi zmdi-check"></i>
+               
                 </button>
-                                <button type="button" class="btn bg-black  btn-round " data-dismiss="modal">CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
+                                <button type="button" onclick="limpiarCampoInput('password2');" class="btn bg-black  btn-round " data-dismiss="modal">CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
                                 </button>
                             </div>
                         </div>
