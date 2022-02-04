@@ -217,15 +217,32 @@ function productosTodos() {
 
 }
 
+function obtenerImporteEIVA() {
+
+    var importeTotal = 0;
+    var ivatxt = 0;
+    for (var i = 0; i < productosSeleccionados.length; i++) {
+        importeTotal = importeTotal + productosSeleccionados[i].importe;
+    }
+
+    ivatxt = importeTotal * .138;
+    var datos = { importe: importeTotal, iva: ivatxt };
+    return datos;
+
+}
+
 function agregarProductos() {
 
     var idCuentatxt = localStorage.getItem("idCuenta");
+    var datos = obtenerImporteEIVA();
     $.ajax({
         url: "http://localhost:8082/v1/cuentas-cambiar/3",
         type: "POST",
         data: JSON.stringify({
             idCuenta: idCuentatxt,
-            productos: productosSeleccionados
+            productos: productosSeleccionados,
+            iva: datos.iva,
+            montoTotal: datos.importe
         }),
         contentType: 'application/json; charset=utf-8',
         success: function(data) {
