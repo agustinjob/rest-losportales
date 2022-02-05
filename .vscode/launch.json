@@ -8,11 +8,12 @@
             "type": "pwa-chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "file:///C:/Users/agus_/Desktop/Restaurante/frontend/rest-losportales/index.html",
+            "url": "file:///C:/Users/Ness/Desktop/Job/Restaurante/proyecto%20GitHub/REPO3/rest-losportales/index.html",
             "webRoot": "${workspaceFolder}"
         }
         // mac "file:///Users/agustinjobhernandezmontes/Desktop/restaurante/rest-losportales/index.html"
-        // windows "file:///C:/Users/agus_/Desktop/Restaurante/frontend/rest-losportales/index.html"
-        // nestor 
+        // windows "file:///C:/Users/agus_/Desktop/Restaurante/frontend/rest-losportales/index.html"z
+        // ness file:///C:/Users/Ness/Desktop/Job/Restaurante/proyecto%20GitHub/REPO3/rest-losportales/index.html
+
     ]
 }

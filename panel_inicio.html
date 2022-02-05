@@ -218,7 +218,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-4 col-md-3 col-lg-3">
+                            <!-- <div class="col-sm-4 col-md-3 col-lg-3">
                                 <div class="body m-b-30 l-green">
                                     <div class="event-name row" id="reportes">
                                         <a href="reportes.html" class="enlace"></a>
@@ -227,15 +227,12 @@
                                             <a href="">
                                                 <img class="icon-menu-principal" src="assets/icon/reporte-de-negocios.png" alt="">
                                             </a>
-                                            <!-- <h6 class="color-name" style="display:inline-block;" >REPORTES</h6>
-                                        <span class="material-icons" style="margin-left: 7px; font-size:25px; display: inline-block; vertical-align: middle;" >
-                                            assessment
-                                            </span> -->
+             
                                         </div>
 
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <div class="col-sm-4 col-md-3 col-lg-3">
                                 <div class="body m-b-30 l-green">
@@ -411,7 +408,7 @@
                             <div class="row clearfix">
                                 <div class="col-sm-4">
                                     <div class="form-group ">
-                                        <p class="text-blac text-center">Archivo:</p>
+                                        <b class="text-blac text-center">Archivo:</b>
                                         <select class="form-control" id="tipoBusquedaPropina">
                                      <option value="0">Selecciona un turno</option>
                                       <option value="turno">Turno actual</option>
@@ -422,7 +419,7 @@
 
                                 <div class="col-lg-4">
                                     <div class="form-group ">
-                                        <p class="text-blac text-center">Mesero:</p>
+                                        <b class="text-blac text-center">Mesero:</b>
                                         <div id="divMeserosPropinas"></div>
                                         <!-- <option value="Gerente">Gerente</option>
                                       <option value="Subgerente">Subgerente</option>
@@ -430,9 +427,10 @@
 
                                     </div>
                                 </div>
+                                <br><br>
                                 <div class="col-lg-4">
-                                    <br><br>
-                                    <button class="btn btn-primary" onclick="buscarPropinasNoPagadas();">Buscar</button>
+                                    
+                                    <button class="btn btn-round btn-primary" onclick="buscarPropinasNoPagadas();">Buscar</button>
                                 </div>
                             </div>
                         </div>
@@ -444,10 +442,11 @@
 
 
                         <div class="col-sm-12">
-                            <br><br>
+                            <br>
 
                             <div class="body table-responsive">
-                                <table class="table m-b-0" id="tablaPropinas">
+                    
+                    <table class="table m-b-0 table-condensed js-basic-example dataTable" id="tablaPropinas">
                                     <thead class="thead-light">
                                         <tr>
                                             <th scope="col">FOLIO</th>
@@ -469,6 +468,8 @@
 
 
                     </div>
+                    <br>
+                    <br>
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">

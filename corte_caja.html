@@ -67,101 +67,123 @@
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-12">
                         <ul class="breadcrumb float-md-right padding-0">
-                            <li class="breadcrumb-item"><a href="panel_inicio.html"  class="text-black"><i class="zmdi zmdi-home"></i>&nbsp;&nbsp; SALIR</a></li>
+                            <li class="breadcrumb-item"><a href="panel_inicio.html" class="text-black"><i class="zmdi zmdi-home"></i>&nbsp;&nbsp; SALIR</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="col-md-12 content-center">
+                <div class="container">
+                    <div class="row">
 
-                <div class="row">
+                        <div class="col-lg-1 ">
 
-                    <div class="col-lg-1 ">
+                        </div>
+                        <div class="col-lg-10">
+                            <div class="card">
+                                <div class="body">
+                                    <div class="header">
+                                        <h5 class="text-black text-center">Corte caja
+                                            <a href="">
+                                                <img class="icon-menu-principal" src="assets/icon/caja-registradora.png" alt="">
+                                            </a>
+                                        </h5>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
 
-                    </div>
-                    <div class="col-lg-10">
-                        <div class="card">
-                            <div class="body">
-                                <div class="header">
-                                    <h5 class="text-black text-center">Corte caja
-                                        <a href="">
-                                            <img class="icon-menu-principal" src="assets/icon/caja-registradora.png" alt="">
-                                        </a>
-                                    </h5>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                    
                                             <div class="form-group ">
                                                 <b class="">Fecha:</b>
-                                                <div class="form-group">
-                                                    <input type="date" id="fecha" onchange="traerTurnos();" class="form-control">
-                                                </div>
-                                                
+                                                <select class="form-control show-tick" id="tipoUsuario">
+                                                        <option value="">Seleccionar</option>
+                                                      <option value="">14/01/2012</option>
+                                                      <option value="">14/01/2012</option>
+                                                      <option value="">14/01/2012</option>
+                                                      <option value="">14/01/2012</option>
+                                                      <option value="">14/01/2012</option>
+                                                      <option value="">14/01/2012</option>
+                                                  </select>
                                             </div>
-                                            
+                                            <div class="form-group ">
+                                                <b class="">Tipo reporte:</b>
+                                                <select class="form-control show-tick" id="tipoUsuario">
+                                                      <option value="">Seleccionar</option>
+                                                      <option value="Administrador">Resunido</option>
+                                                      <option value="Cajero">Completo</option>
+                                                      <option value="Gerente">Catagoria</option>
+    
+                                                  </select>
+                                            </div>
+
                                         </div>
-                                        <div class="col-sm-6 align-center">
+                                        <div class="col-sm-6">
+
                                             <div class="form-group ">
                                                 <b class="">Turno:</b>
-                                                <div id="divTurno">
-                                                <select class="form-control show-tick">
-                                                </select>
-                                                </div> 
-                                           
-                                            
-                                        </div>
-                                        <div class="col-sm-12">
-                                    <img src="assets/images/blocdenotas.png"/>
-                                            
+                                                <select class="form-control show-tick" id="tipoUsuario">
+                                                      <option value="">Seleccionar</option>
+                                                      <option value="Administrador">1</option>
+                                                      <option value="Cajero">2</option>
+                                                      <option value="Gerente">3</option>
+    
+                                                  </select>
+
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn bg-deep-orange btn-round waves-effect" href="#valModal" data-toggle="modal" class="enlace" data-target="#valModal"> MOSTRAR <i class="zmdi zmdi-check"></i>
-                                        </button>
-                                        <button type="button"  class="btn bg-black  btn-round waves-effect" data-dismiss="modal">CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
+                                        <!-- <button type="button" class="btn bg-deep-orange btn-round waves-effect"> IMPRESOA <i class="zmdi zmdi-check"></i>
+                                            </button>
+                                            <button type="button" class="btn bg-black  btn-round waves-effect" data-dismiss="modal">PANTALLA <i class="zmdi zmdi-close-circle"></i></button>
+                                            <button type="button" class="btn bg-deep-orange btn-round waves-effect"> ACEPTAR <i class="zmdi zmdi-check"></i>
+                                            </button>
+                                            <button type="button" class="btn bg-black  btn-round waves-effect" data-dismiss="modal">ECXELL <i class="zmdi zmdi-close-circle"></i></button> -->
+                                        <button type="button" class="btn bg-deep-orange btn-round waves-effect"> MOSTRAR <i class="zmdi zmdi-check"></i>
+                                            </button>
+                                        <button type="button" class="btn bg-black  btn-round waves-effect" data-dismiss="modal">CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
                                     </div>
                                 </div>
-                              
-                                
-                         
-                                          <div class="modal-footer">
 
-            </div>
+
+
+                                <div class="modal-footer">
+
+                                </div>
 
                             </div>
 
                         </div>
                     </div>
-    
                 </div>
+
+
             </div>
         </div>
+    </div>
     </div>
     </div>
 
     <!-- Modal Retiro Deopsitar validacion -->
     <div class="modal fade" id="valModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel" style="color:black;">Corte</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel" style="color:black;">Corte</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
+                </div>
+                <div class="modal-body">
+                    <span style="color:black" id="datCorte"></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+
+                </div>
             </div>
-            <div class="modal-body">
-            <span style="color:black" id="datCorte"></span>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            
-            </div>
-          </div>
         </div>
-      </div>
+    </div>
 
     <!-- Jquery Core Js -->
     <script src="assets/bundles/libscripts.bundle.js"></script>
