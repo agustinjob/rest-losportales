@@ -7,7 +7,8 @@ function almacenar() {
 
     //  console.log(nom + " " + user + " " + pass + " " + tipU);
     if (nom == "" || cel == "") {
-        alert("Completa la información por favor");
+        // alert("Completa la información por favor");
+        toastr["info"]("", "Completa la información por favor");
         return null;
     }
 
@@ -24,13 +25,17 @@ function almacenar() {
             success: function(data) {
                 limpiar();
                 obtenerDatos();
-                alert('Registro agregado exitosamente !!!');
+                // alert('Registro agregado exitosamente !!!');
+                toastr["success"]("", "¡¡¡Registro agregado exitosamente!!!")
+
             },
             failure: function(data) {
                 alert(data.responseText);
             },
             error: function(data) {
-                alert(data.responseText);
+                // alert(data.responseText);
+                toastr["error"]("", "¡¡¡Error!!!")
+
             }
         });
     } else {
@@ -46,14 +51,18 @@ function almacenar() {
             contentType: 'application/json; charset=utf-8',
             success: function(data) {
                 limpiar();
-                alert('Registro modificado exitosamente !!!');
+                // alert('Registro modificado exitosamente !!!');
+                toastr["success"]("", "¡¡¡Registro modificado exitosamente!!!")
+
                 obtenerDatos();
             },
             failure: function(data) {
                 alert(data.responseText);
             },
             error: function(data) {
-                alert(data.responseText);
+                // alert(data.responseText);
+                toastr["error"]("", "¡¡¡Error!!!")
+
             }
         });
     }
@@ -75,14 +84,18 @@ function modificar(ids, nombretxt, celulartxt, operacion) {
             }),
             contentType: 'application/json; charset=utf-8',
             success: function(data) {
-                alert("Eliminado correctamente");
+                // alert("Eliminado correctamente");
+                toastr["success"]("", "¡¡¡Eliminado correctamente!!!")
+
                 obtenerDatos();
             },
             failure: function(data) {
                 alert(data.responseText);
             },
             error: function(data) {
-                alert(data.responseText);
+                // alert(data.responseText);
+                toastr["error"]("", "¡¡¡Error!!!")
+
             }
         });
     } else {
@@ -118,7 +131,9 @@ function obtenerDatos() {
             alert(data.responseText);
         },
         error: function(data) {
-            alert(data.responseText);
+            // alert(data.responseText);
+            toastr["error"]("", "¡¡¡Error!!!")
+
         }
     });
 }

@@ -11,7 +11,9 @@ function almacenar() {
     //  console.log(nom + " " + user + " " + pass + " " + tipU);
     // Revisar que sean números igual u obligar que solo puedan meter números
     if (nombretxt == "" || categoriageneraltxt == "" || categoriaespecificatxt == "" || preciotxt == "" || ivatxt == "") {
-        alert("Completa la información por favor");
+        // alert("Completa la información por favor");
+        toastr["info"]("", "Completa la información por favor");
+
         return null;
     }
 
@@ -31,16 +33,21 @@ function almacenar() {
             success: function(data) {
                 limpiar();
                 obtenerDatos();
-                alert('Registro agregado exitosamente !!!');
+                // alert('Registro agregado exitosamente !!!');
+                toastr["success"]("", "¡¡¡Registro agregado exitosamente!!!")
+
             },
             failure: function(data) {
                 alert(data.responseText);
             },
             error: function(data) {
-                alert(data.responseText);
+                // alert(data.responseText);
+                toastr["error"]("", "¡¡¡Error!!!")
+
             }
         });
     } else {
+        console.log('entre');
         $.ajax({
             url: "http://localhost:8082/v1/productos",
             type: "PUT",
@@ -56,14 +63,17 @@ function almacenar() {
             contentType: 'application/json; charset=utf-8',
             success: function(data) {
                 limpiar();
-                alert('Registro modificado exitosamente !!!');
+                // alert('Registro modificado exitosamente !!!');
+                toastr["success"]("", "¡¡¡Registro modificado exitosamente!!!")
                 obtenerDatos();
             },
             failure: function(data) {
                 alert(data.responseText);
             },
             error: function(data) {
-                alert(data.responseText);
+                // alert(data.responseText);
+                toastr["error"]("", "¡¡¡Error!!!")
+
             }
         });
     }
@@ -88,14 +98,18 @@ function modificar(ids, nombretxt, categoriageneraltxt, categoriaespecificatxt, 
             }),
             contentType: 'application/json; charset=utf-8',
             success: function(data) {
-                alert("Eliminado correctamente");
+                // alert("Eliminado correctamente");
+                toastr["success"]("", "¡¡¡Eliminado correctamente!!!")
+
                 obtenerDatos();
             },
             failure: function(data) {
                 alert(data.responseText);
             },
             error: function(data) {
-                alert(data.responseText);
+                // alert(data.responseText);
+                toastr["error"]("", "¡¡¡Error!!!")
+
             }
         });
     } else {
@@ -126,8 +140,12 @@ function obtenerDatos() {
                     "<td>" + item.categoriaGeneral + "</td>" +
                     "<td>" + item.categoriaEspecifica + "</td>" +
                     "<td>" + item.precio + "</td>" +
-                    "<td class='text-center'> <button class='btn bg-danger btn-icon  btn-icon-mini btn-round' onclick=\"modificar(\'" + item.id + "\',\'" + item.nombre + "\',\'" + item.categoriaGeneral + "\',\'" + item.categoriaEspecifica + "\',\'" + item.precio + "\',\'" + item.iva + "\',\'eliminar\');\" ><i class='zmdi zmdi-delete'></i></button> " +
-                    "<button class='btn bg-success btn-icon  btn-icon-mini btn-round onclick=\"modificar(\'" + item.id + "\',\'" + item.nombre + "\',\'" + item.categoriaGeneral + "\',\'" + item.categoriaEspecifica + "\',\'" + item.precio + "\',\'" + item.iva + "\',\'modificar\');\" ><i class='zmdi zmdi-edit'></i></button></td>" +
+                    "<td class='text-center'> <button class='btn bg-danger btn-icon  btn-icon-mini btn-round' onclick=\"modificar(\'" + 
+                    item.id + "\',\'" + item.nombre + "\',\'" + item.categoriaGeneral + "\',\'" + item.categoriaEspecifica + "\',\'" +
+                     item.precio + "\',\'" + item.iva + "\',\'eliminar\');\" ><i class='zmdi zmdi-delete'></i></button> " +
+                    "<button class='btn bg-success btn-icon  btn-icon-mini btn-round' onclick=\"modificar(\'" + item.id + "\',\'" + 
+                    item.nombre + "\',\'" + item.categoriaGeneral + "\',\'" + item.categoriaEspecifica + "\',\'" + item.precio + 
+                    "\',\'" + item.iva + "\',\'modificar\');\" ><i class='zmdi zmdi-edit'></i></button></td>" +
                     "</tr>";
                 $('#tablaProductos > tbody').append(rows);
             });
@@ -136,7 +154,9 @@ function obtenerDatos() {
             alert(data.responseText);
         },
         error: function(data) {
-            alert(data.responseText);
+            // alert(data.responseText);
+            toastr["error"]("", "¡¡¡Error!!!")
+
         }
     });
 

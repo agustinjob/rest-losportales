@@ -11,7 +11,8 @@
     <!-- Favicon-->
     <link rel="icon" href="assets/icon/restaurant.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
-
+    <!-- toastr -->
+    <link rel="stylesheet" href="assets/toastr/toastr.min.css">
     <!-- Custom Css -->
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/color_skins.css">
@@ -33,7 +34,8 @@ var password=$("#pass").val();
                 contentType: 'application/json; charset=utf-8',
                 success: function(data) {
                     if (data == "") {
-                        alert("Datos incorrectos");
+                        toastr["info"]("", "Datos incorrectos")
+                        // alert("Datos incorrectos");
                     } else {
                         localStorage.setItem("idUsuario", data.idUsuario);
                         localStorage.setItem("user", data.username);
@@ -48,7 +50,8 @@ var password=$("#pass").val();
                     alert(data.responseText);
                 },
                 error: function(data) {
-                    alert(data.responseText);
+                    toastr["error"]("", "¡¡¡Error!!!")
+                    // alert(data.responseText);
                 }
             });
         }
@@ -126,6 +129,10 @@ var password=$("#pass").val();
     <!-- Jquery Core Js -->
     <script src="assets/bundles/libscripts.bundle.js"></script>
     <script src="assets/bundles/vendorscripts.bundle.js"></script>
+
+    <!-- Toastr -->
+    <script src="assets/toastr/toastr.min.js" ></script>
+
     <!-- Lib Scripts Plugin Js -->
 
     <!-- <script src="assets/js/myjs/login.js"></script>-->
