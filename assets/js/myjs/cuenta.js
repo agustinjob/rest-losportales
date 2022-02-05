@@ -186,6 +186,7 @@ function asignarDescuento() {
                 alert("Descuento agregado correctamente");
                 obtenerCuentasAbiertas();
                 datosCuenta(data.idCuenta);
+                cerrarModal("destModal");
             }
         },
         failure: function(data) {
@@ -402,7 +403,19 @@ function cerrarCuentaSoloImpresion() {
         }),
         contentType: 'application/json; charset=utf-8',
         success: function(data) {
+            agregarClase("btnCancelar");
+            agregarClase("btnJuntar");
+            agregarClase("btnDividir");
+            agregarClase("btnCapturar");
+            agregarClase("btnRenombrar");
+            agregarClase("btnMesero");
+            agregarClase("btnDescuentos");
+            agregarClase("btnPagar");
+            agregarClase("btnImprimir");
+            agregarClase("btnReabrir");
             cierreParaImprimir(idCuentatxt);
+
+            obtenerCuentasAbiertas();
         },
         failure: function(data) {
             alert(data.responseText);
@@ -821,19 +834,21 @@ function datosCuentaCancelarProductos() {
 
     $('#tablaProductosACancelar > tbody').empty();
     $.each(productosACancelar, function(i, item) {
-        var rowsProd =
-            "<tr>" +
-            "<td><button class='btn btn-success btn-round' onclick='asignarProductosACancelar(" + i + ");' id='btnCance" + i + "'>" + (i + 1) + " <i class='zmdi zmdi-close-circle'></i></button></td>" +
-            "<td> <span id='" + i + "cantidadCapturadaProducto'>" + item.cantidad + "</span></td>" +
-            "<td>" + item.nombre + "</td>" +
-            "<td> <input class='int_prod' type='number' value='0' id='" + i + "cantidadACancelar'></td>" +
-            "<td><select id='motivoCancelacion'>" +
-            "<option value='ERROR DE CAPTURA'>ERROR DE CAPTURA</option> <option value='CAMBIO DE OPINION CLIENTE'>CAMBIO OPINION CLIENTE</option>" +
-            "<option value='MAL SABOR'>MAL SABOR</option><option value='SERVICIO LENTO'>SERVICIO LENTO</option>" +
-            "</select></td>" +
-            "</tr>";
+        if (item.estatus != "cancelado") {
+            var rowsProd =
+                "<tr>" +
+                "<td><button class='btn btn-success btn-round' onclick='asignarProductosACancelar(" + i + ");' id='btnCance" + i + "'>" + (i + 1) + " <i class='zmdi zmdi-close-circle'></i></button></td>" +
+                "<td> <span id='" + i + "cantidadCapturadaProducto'>" + item.cantidad + "</span></td>" +
+                "<td>" + item.nombre + "</td>" +
+                "<td> <input class='int_prod' type='number' value='0' id='" + i + "cantidadACancelar'></td>" +
+                "<td><select id='motivoCancelacion'>" +
+                "<option value='ERROR DE CAPTURA'>ERROR DE CAPTURA</option> <option value='CAMBIO DE OPINION CLIENTE'>CAMBIO OPINION CLIENTE</option>" +
+                "<option value='MAL SABOR'>MAL SABOR</option><option value='SERVICIO LENTO'>SERVICIO LENTO</option>" +
+                "</select></td>" +
+                "</tr>";
 
-        $('#tablaProductosACancelar > tbody').append(rowsProd);
+            $('#tablaProductosACancelar > tbody').append(rowsProd);
+        }
     });
 
 }
@@ -893,6 +908,7 @@ function modificarCuentaProductosCancelados() {
             } else {
                 alert("Datos cancelados correctamente");
                 obtenerCuentasAbiertas();
+                datosCuentaCancelarProductos();
                 datosCuenta(data.idCuenta);
             }
         },

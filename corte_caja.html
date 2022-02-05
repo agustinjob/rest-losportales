@@ -19,9 +19,10 @@
     <link rel="stylesheet" href="assets/css/color_skins.css">
     <link rel="stylesheet" href="assets/css/mycss.css">
     <script src="assets/js/jquery/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/myjs/corte_caja.js"></script>
     <!-- <script src="assets/js/myjs/usuario.js"></script> -->
     <script>
-        window.onload = obtenerDatos();
+        //window.onload = obtenerDatos();
     </script>
 
 </head>
@@ -93,52 +94,32 @@
                                     
                                             <div class="form-group ">
                                                 <b class="">Fecha:</b>
-                                                <select class="form-control show-tick" id="tipoUsuario">
-                                                    <option value="">Seleccionar</option>
-                                                  <option value="">14/01/2012</option>
-                                                  <option value="">14/01/2012</option>
-                                                  <option value="">14/01/2012</option>
-                                                  <option value="">14/01/2012</option>
-                                                  <option value="">14/01/2012</option>
-                                                  <option value="">14/01/2012</option>
-                                              </select>
-                                            </div>
-                                            <div class="form-group ">
-                                                <b class="">Tipo reporte:</b>
-                                                <select class="form-control show-tick" id="tipoUsuario">
-                                                  <option value="">Seleccionar</option>
-                                                  <option value="Administrador">Resunido</option>
-                                                  <option value="Cajero">Completo</option>
-                                                  <option value="Gerente">Catagoria</option>
-
-                                              </select>
+                                                <div class="form-group">
+                                                    <input type="date" id="fecha" onchange="traerTurnos();" class="form-control">
+                                                </div>
+                                                
                                             </div>
                                             
                                         </div>
-                                        <div class="col-sm-6">
-                                    
+                                        <div class="col-sm-6 align-center">
                                             <div class="form-group ">
                                                 <b class="">Turno:</b>
-                                                <select class="form-control show-tick" id="tipoUsuario">
-                                                  <option value="">Seleccionar</option>
-                                                  <option value="Administrador">1</option>
-                                                  <option value="Cajero">2</option>
-                                                  <option value="Gerente">3</option>
-
-                                              </select>
+                                                <div id="divTurno">
+                                                <select class="form-control show-tick">
+                                                </select>
+                                                </div> 
+                                           
+                                            
+                                        </div>
+                                        <div class="col-sm-12">
+                                    <img src="assets/images/blocdenotas.png"/>
                                             
                                             </div>
                                             
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <!-- <button type="button" class="btn bg-deep-orange btn-round waves-effect"> IMPRESOA <i class="zmdi zmdi-check"></i>
-                                        </button>
-                                        <button type="button" class="btn bg-black  btn-round waves-effect" data-dismiss="modal">PANTALLA <i class="zmdi zmdi-close-circle"></i></button>
-                                        <button type="button" class="btn bg-deep-orange btn-round waves-effect"> ACEPTAR <i class="zmdi zmdi-check"></i>
-                                        </button>
-                                        <button type="button" class="btn bg-black  btn-round waves-effect" data-dismiss="modal">ECXELL <i class="zmdi zmdi-close-circle"></i></button> -->
-                                        <button type="button" class="btn bg-deep-orange btn-round waves-effect"> MOSTRAR <i class="zmdi zmdi-check"></i>
+                                        <button type="button" class="btn bg-deep-orange btn-round waves-effect" href="#valModal" data-toggle="modal" class="enlace" data-target="#valModal"> MOSTRAR <i class="zmdi zmdi-check"></i>
                                         </button>
                                         <button type="button"  class="btn bg-black  btn-round waves-effect" data-dismiss="modal">CANCELAR <i class="zmdi zmdi-close-circle"></i></button>
                                     </div>
@@ -160,6 +141,27 @@
         </div>
     </div>
     </div>
+
+    <!-- Modal Retiro Deopsitar validacion -->
+    <div class="modal fade" id="valModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel" style="color:black;">Corte</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            <span style="color:black" id="datCorte"></span>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            
+            </div>
+          </div>
+        </div>
+      </div>
 
     <!-- Jquery Core Js -->
     <script src="assets/bundles/libscripts.bundle.js"></script>

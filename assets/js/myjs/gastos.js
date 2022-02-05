@@ -30,6 +30,7 @@ function guardarGastos() {
     var tipotxt = $("#tipoGastos").val();
     var conceptotxt = $("#conceptoGastos").val();
     var importetxt = $("#importeGastos").val();
+    var idTurnotxt = localStorage.getItem("idTurno");
 
     if (tipotxt == "0" || conceptotxt == "" || importetxt == "") {
         alert("Completa tus datos por favor");
@@ -40,7 +41,7 @@ function guardarGastos() {
         url: "http://localhost:8082/v1/gastos",
         type: "POST",
         data: JSON.stringify({
-            idTurno: "1",
+            idTurno: idTurnotxt,
             tipo: tipotxt,
             concepto: conceptotxt,
             monto: importetxt
