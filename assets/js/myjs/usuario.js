@@ -104,6 +104,7 @@
                 }),
                 contentType: 'application/json; charset=utf-8',
                 success: function(data) {
+                    console.log(data);
                     toastr["success"]("", "¡¡¡Eliminado correctamente!!!")
 
                     // alert("Eliminado correctamente");
@@ -142,6 +143,7 @@
             success: function(data) {
                 $('#tablaUsuarios > tbody').empty();
                 $.each(data, function(i, item) {
+                    // if(item.estatus != "eliminado" ){
                     var rows =
                         "<tr>" +
                         "<td>" + item.nombre + "</td>" +
@@ -154,8 +156,15 @@
                         item.nombre + "\',\'" + item.username + "\',\'" + item.tipoUsuario + "\',\'" + 
                         item.fechaRegistro + "\',\'" + item.password + "\',\'modificar\');\" ><i class='zmdi zmdi-edit'></i></button></td>" +
                         "</tr>";
+                    
                     $('#tablaUsuarios > tbody').append(rows);
+                    // }   else{
+                        
+                    // }
+                  
+
                 });
+            
             },
             failure: function(data) {
                 alert(data.responseText);
